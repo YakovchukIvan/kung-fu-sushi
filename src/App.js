@@ -28,6 +28,13 @@ const arr = [
 function App() {
   return (
     <div className="wrapper clear">
+      <div>
+        <center>
+          <button>+</button>
+          <button>-</button>
+          <h1>0</h1>
+        </center>
+      </div>
       <Header />
       <Drawer />
 
@@ -41,12 +48,14 @@ function App() {
         </div>
 
         <div className="d-flex ">
-          {arr.map((obj) => (
+          {arr.map((obj, index) => (
             <Card
+              key={index}
               title={obj.title}
               price={obj.price}
               imageUrl={obj.imageUrl}
-              onClick={() => console.log(obj)}
+              onFavorite={() => console.log('Добавили в сподобалося')}
+              onPlus={() => console.log('Добавили в кошик')}
             />
           ))}
         </div>
