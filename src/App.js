@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import Drawer from './components/Drawer';
 import Card from './components/Card/Card';
+import { useState } from 'react';
 
 const arr = [
   {
@@ -26,17 +27,13 @@ const arr = [
 ];
 
 function App() {
+  const [cartOpened, setCartOpened] = useState(false);
+
   return (
     <div className="wrapper clear">
-      <div>
-        <center>
-          <button>+</button>
-          <button>-</button>
-          <h1>0</h1>
-        </center>
-      </div>
-      <Header />
-      <Drawer />
+      {/* {cartOpened ? <Drawer onClose={() => setCartOpened(false)} /> : null} - це перший варіант, знизу другий варіант*/}
+      {cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
+      <Header onClickCart={() => setCartOpened(true)} />
 
       <div className="content p-40">
         <div className="d-flex align-center justify-between mb-40">
@@ -54,8 +51,6 @@ function App() {
               title={obj.title}
               price={obj.price}
               imageUrl={obj.imageUrl}
-              onFavorite={() => console.log('Добавили в сподобалося')}
-              onPlus={() => console.log('Добавили в кошик')}
             />
           ))}
         </div>
