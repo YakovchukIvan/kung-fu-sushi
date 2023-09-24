@@ -1,38 +1,40 @@
 import Header from './components/Header';
 import Drawer from './components/Drawer';
 import Card from './components/Card/Card';
-import { useState } from 'react';
-
-const arr = [
-  {
-    title: 'Чоловічі кросівки Nike Blazer Mid Suede',
-    price: 12999,
-    imageUrl: '/img/sneakers/1.jpg',
-  },
-  {
-    title: 'Чоловічі кросівки Nike Air Max 270',
-    price: 12499,
-    imageUrl: '/img/sneakers/2.jpg',
-  },
-  {
-    title: 'Чоловічі кросівки Nike Blazer Mid Suede',
-    price: 8999,
-    imageUrl: '/img/sneakers/3.jpg',
-  },
-  {
-    title: 'Чоловічі кросівки X Aka Boku Future Rider',
-    price: 8499,
-    imageUrl: '/img/sneakers/4.jpg',
-  },
-];
+import { useEffect, useState } from 'react';
 
 function App() {
+  // Створюємо масив з данним з бек-енд
+  const [items, setItems] = useState([]);
+
+  // Для отримання данних з бек-енда
+  useEffect(() => {
+    fetch('https://650f314454d18aabfe99ec68.mockapi.io/items')
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        setItems(json);
+      });
+  }, []);
+
+  // Відкриває і закриває кошик
   const [cartOpened, setCartOpened] = useState(false);
+
+  // Зберігання товарів в кошику
+  const [cartItems, setCartItems] = useState([]);
+
+  // Додава товару в кошик при кліку на плюс
+  const onAddToCart = (obj) => {
+    setCartItems((prev) => [...prev, obj]); // Додаємо вибраний товар в кошик, шляхом інформації з старого масиву в новий масив та одночасно додавання обєкту до старого масиву, який повернеться вже новим
+  };
 
   return (
     <div className="wrapper clear">
       {/* {cartOpened ? <Drawer onClose={() => setCartOpened(false)} /> : null} - це перший варіант, знизу другий варіант*/}
-      {cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
+      {cartOpened && (
+        <Drawer items={cartItems} onClose={() => setCartOpened(false)} />
+      )}
       <Header onClickCart={() => setCartOpened(true)} />
 
       <div className="content p-40">
@@ -44,13 +46,15 @@ function App() {
           </div>
         </div>
 
-        <div className="d-flex ">
-          {arr.map((obj, index) => (
+        <div className="d-flex flex-wrap">
+          {items.map((item, index) => (
             <Card
               key={index}
-              title={obj.title}
-              price={obj.price}
-              imageUrl={obj.imageUrl}
+              title={item.title}
+              price={item.price}
+              imageUrl={item.imageUrl}
+              onFavorite={() => console.log('Додано товар в улюблені')}
+              onPlus={(obj) => onAddToCart(obj)}
             />
           ))}
         </div>
