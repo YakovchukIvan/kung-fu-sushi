@@ -1,4 +1,12 @@
-function Drawer({ onClose, items = [] }) {
+// import { useState } from 'react';
+
+function Drawer({ onClose, onDeleteItems, items = [] }) {
+  // const [isAdded, setIsAdded] = useState(false);
+  // const onClickDelete = () => {
+  //   onDeleteItems(items);
+  //   setIsAdded(!isAdded);
+  // };
+
   return (
     <div className="overlay">
       <div className="drawer">
@@ -24,6 +32,7 @@ function Drawer({ onClose, items = [] }) {
                 <b>{obj.price} грн.</b>
               </div>
               <img
+                // onClick={onClickDelete}
                 className="removeBtn"
                 src="/img/btn-remove.svg"
                 alt="btn-remove"

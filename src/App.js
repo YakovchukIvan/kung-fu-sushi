@@ -24,6 +24,15 @@ function App() {
   // Зберігання товарів в кошику
   const [cartItems, setCartItems] = useState([]);
 
+  // Пошук по фільтру
+  const [searchValue, setSearchValue] = useState('');
+
+  // Відслідковуємо данні з input
+  const onChangeSearchInput = (event) => {
+    console.log(event.target.value);
+    setSearchValue(event.target.value);
+  };
+
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = (obj) => {
     console.log(cartItems);
@@ -34,20 +43,36 @@ function App() {
     }
   };
 
+  // const onDeleteItems = (title) => {
+  //   console.log(title);
+  // };
+
   return (
     <div className="wrapper clear">
       {/* {cartOpened ? <Drawer onClose={() => setCartOpened(false)} /> : null} - це перший варіант, знизу другий варіант*/}
       {cartOpened && (
-        <Drawer items={cartItems} onClose={() => setCartOpened(false)} />
+        <Drawer
+          items={cartItems}
+          onClose={() => setCartOpened(false)}
+          // onDeleteItems={() => onDeleteItems(items)}
+        />
       )}
       <Header onClickCart={() => setCartOpened(true)} />
 
       <div className="content p-40">
         <div className="d-flex align-center justify-between mb-40">
-          <h1>Всі кросівки</h1>
+          <h1>
+            {searchValue
+              ? `Пошук за запитом: "${searchValue}"`
+              : 'Всі кросівки'}
+          </h1>
           <div className="search-block">
             <img src="/img/search.svg" alt="Search-icon" />
-            <input placeholder="Пошук" />
+            <input
+              onChange={onChangeSearchInput}
+              value={searchValue}
+              placeholder="Пошук ..."
+            />
           </div>
         </div>
 
