@@ -1,0 +1,148 @@
+import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import axios from 'axios';
+import Header from './components/Header';
+import Drawer from './components/Drawer';
+import Home from './pages/Home';
+import Favorites from './pages/Favorites';
+
+function App() {
+  // Створюємо масив з данним з бек-енд
+  const [items, setItems] = useState([]);
+  // Відкриває і закриває кошик
+  const [cartOpened, setCartOpened] = useState(false);
+  // Зберігання товарів в кошику
+  const [cartItems, setCartItems] = useState([]);
+  // Створення закладок вибраного
+  const [favorites, setFavorites] = useState([]);
+  // Пошук по фільтру
+  const [searchValue, setSearchValue] = useState('');
+
+  // Відслідковуємо данні з input
+  const onChangeSearchInput = (event) => {
+    setSearchValue(event.target.value);
+  };
+
+  // Відслідковуємо данні з input
+  const onClearSearchInput = (event) => {
+    setSearchValue('');
+  };
+
+  // Функція яка відслідковує подію в input а також передає її в map та рендерить товари до відповідного пошуку
+  const filterItems = (items, searchValue) => {
+    return items.filter((item) =>
+      item.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+  };
+
+  // Використання самої функції filterItems
+  const filteredItems = filterItems(items, searchValue);
+
+  // Додавання товару в кошик при кліку на плюс
+  const onAddToCart = (obj) => {
+    console.log(cartItems);
+    const isObjectInCart = cartItems.some((item) => item.title === obj.title); // some - це метод, який перевіряє умову на кожному елементі масиву. Якщо хоча б один елемент у масиві cartItems задовольняє цю умову, то some повертає true, інакше він повертає false.
+    console.log(isObjectInCart);
+
+    if (!isObjectInCart) {
+      setCartItems((prev) => [...prev, obj]); // Додаємо вибраний товар в кошик, шляхом інформації з старого масиву в новий масив та одночасно додавання обєкту до старого масиву, який повернеться вже новим
+      axios.post('https://650f314454d18aabfe99ec68.mockapi.io/cart', obj);
+    }
+  };
+
+  // Для отримання данних з бек-енда
+  useEffect(() => {
+    // Метод fetch
+    // fetch('https://650f314454d18aabfe99ec68.mockapi.io/items')
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    //   .then((json) => {
+    //     setItems(json);
+    //   });
+
+    // Метод axios
+    axios
+      .get('https://650f314454d18aabfe99ec68.mockapi.io/items')
+      .then((res) => {
+        setItems(res.data);
+      });
+    axios
+      .get('https://650f314454d18aabfe99ec68.mockapi.io/cart')
+      .then((res) => {
+        setCartItems(res.data);
+      });
+    axios
+      .get('https://651323cd8e505cebc2e9a121.mockapi.io/favorites')
+      .then((res) => {
+        setFavorites(res.data);
+      });
+  }, []);
+
+  const onAddToFavorite = async (obj) => {
+    // // Перевірка чи вже додано favorite, якщо так тоді видаляємо. Якщо favorite = true, тоді else додаємо товар до favorite
+    // console.log(obj);
+    try {
+      if (favorites.find((favObj) => favObj.id === obj.id)) {
+        axios.delete(
+          `https://651323cd8e505cebc2e9a121.mockapi.io/favorites/${obj.id}`
+        );
+        // setFavorites((prev) => prev.filter((item) => item.id === obj.id));
+      } else {
+        const { data } = await axios.post(
+          'https://651323cd8e505cebc2e9a121.mockapi.io/favorites',
+          obj
+        );
+        setFavorites((prev) => [...prev, data]);
+      }
+    } catch (error) {
+      alert('Не вдалося додати "вибране"');
+    }
+  };
+
+  // Функція для видалення товару з бек-енд
+  const onRemoveItem = (id) => {
+    console.log(id);
+    axios.delete(`https://650f314454d18aabfe99ec68.mockapi.io/cart/${id}`);
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  return (
+    <div className="wrapper clear">
+      {/* {cartOpened ? <Drawer onClose={() => setCartOpened(false)} /> : null} - це перший варіант, знизу другий варіант*/}
+      {cartOpened && (
+        <Drawer
+          items={cartItems}
+          onClose={() => setCartOpened(false)}
+          onRemove={onRemoveItem}
+        />
+      )}
+      <Header onClickCart={() => setCartOpened(true)} />
+
+      <Routes>
+        <Route
+          path="/favorites"
+          element={
+            <Favorites items={favorites} onAddToFavorite={onAddToFavorite} />
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <Home
+              onClearSearchInput={onClearSearchInput}
+              filterItems={filterItems}
+              filteredItems={filteredItems}
+              searchValue={searchValue}
+              onChangeSearchInput={onChangeSearchInput}
+              onAddToFavorite={onAddToFavorite}
+              onAddToCart={onAddToCart}
+            />
+          }
+        />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
