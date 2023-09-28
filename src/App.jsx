@@ -40,13 +40,24 @@ function App() {
 
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = (obj) => {
-    console.log(cartItems);
-    const isObjectInCart = cartItems.some((item) => item.title === obj.title); // some - це метод, який перевіряє умову на кожному елементі масиву. Якщо хоча б один елемент у масиві cartItems задовольняє цю умову, то some повертає true, інакше він повертає false.
-    console.log(isObjectInCart);
-
-    if (!isObjectInCart) {
-      setCartItems((prev) => [...prev, obj]); // Додаємо вибраний товар в кошик, шляхом інформації з старого масиву в новий масив та одночасно додавання обєкту до старого масиву, який повернеться вже новим
-      axios.post('https://650f314454d18aabfe99ec68.mockapi.io/cart', obj);
+    // console.log(cartItems);
+    // const isObjectInCart = cartItems.some((item) => item.title === obj.title); // some - це метод, який перевіряє умову на кожному елементі масиву. Якщо хоча б один елемент у масиві cartItems задовольняє цю умову, то some повертає true, інакше він повертає false.
+    // console.log(isObjectInCart);
+    // if (!isObjectInCart) {
+    //   setCartItems((prev) => [...prev, obj]); // Додаємо вибраний товар в кошик, шляхом інформації з старого масиву в новий масив та одночасно додавання обєкту до старого масиву, який повернеться вже новим
+    //   axios.post('https://650f314454d18aabfe99ec68.mockapi.io/cart', obj);
+    // }
+    try {
+      if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+        setCartItems((prev) =>
+          prev.filter((item) => Number(item.id) !== Number(obj.id))
+        );
+      } else {
+        axios.post('https://650f314454d18aabfe99ec68.mockapi.io/cart', obj);
+        setCartItems((prev) => [...prev, obj]);
+      }
+    } catch (error) {
+      alert('Не вдалося додати товар в кошик');
     }
   };
 

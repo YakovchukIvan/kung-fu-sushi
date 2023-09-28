@@ -4,7 +4,7 @@ function Favorites({ items, onAddToFavorite }) {
   return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
-        Сподобалося
+        <h2>Мої збереження</h2>
       </div>
 
       <div className="d-flex flex-wrap">
