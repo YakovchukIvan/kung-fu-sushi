@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Drawer from './components/Drawer';
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
+import AppContext from './Context';
 
 function App() {
   // Створюємо масив з данним з бек-енд
@@ -17,6 +18,12 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   // Пошук по фільтру
   const [searchValue, setSearchValue] = useState('');
+  // Поки не загрузився повністю сайт, використовуємо skeleton в компоненті card
+  const [isLoading, setIsLoading] = useState(true);
+  //
+  const isItemAdded = (id) => {
+    return cartItems.some((obj) => Number(obj.id) === Number(id));
+  };
 
   // Відслідковуємо данні з input
   const onChangeSearchInput = (event) => {
@@ -40,6 +47,7 @@ function App() {
 
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = (obj) => {
+    console.log(obj);
     // console.log(cartItems);
     // const isObjectInCart = cartItems.some((item) => item.title === obj.title); // some - це метод, який перевіряє умову на кожному елементі масиву. Якщо хоча б один елемент у масиві cartItems задовольняє цю умову, то some повертає true, інакше він повертає false.
     // console.log(isObjectInCart);
@@ -49,6 +57,9 @@ function App() {
     // }
     try {
       if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+        axios.delete(
+          `https://650f314454d18aabfe99ec68.mockapi.io/cart/${obj.id}`
+        );
         setCartItems((prev) =>
           prev.filter((item) => Number(item.id) !== Number(obj.id))
         );
@@ -73,24 +84,30 @@ function App() {
     //   });
 
     // Метод axios
-    axios
-      .get('https://650f314454d18aabfe99ec68.mockapi.io/items')
-      .then((res) => {
-        setItems(res.data);
-      });
-    axios
-      .get('https://650f314454d18aabfe99ec68.mockapi.io/cart')
-      .then((res) => {
-        setCartItems(res.data);
-      });
-    axios
-      .get('https://651323cd8e505cebc2e9a121.mockapi.io/favorites')
-      .then((res) => {
-        setFavorites(res.data);
-      });
+    async function fetchData() {
+      setIsLoading(true);
+
+      const cartResponse = await axios.get(
+        'https://650f314454d18aabfe99ec68.mockapi.io/cart'
+      );
+      const favoritesResponse = await axios.get(
+        'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
+      );
+      const itemsResponse = await axios.get(
+        'https://650f314454d18aabfe99ec68.mockapi.io/items'
+      );
+
+      setIsLoading(false);
+      setCartItems(cartResponse.data);
+      setFavorites(favoritesResponse.data);
+      setItems(itemsResponse.data);
+    }
+
+    fetchData();
   }, []);
 
   const onAddToFavorite = async (obj) => {
+    console.log(obj);
     // // Перевірка чи вже додано favorite, якщо так тоді видаляємо. Якщо favorite = true, тоді else додаємо товар до favorite
     // console.log(obj);
     try {
@@ -119,40 +136,44 @@ function App() {
   };
 
   return (
-    <div className="wrapper clear">
-      {/* {cartOpened ? <Drawer onClose={() => setCartOpened(false)} /> : null} - це перший варіант, знизу другий варіант*/}
-      {cartOpened && (
-        <Drawer
-          items={cartItems}
-          onClose={() => setCartOpened(false)}
-          onRemove={onRemoveItem}
-        />
-      )}
-      <Header onClickCart={() => setCartOpened(true)} />
+    <AppContext.Provider
+      value={{ filteredItems, cartItems, favorites, isItemAdded, onAddToCart }}
+    >
+      <div className="wrapper clear">
+        {/* {cartOpened ? <Drawer onClose={() => setCartOpened(false)} /> : null} - це перший варіант, знизу другий варіант*/}
+        {cartOpened && (
+          <Drawer
+            items={cartItems}
+            onClose={() => setCartOpened(false)}
+            onRemove={onRemoveItem}
+          />
+        )}
+        <Header onClickCart={() => setCartOpened(true)} />
 
-      <Routes>
-        <Route
-          path="/favorites"
-          element={
-            <Favorites items={favorites} onAddToFavorite={onAddToFavorite} />
-          }
-        />
-        <Route
-          path="/"
-          element={
-            <Home
-              onClearSearchInput={onClearSearchInput}
-              filterItems={filterItems}
-              filteredItems={filteredItems}
-              searchValue={searchValue}
-              onChangeSearchInput={onChangeSearchInput}
-              onAddToFavorite={onAddToFavorite}
-              onAddToCart={onAddToCart}
-            />
-          }
-        />
-      </Routes>
-    </div>
+        <Routes>
+          <Route
+            path="/favorites"
+            element={<Favorites onAddToFavorite={onAddToFavorite} />}
+          />
+          <Route
+            path="/"
+            element={
+              <Home
+                filterItems={filterItems}
+                filteredItems={filteredItems}
+                cartItems={cartItems}
+                searchValue={searchValue}
+                onChangeSearchInput={onChangeSearchInput}
+                onClearSearchInput={onClearSearchInput}
+                onAddToFavorite={onAddToFavorite}
+                onAddToCart={onAddToCart}
+                isLoading={isLoading}
+              />
+            }
+          />
+        </Routes>
+      </div>
+    </AppContext.Provider>
   );
 }
 

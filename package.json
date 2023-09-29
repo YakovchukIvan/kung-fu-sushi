@@ -9,6 +9,7 @@
     "axios": "^1.5.0",
     "macro-css": "^1.0.5",
     "react": "^18.2.0",
+    "react-content-loader": "^6.0.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",

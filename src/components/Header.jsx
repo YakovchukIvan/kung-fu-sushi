@@ -8,7 +8,7 @@ function Header(props) {
           <img width={40} height={40} src="/img/logo.png" alt="logo" />
 
           <div>
-            <h3 className="text-uppercase">Reacr Sneakers</h3>
+            <h3 className="text-uppercase">easy step</h3>
             <p className="opacity-5">Магазин найкращих кросівок</p>
           </div>
         </div>
