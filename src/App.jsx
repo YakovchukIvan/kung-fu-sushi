@@ -111,11 +111,13 @@ function App() {
     // // Перевірка чи вже додано favorite, якщо так тоді видаляємо. Якщо favorite = true, тоді else додаємо товар до favorite
     // console.log(obj);
     try {
-      if (favorites.find((favObj) => favObj.id === obj.id)) {
+      if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
         axios.delete(
           `https://651323cd8e505cebc2e9a121.mockapi.io/favorites/${obj.id}`
         );
-        // setFavorites((prev) => prev.filter((item) => item.id === obj.id));
+        // setFavorites((prev) =>
+        //   prev.filter((item) => Number(item.id) === Number(obj.id))
+        // );
       } else {
         const { data } = await axios.post(
           'https://651323cd8e505cebc2e9a121.mockapi.io/favorites',
@@ -137,7 +139,15 @@ function App() {
 
   return (
     <AppContext.Provider
-      value={{ filteredItems, cartItems, favorites, isItemAdded, onAddToCart }}
+      value={{
+        filteredItems,
+        cartItems,
+        favorites,
+        isItemAdded,
+        onAddToFavorite,
+        setCartOpened,
+        setCartItems,
+      }}
     >
       <div className="wrapper clear">
         {/* {cartOpened ? <Drawer onClose={() => setCartOpened(false)} /> : null} - це перший варіант, знизу другий варіант*/}
@@ -151,10 +161,7 @@ function App() {
         <Header onClickCart={() => setCartOpened(true)} />
 
         <Routes>
-          <Route
-            path="/favorites"
-            element={<Favorites onAddToFavorite={onAddToFavorite} />}
-          />
+          <Route path="/favorites" element={<Favorites />} />
           <Route
             path="/"
             element={

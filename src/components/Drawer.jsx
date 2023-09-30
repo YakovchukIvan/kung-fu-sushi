@@ -1,11 +1,40 @@
-// import { useState } from 'react';
+import { useState, useContext } from 'react';
+import axios from 'axios';
+import Info from './Info';
+import AppContext from '../Context';
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function Drawer({ onClose, onRemove, items = [] }) {
-  // const [isAdded, setIsAdded] = useState(false);
-  // const onClickDelete = () => {
-  //   onDeleteItems(items);
-  //   setIsAdded(!isAdded);
-  // };
+  const { cartItems, setCartItems } = useContext(AppContext);
+  const [orderId, setOrderId] = useState(null);
+  const [isOrderComplate, setIsOrderComplate] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onClickOrder = async () => {
+    try {
+      setIsLoading(true);
+      const { data } = await axios.post(
+        'https://651323cd8e505cebc2e9a121.mockapi.io/orders/',
+        { items: cartItems }
+      );
+
+      setOrderId(data.id);
+      setIsOrderComplate(true);
+      setCartItems([]);
+
+      for (let i = 0; i < cartItems.length; i++) {
+        const item = cartItems[i];
+        await axios.delete(
+          'https://650f314454d18aabfe99ec68.mockapi.io/cart/' + item.id
+        );
+        await delay(1000);
+      }
+    } catch (error) {
+      alert('Помилка створення замовлення :(');
+    }
+    setIsLoading(false);
+  };
 
   return (
     <div className="overlay">
@@ -23,7 +52,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
         {/* Тут ми викликаємо тернарний оператор. Якщо items.length (приставка length щоб визначити пустий масив чи ні), пустий значить показуємо вікно "Кошик порожній".
         А якщо в items.length є товар, тоді відображаємо товар */}
         {items.length > 0 ? (
-          <div>
+          <div className="d-flex flex-column flex">
             <div className="items">
               {items.map((obj) => (
                 <div
@@ -39,7 +68,6 @@ function Drawer({ onClose, onRemove, items = [] }) {
                     <b>{obj.price} грн.</b>
                   </div>
                   <img
-                    // onClick={onClickDelete}
                     onClick={() => onRemove(obj.id)}
                     className="removeBtn"
                     src="/img/btn-remove.svg"
@@ -62,30 +90,34 @@ function Drawer({ onClose, onRemove, items = [] }) {
                   <b>1074 грн.</b>
                 </li>
               </ul>
-              <button className="greenButton">
+              <button
+                disabled={isLoading}
+                onClick={onClickOrder}
+                className="greenButton"
+              >
                 Оформити замовлення{' '}
                 <img src="/img/arrow.svg" alt="arrow-icon" />
               </button>
             </div>
           </div>
         ) : (
-          <div className="cartEmpty d-flex align-center justify-center flex-column flex">
-            <img
-              className="mb-20"
-              width={120}
-              height={120}
-              src="/img/empty-cart.jpg"
-              alt="empty-cart"
-            />
-            <h2>Кошик порожній</h2>
-            <p className="opacity-6">
-              Добавте хоча би одну пару кросівок, щоб зробити замовлення.
-            </p>
-            <button onClick={onClose} className="greenButton">
-              <img src="/img/arrow.svg" alt="Arrow" />
-              Повернутися назад
-            </button>
-          </div>
+          <Info
+            title={isOrderComplate ? 'Замовлення оформлено!' : 'Кошик порожній'}
+            description={
+              isOrderComplate ? (
+                <span>
+                  Ваше замовлення <strong>№{orderId}</strong> створено.
+                  Зачекайте поки ми його опрацюємо та очікуйте повідомлення про
+                  відправення'
+                </span>
+              ) : (
+                'Добавте хоча би одну пару кросівок, щоб зробити замовлення.'
+              )
+            }
+            image={
+              isOrderComplate ? '/img/done-empty.jpg' : '/img/empty-cart.jpg'
+            }
+          />
         )}
       </div>
     </div>
