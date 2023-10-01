@@ -3,8 +3,11 @@ import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header';
 import Drawer from './components/Drawer';
+
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
+import Orders from './pages/Orders';
+
 import AppContext from './Context';
 
 function App() {
@@ -161,7 +164,6 @@ function App() {
         <Header onClickCart={() => setCartOpened(true)} />
 
         <Routes>
-          <Route path="/favorites" element={<Favorites />} />
           <Route
             path="/"
             element={
@@ -178,6 +180,8 @@ function App() {
               />
             }
           />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </div>
     </AppContext.Provider>

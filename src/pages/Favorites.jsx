@@ -8,7 +8,7 @@ function Favorites() {
   return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
-        <h2>Мої збереження</h2>
+        <h1>Мої вибрані</h1>
       </div>
 
       <div className="d-flex flex-wrap">
