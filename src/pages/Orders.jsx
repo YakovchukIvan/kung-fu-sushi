@@ -4,13 +4,23 @@ import Card from '../components/Card/Card';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await axios.get(
-        'https://651323cd8e505cebc2e9a121.mockapi.io/orders/'
-      );
-      console.log(data);
+      try {
+        const { data } = await axios.get(
+          'https://651323cd8e505cebc2e9a121.mockapi.io/orders/'
+        );
+        // Перший варіант. Дістаємо з бекенд масив з orders та поєднуємо його в один масив з окремими обєктами
+        // console.log(data.map((obj) => obj.items).flat());
+        // Другий варіант обєднання масивів
+        setOrders(data.reduce((prev, obj) => [...prev, ...obj.items], []));
+        setIsLoading(false);
+      } catch (error) {
+        alert('Помилка при запросі замовлення');
+        console.error(error);
+      }
     }
 
     fetchData();
@@ -23,8 +33,8 @@ function Orders() {
       </div>
 
       <div className="d-flex flex-wrap">
-        {[].map((item, index) => (
-          <Card />
+        {(isLoading ? [...Array(12)] : orders).map((item, index) => (
+          <Card key={index} loading={isLoading} {...item} />
         ))}
       </div>
     </div>

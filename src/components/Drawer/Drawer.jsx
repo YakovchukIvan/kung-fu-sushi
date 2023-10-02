@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import axios from 'axios';
-import Info from './Info';
-import { useCart } from '../hooks/useCart';
+
+import Info from '../Info';
+import { useCart } from '../../hooks/useCart';
+
+import styles from './Drawer.module.scss';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function Drawer({ onClose, onRemove, items = [] }) {
+function Drawer({ onClose, onRemove, items = [], opened }) {
   const { cartItems, setCartItems, totalPrice } = useCart();
   const [orderId, setOrderId] = useState(null);
   const [isOrderComplate, setIsOrderComplate] = useState(false);
@@ -37,8 +40,8 @@ function Drawer({ onClose, onRemove, items = [] }) {
   };
 
   return (
-    <div className="overlay">
-      <div className="drawer">
+    <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
+      <div className={styles.drawer}>
         <h2 className="d-flex justify-between mb-30">
           Кошик
           <img
@@ -53,7 +56,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
         А якщо в items.length є товар, тоді відображаємо товар */}
         {items.length > 0 ? (
           <div className="d-flex flex-column flex">
-            <div className="items">
+            <div className="items flex">
               {items.map((obj) => (
                 <div
                   key={obj.id}
@@ -87,7 +90,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
                 <li>
                   <span>Ваша знижка 5%: </span>
                   <div></div>
-                  <b>{totalPrice * 0.05} грн.</b>
+                  <b>{(totalPrice * 0.05).toFixed(2)} грн.</b>
                 </li>
               </ul>
               <button

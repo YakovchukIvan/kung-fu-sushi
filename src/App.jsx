@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header';
-import Drawer from './components/Drawer';
+import Drawer from './components/Drawer/Drawer';
 
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
@@ -25,7 +25,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   //
   const isItemAdded = (id) => {
-    return cartItems.some((obj) => Number(obj.id) === Number(id));
+    return cartItems.some((obj) => Number(obj.parentId) === Number(id));
   };
 
   // Відслідковуємо данні з input
@@ -49,8 +49,8 @@ function App() {
   const filteredItems = filterItems(items, searchValue);
 
   // Додавання товару в кошик при кліку на плюс
-  const onAddToCart = (obj) => {
-    console.log(obj);
+  const onAddToCart = async (obj) => {
+    // console.log(obj);
     // console.log(cartItems);
     // const isObjectInCart = cartItems.some((item) => item.title === obj.title); // some - це метод, який перевіряє умову на кожному елементі масиву. Якщо хоча б один елемент у масиві cartItems задовольняє цю умову, то some повертає true, інакше він повертає false.
     // console.log(isObjectInCart);
@@ -59,19 +59,37 @@ function App() {
     //   axios.post('https://650f314454d18aabfe99ec68.mockapi.io/cart', obj);
     // }
     try {
-      if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
-        axios.delete(
-          `https://650f314454d18aabfe99ec68.mockapi.io/cart/${obj.id}`
-        );
+      const findItem = cartItems.find(
+        (item) => Number(item.parentId) === Number(obj.id)
+      );
+      console.log(findItem);
+      if (findItem) {
         setCartItems((prev) =>
-          prev.filter((item) => Number(item.id) !== Number(obj.id))
+          prev.filter((item) => Number(item.parentId) !== Number(obj.id))
+        );
+        await axios.delete(
+          `https://650f314454d18aabfe99ec68.mockapi.io/cart/${findItem.id}`
         );
       } else {
-        axios.post('https://650f314454d18aabfe99ec68.mockapi.io/cart', obj);
         setCartItems((prev) => [...prev, obj]);
+        const { data } = await axios.post(
+          'https://650f314454d18aabfe99ec68.mockapi.io/cart',
+          obj
+        );
+        setCartItems((prev) =>
+          prev.map((item) => {
+            if (item.parentId === data.parentId) {
+              return {
+                ...item,
+                id: data.parentId,
+              };
+            }
+            return item;
+          })
+        );
       }
     } catch (error) {
-      alert('Не вдалося додати товар в кошик');
+      alert('Помилка при додаванні товару в кошик');
     }
   };
 
@@ -88,22 +106,35 @@ function App() {
 
     // Метод axios
     async function fetchData() {
-      setIsLoading(true);
+      try {
+        setIsLoading(true);
 
-      const cartResponse = await axios.get(
-        'https://650f314454d18aabfe99ec68.mockapi.io/cart'
-      );
-      const favoritesResponse = await axios.get(
-        'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
-      );
-      const itemsResponse = await axios.get(
-        'https://650f314454d18aabfe99ec68.mockapi.io/items'
-      );
+        // Відправлення всіх запитів відразу
+        const [cartResponse, favoritesResponse, itemsResponse] =
+          await Promise.all([
+            axios.get('https://650f314454d18aabfe99ec68.mockapi.io/cart'),
+            axios.get('https://651323cd8e505cebc2e9a121.mockapi.io/favorites'),
+            axios.get('https://650f314454d18aabfe99ec68.mockapi.io/items'),
+          ]);
+        // Варіант з відправлення запитів кожен окремо. Найчастіше цей використовують
+        // const cartResponse = await axios.get(
+        //   'https://650f314454d18aabfe99ec68.mockapi.io/cart'
+        // );
+        // const favoritesResponse = await axios.get(
+        //   'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
+        // );
+        // const itemsResponse = await axios.get(
+        //   'https://650f314454d18aabfe99ec68.mockapi.io/items'
+        // );
 
-      setIsLoading(false);
-      setCartItems(cartResponse.data);
-      setFavorites(favoritesResponse.data);
-      setItems(itemsResponse.data);
+        setIsLoading(false);
+        setCartItems(cartResponse.data);
+        setFavorites(favoritesResponse.data);
+        setItems(itemsResponse.data);
+      } catch (error) {
+        alert('Помилка при запиті данних.');
+        console.error(error);
+      }
     }
 
     fetchData();
@@ -115,7 +146,7 @@ function App() {
     // console.log(obj);
     try {
       if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
-        axios.delete(
+        await axios.delete(
           `https://651323cd8e505cebc2e9a121.mockapi.io/favorites/${obj.id}`
         );
         // setFavorites((prev) =>
@@ -130,14 +161,25 @@ function App() {
       }
     } catch (error) {
       alert('Не вдалося додати "вибране"');
+      console.error(error);
     }
   };
 
   // Функція для видалення товару з бек-енд
-  const onRemoveItem = (id) => {
-    console.log(id);
-    axios.delete(`https://650f314454d18aabfe99ec68.mockapi.io/cart/${id}`);
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  const onRemoveItem = async (id) => {
+    try {
+      console.log(id);
+      await axios.delete(
+        `https://650f314454d18aabfe99ec68.mockapi.io/cart/${id}`
+      );
+      console.log(setCartItems);
+      setCartItems((prev) =>
+        prev.filter((item) => Number(item.id) !== Number(id))
+      );
+    } catch (error) {
+      alert('Помилка при видаленні товару з корзини');
+      console.error(error);
+    }
   };
 
   return (
@@ -154,13 +196,14 @@ function App() {
     >
       <div className="wrapper clear">
         {/* {cartOpened ? <Drawer onClose={() => setCartOpened(false)} /> : null} - це перший варіант, знизу другий варіант*/}
-        {cartOpened && (
-          <Drawer
-            items={cartItems}
-            onClose={() => setCartOpened(false)}
-            onRemove={onRemoveItem}
-          />
-        )}
+
+        <Drawer
+          items={cartItems}
+          onClose={() => setCartOpened(false)}
+          onRemove={onRemoveItem}
+          opened={cartOpened}
+        />
+
         <Header onClickCart={() => setCartOpened(true)} />
 
         <Routes>
