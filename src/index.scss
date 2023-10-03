@@ -3,7 +3,11 @@ body {
   font-family: 'Inter', system-ui;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e7f6ff;
+  // background-color: #e7f6ff;
+  // background: url(./public/img/sneakers/white-fon5.jpg) center center repeat;
+  // background-size: auto auto;
+  background-image: url(../public/img//sneakers/white-fon5.jpg);
+  background-size: auto auto;
 }
 
 * {
@@ -11,15 +15,19 @@ body {
 }
 
 .wrapper {
-  background: #ffffff;
+  // background: #ffffff;
+  border: 2px solid red;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
   border-radius: 20px;
-  max-width: 1080px;
+  // width: 100%;
+  max-width: 1280px;
   margin: 50px auto;
 }
 
 header {
-  border-bottom: 1px solid #eaeaea;
+  // border-bottom: 1px solid #eaeaea;
+  border: 2px solid red;
+
   img {
     margin-right: 15px;
   }
@@ -84,6 +92,21 @@ header {
     padding: 13px;
     width: 200px;
   }
+}
+
+.block-items-title {
+  border: 2px solid rgb(221, 14, 14);
+  display: flex;
+  justify-content: center;
+}
+
+.block-items {
+  max-width: 1080px;
+  border: 2px solid rgb(69, 69, 231);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
 }
 
 .cartTotalBlock {

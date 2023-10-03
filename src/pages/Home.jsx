@@ -34,7 +34,7 @@ function Home({
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
         <h1>
-          {searchValue ? `Пошук за запитом: "${searchValue}"` : 'Всі кросівки'}
+          {searchValue ? `Пошук за запитом: "${searchValue}"` : 'Всі суші'}
         </h1>
         <div className="search-block">
           <img src="/img/search.svg" alt="Search-icon" />
@@ -53,8 +53,9 @@ function Home({
           />
         </div>
       </div>
-
-      <div className="d-flex flex-wrap">{renderItems()}</div>
+      <div className="block-items-title">
+        <div className="block-items ">{renderItems()}</div>
+      </div>
     </div>
   );
 }

@@ -48,15 +48,13 @@ function Card({
         </ContentLoader>
       ) : (
         <>
-          <div className={styles.favorite} onClick={onClickFavorite}>
-            {onFavorite && (
+          {/* <div className={styles.favorite} onClick={onClickFavorite}>            {onFavorite && (
               <img
                 src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'}
                 alt="Unliked"
               />
-            )}
-          </div>
-          <img width="100%" height={135} src={imageUrl} alt="Sneakers" />
+            )}</div> */}
+          <img className={styles.itemProduct} src={imageUrl} alt="Sneakers" />
           <h5>{title}</h5>
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
