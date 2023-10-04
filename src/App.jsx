@@ -186,6 +186,7 @@ function App() {
   return (
     <AppContext.Provider
       value={{
+        searchValue,
         filteredItems,
         cartItems,
         favorites,
@@ -205,7 +206,18 @@ function App() {
           opened={cartOpened}
         />
 
-        <Header onClickCart={() => setCartOpened(true)} />
+        <Header
+          filterItems={filterItems}
+          filteredItems={filteredItems}
+          cartItems={cartItems}
+          searchValue={searchValue}
+          onChangeSearchInput={onChangeSearchInput}
+          onClearSearchInput={onClearSearchInput}
+          onAddToFavorite={onAddToFavorite}
+          onAddToCart={onAddToCart}
+          isLoading={isLoading}
+          onClickCart={() => setCartOpened(true)}
+        />
 
         <Routes>
           <Route

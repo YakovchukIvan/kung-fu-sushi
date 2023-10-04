@@ -1,4 +1,5 @@
 import ContentLoader from 'react-content-loader';
+import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import AppContext from '../../Context';
 
@@ -49,7 +50,7 @@ function Card({
           <rect x="122" y="150" rx="5" ry="5" width="32" height="32" />
         </ContentLoader>
       ) : (
-        <>
+        <Link>
           {/* <div className={styles.favorite} onClick={onClickFavorite}>            {onFavorite && (
               <img
                 src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'}
@@ -58,12 +59,8 @@ function Card({
             )}</div> */}
           <img className={styles.itemProduct} src={imageUrl} alt="Sneakers" />
           <h4>{title}</h4>
-          <h5>
-            <strong>Склад: </strong>
-            {composition}
-          </h5>
-          <h5>{weight} гр.</h5>
-          <div className="d-flex justify-between align-center">
+
+          <div className="d-flex justify-between align-center mt-10">
             <div className="d-flex flex-column">
               <span>Ціна:</span>
               <b>{price}.00 грн.</b>
@@ -79,7 +76,14 @@ function Card({
               />
             )}
           </div>
-        </>
+          <div className={styles.compositionBlock}>
+            <strong>Склад: </strong>
+            <span>{composition}</span>
+            <p className={styles.compositionWeight}>
+              <span>{weight} г</span>
+            </p>
+          </div>
+        </Link>
       )}
     </div>
   );

@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import Card from '../components/Card/Card';
 
 function Home({
@@ -9,6 +10,9 @@ function Home({
   onAddToCart,
   isLoading,
 }) {
+  //
+  // const { searchValue } = useContext(AppContext);
+
   const renderItems = () => {
     return (isLoading ? [...Array(12)] : filteredItems).map((item, index) => (
       <Card
@@ -36,7 +40,7 @@ function Home({
         <h1>
           {searchValue ? `Пошук за запитом: "${searchValue}"` : 'Всі суші'}
         </h1>
-        <div className="search-block">
+        {/* <div className="search-block">
           <img src="/img/search.svg" alt="Search-icon" />
           {searchValue && (
             <img
@@ -51,7 +55,7 @@ function Home({
             value={searchValue}
             placeholder="Пошук ..."
           />
-        </div>
+        </div> */}
       </div>
       <div className="block-items-title">
         <div className="block-items ">{renderItems()}</div>

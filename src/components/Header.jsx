@@ -1,14 +1,23 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../hooks/useCart';
 
-function Header(props) {
+function Header(
+  props,
+  onClearSearchInput,
+  filteredItems,
+  searchValue,
+  onChangeSearchInput,
+  onAddToFavorite,
+  onAddToCart,
+  isLoading
+) {
   const { totalPrice } = useCart();
 
   return (
-    <header className="d-flex justify-between align-center p-40">
+    <header className="d-flex justify-between align-center ">
       <Link to="/">
         <div className="d-flex align-center">
-          <img width={80} height={80} src="/img/logo2.jpg" alt="logo" />
+          <img width={60} height={60} src="/img/logo2.jpg" alt="logo" />
 
           <div>
             <h3 className="text-uppercase">kung-fu Sushi</h3>
@@ -16,12 +25,24 @@ function Header(props) {
           </div>
         </div>
       </Link>
+      <div className="search-block">
+        <img src="/img/search.svg" alt="Search-icon" />
+        {searchValue && (
+          <img
+            onClick={onClearSearchInput}
+            className="clear cu-p"
+            src="/img/btn-remove.svg"
+            alt="btn-remove-search"
+          />
+        )}
+        <input
+          onChange={onChangeSearchInput}
+          value={searchValue}
+          placeholder="Пошук ..."
+        />
+      </div>
       <div>
         <ul className="d-flex">
-          <li onClick={props.onClickCart} className="mr-30 cu-p">
-            <img width={18} height={18} src="/img/cart.svg" alt="cart-icon" />
-            <span>{totalPrice} грн.</span>
-          </li>
           <li className="mr-10 cu-p">
             <Link to="/favorites">
               <img
@@ -41,6 +62,10 @@ function Header(props) {
                 alt="Замовлення"
               />
             </Link>
+          </li>
+          <li onClick={props.onClickCart} className="cu-p">
+            <img width={18} height={18} src="/img/cart.svg" alt="cart-icon" />
+            <span>{totalPrice} грн.</span>
           </li>
         </ul>
       </div>
