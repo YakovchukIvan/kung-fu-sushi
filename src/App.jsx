@@ -40,6 +40,7 @@ function App() {
 
   // Функція яка відслідковує подію в input а також передає її в map та рендерить товари до відповідного пошуку
   const filterItems = (items, searchValue) => {
+    console.log(items);
     return items.filter((item) =>
       item.title.toLowerCase().includes(searchValue.toLowerCase())
     );
@@ -110,22 +111,22 @@ function App() {
         setIsLoading(true);
 
         // Відправлення всіх запитів відразу
-        const [cartResponse, favoritesResponse, itemsResponse] =
-          await Promise.all([
-            axios.get('https://650f314454d18aabfe99ec68.mockapi.io/cart'),
-            axios.get('https://651323cd8e505cebc2e9a121.mockapi.io/favorites'),
-            axios.get('https://650f314454d18aabfe99ec68.mockapi.io/items'),
-          ]);
+        // const [cartResponse, favoritesResponse, itemsResponse] =
+        //   await Promise.all([
+        //     axios.get('https://650f314454d18aabfe99ec68.mockapi.io/cart'),
+        //     axios.get('https://651323cd8e505cebc2e9a121.mockapi.io/favorites'),
+        //     axios.get('https://650f314454d18aabfe99ec68.mockapi.io/items'),
+        //   ]);
         // Варіант з відправлення запитів кожен окремо. Найчастіше цей використовують
-        // const cartResponse = await axios.get(
-        //   'https://650f314454d18aabfe99ec68.mockapi.io/cart'
-        // );
-        // const favoritesResponse = await axios.get(
-        //   'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
-        // );
-        // const itemsResponse = await axios.get(
-        //   'https://650f314454d18aabfe99ec68.mockapi.io/items'
-        // );
+        const cartResponse = await axios.get(
+          'https://650f314454d18aabfe99ec68.mockapi.io/cart'
+        );
+        const favoritesResponse = await axios.get(
+          'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
+        );
+        const itemsResponse = await axios.get(
+          'https://650f314454d18aabfe99ec68.mockapi.io/items'
+        );
 
         setIsLoading(false);
         setCartItems(cartResponse.data);
