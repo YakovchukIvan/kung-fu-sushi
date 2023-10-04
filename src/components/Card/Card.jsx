@@ -9,6 +9,8 @@ function Card({
   title,
   imageUrl,
   price,
+  composition,
+  weight,
   onFavorite,
   onPlus,
   favorited = false,
@@ -55,11 +57,16 @@ function Card({
               />
             )}</div> */}
           <img className={styles.itemProduct} src={imageUrl} alt="Sneakers" />
-          <h5>{title}</h5>
+          <h4>{title}</h4>
+          <h5>
+            <strong>Склад: </strong>
+            {composition}
+          </h5>
+          <h5>{weight} гр.</h5>
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
               <span>Ціна:</span>
-              <b>{price} грн.</b>
+              <b>{price}.00 грн.</b>
             </div>
             {onPlus && (
               <img

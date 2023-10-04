@@ -97,14 +97,14 @@ header {
 .block-items-title {
   border: 2px solid rgb(221, 14, 14);
   display: flex;
-  justify-content: center;
+  justify-content: start;
 }
 
 .block-items {
+  margin: 10px;
   max-width: 1080px;
   border: 2px solid rgb(69, 69, 231);
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
 }
