@@ -30,6 +30,7 @@ function App() {
 
   // Відслідковуємо данні з input
   const onChangeSearchInput = (event) => {
+    console.log(event.target.value);
     setSearchValue(event.target.value);
   };
 
@@ -40,7 +41,7 @@ function App() {
 
   // Функція яка відслідковує подію в input а також передає її в map та рендерить товари до відповідного пошуку
   const filterItems = (items, searchValue) => {
-    console.log(items);
+    console.log('items', items);
     return items.filter((item) =>
       item.title.toLowerCase().includes(searchValue.toLowerCase())
     );
@@ -63,7 +64,7 @@ function App() {
       const findItem = cartItems.find(
         (item) => Number(item.parentId) === Number(obj.id)
       );
-      console.log(findItem);
+      console.log('findItem', findItem);
       if (findItem) {
         setCartItems((prev) =>
           prev.filter((item) => Number(item.parentId) !== Number(obj.id))
@@ -213,9 +214,6 @@ function App() {
           searchValue={searchValue}
           onChangeSearchInput={onChangeSearchInput}
           onClearSearchInput={onClearSearchInput}
-          onAddToFavorite={onAddToFavorite}
-          onAddToCart={onAddToCart}
-          isLoading={isLoading}
           onClickCart={() => setCartOpened(true)}
         />
 
@@ -226,10 +224,10 @@ function App() {
               <Home
                 filterItems={filterItems}
                 filteredItems={filteredItems}
-                cartItems={cartItems}
+                // cartItems={cartItems}
                 searchValue={searchValue}
-                onChangeSearchInput={onChangeSearchInput}
-                onClearSearchInput={onClearSearchInput}
+                // onChangeSearchInput={onChangeSearchInput}
+                // onClearSearchInput={onClearSearchInput}
                 onAddToFavorite={onAddToFavorite}
                 onAddToCart={onAddToCart}
                 isLoading={isLoading}
