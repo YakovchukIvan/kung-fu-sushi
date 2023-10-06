@@ -41,6 +41,10 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 
   return (
     <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
+      {/*  */}
+
+      <div className={`${styles.bgClose}`} onClick={() => onClose()}></div>
+
       <div className={styles.drawer}>
         <h2 className="d-flex justify-between mb-30">
           Кошик
@@ -56,7 +60,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
         А якщо в items.length є товар, тоді відображаємо товар */}
         {items.length > 0 ? (
           <div className="d-flex flex-column flex">
-            <div className="items flex">
+            <div className={styles.items}>
               {items.map((obj) => (
                 <div
                   key={obj.id}
@@ -123,6 +127,8 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
           />
         )}
       </div>
+
+      {/*  */}
     </div>
   );
 }

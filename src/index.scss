@@ -22,8 +22,8 @@ body {
   // width: 100%;
   max-width: 1280px;
   margin: 50px auto;
+  padding: 0 40px;
 }
-
 header {
   border-bottom: 1px solid #eaeaea;
   // border: 2px solid red;
@@ -32,8 +32,18 @@ header {
   left: 0;
   width: 100%;
   background-color: #ffffff; /* Колір фону вашого заголовка */
-  z-index: 1000; /* Значення z-index, яке дозволяє вам контролювати, як ваш заголовок взаємодіє з іншими елементами на сторінці */
-  padding: 10px 40px;
+  z-index: 5; /* Значення z-index, яке дозволяє вам контролювати, як ваш заголовок взаємодіє з іншими елементами на сторінці */
+
+  padding: 10px 20px;
+
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // border: 1px solid red;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
 
   img {
     margin-right: 15px;
@@ -47,6 +57,8 @@ header {
 
 .content {
   margin-top: 100px;
+  width: 100%;
+  // border: 1px solid red;
   h1 {
     margin: 0;
   }
@@ -106,17 +118,15 @@ header {
 }
 
 .block-items-title {
-  // border: 2px solid rgb(221, 14, 14);
+  border: 2px solid rgb(221, 14, 14);
   display: flex;
   justify-content: center;
 }
 
 .block-items {
-  margin: 10px;
   max-width: 1080px;
-  // border: 2px solid rgb(69, 69, 231);
+  border: 2px solid rgb(69, 69, 231);
   display: flex;
-
   flex-wrap: wrap;
   gap: 25px;
 }
@@ -241,13 +251,24 @@ header {
 }
 
 @media screen and (max-width: 1200px) {
-  .block-items {
-    max-width: 804px;
+  .wrapper {
+    // border: 2px solid red;
+    max-width: 822px;
+  }
+  .header-wrapper {
+    // border: 1px solid #9dd558 !important;
+    max-width: 822px !important;
   }
 }
 
-@media screen and (max-width: 927px) {
+@media screen and (max-width: 905px) {
   .block-items {
-    max-width: 550px;
+    max-width: 529px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .total__price-cart {
+    display: none;
   }
 }

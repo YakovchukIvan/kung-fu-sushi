@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import Card from '../components/Card/Card';
 
 function Home({
@@ -10,9 +9,6 @@ function Home({
   onAddToCart,
   isLoading,
 }) {
-  //
-  // const { searchValue } = useContext(AppContext);
-
   const renderItems = () => {
     return (isLoading ? [...Array(12)] : filteredItems).map((item, index) => (
       <Card
@@ -35,7 +31,7 @@ function Home({
   };
 
   return (
-    <div className="content p-40">
+    <div className="content">
       <div className="d-flex align-center justify-between mb-40">
         <h1>
           {searchValue ? `Пошук за запитом: "${searchValue}"` : 'Всі суші'}
