@@ -118,17 +118,15 @@ header {
 }
 
 .block-items-title {
-  // border: 2px solid rgb(221, 14, 14);
+  border: 2px solid rgb(221, 14, 14);
   display: flex;
   justify-content: center;
 }
 
 .block-items {
-  margin: 10px;
   max-width: 1080px;
-  // border: 2px solid rgb(69, 69, 231);
+  border: 2px solid rgb(69, 69, 231);
   display: flex;
-
   flex-wrap: wrap;
   gap: 25px;
 }
@@ -263,9 +261,9 @@ header {
   }
 }
 
-@media screen and (max-width: 927px) {
+@media screen and (max-width: 905px) {
   .block-items {
-    max-width: 550px;
+    max-width: 529px;
   }
 }
 

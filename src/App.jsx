@@ -30,7 +30,7 @@ function App() {
 
   // Відслідковуємо данні з input
   const onChangeSearchInput = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setSearchValue(event.target.value);
   };
 
@@ -41,7 +41,7 @@ function App() {
 
   // Функція яка відслідковує подію в input а також передає її в map та рендерить товари до відповідного пошуку
   const filterItems = (items, searchValue) => {
-    console.log('items', items);
+    // console.log('items', items);
     return items.filter((item) =>
       item.title.toLowerCase().includes(searchValue.toLowerCase())
     );
@@ -64,32 +64,48 @@ function App() {
       const findItem = cartItems.find(
         (item) => Number(item.parentId) === Number(obj.id)
       );
-      console.log('findItem', findItem);
-      if (findItem) {
-        setCartItems((prev) =>
-          prev.filter((item) => Number(item.parentId) !== Number(obj.id))
-        );
-        await axios.delete(
-          `https://650f314454d18aabfe99ec68.mockapi.io/cart/${findItem.id}`
-        );
-      } else {
-        setCartItems((prev) => [...prev, obj]);
-        const { data } = await axios.post(
-          'https://650f314454d18aabfe99ec68.mockapi.io/cart',
-          obj
-        );
-        setCartItems((prev) =>
-          prev.map((item) => {
-            if (item.parentId === data.parentId) {
-              return {
-                ...item,
-                id: data.parentId,
-              };
-            }
-            return item;
-          })
-        );
-      }
+      // console.log('findItem', findItem);
+      // if (findItem) {
+      //   setCartItems((prev) =>
+      //     prev.filter((item) => Number(item.parentId) !== Number(obj.id))
+      //   );
+      //   await axios.delete(
+      //     `https://650f314454d18aabfe99ec68.mockapi.io/cart/${findItem.id}`
+      //   );
+      // } else {
+      //   setCartItems((prev) => [...prev, obj]);
+      //   const { data } = await axios.post(
+      //     'https://650f314454d18aabfe99ec68.mockapi.io/cart',
+      //     obj
+      //   );
+      //   setCartItems((prev) =>
+      //     prev.map((item) => {
+      //       if (item.parentId === data.parentId) {
+      //         return {
+      //           ...item,
+      //           id: data.parentId,
+      //         };
+      //       }
+      //       return item;
+      //     })
+      //   );
+      // }
+      setCartItems((prev) => [...prev, obj]);
+      const { data } = await axios.post(
+        'https://650f314454d18aabfe99ec68.mockapi.io/cart',
+        obj
+      );
+      setCartItems((prev) =>
+        prev.map((item) => {
+          if (item.parentId === data.parentId) {
+            return {
+              ...item,
+              id: data.parentId,
+            };
+          }
+          return item;
+        })
+      );
     } catch (error) {
       alert('Помилка при додаванні товару в кошик');
     }
@@ -208,8 +224,6 @@ function App() {
         />
 
         <Header
-          filterItems={filterItems}
-          filteredItems={filteredItems}
           cartItems={cartItems}
           searchValue={searchValue}
           onChangeSearchInput={onChangeSearchInput}

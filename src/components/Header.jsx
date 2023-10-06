@@ -1,16 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../hooks/useCart';
 
-function Header(
-  props
-  // onClearSearchInput,
-  // filteredItems,
-  // searchValue,
-  // onChangeSearchInput,
-  // onAddToFavorite,
-  // onAddToCart,
-  // isLoading
-) {
+function Header(props) {
   // console.log('props', props);
   const { totalPrice } = useCart();
 
