@@ -59,7 +59,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
         {/* Тут ми викликаємо тернарний оператор. Якщо items.length (приставка length щоб визначити пустий масив чи ні), пустий значить показуємо вікно "Кошик порожній".
         А якщо в items.length є товар, тоді відображаємо товар */}
         {items.length > 0 ? (
-          <div className="d-flex flex-column flex">
+          <div className="d-flex flex-column flex justify-between">
             <div className={styles.items}>
               {items.map((obj) => (
                 <div

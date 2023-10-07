@@ -57,7 +57,7 @@ function Card({
                 alt="Unliked"
               />
             )}</div> */}
-          <img className={styles.itemProduct} src={imageUrl} alt="Sneakers" />
+          <img className={styles.itemProduct} src={imageUrl} alt="sushi" />
           <h4>{title}</h4>
 
           <div className="d-flex justify-between align-center mt-10">
@@ -68,9 +68,10 @@ function Card({
             {onPlus && (
               <img
                 className={styles.plus}
-                src={
-                  isItemAdded(id) ? '/img/btn-cheked.svg' : '/img/btn-plus.svg'
-                }
+                // src={
+                //   isItemAdded(id) ? '/img/btn-cheked.svg' : '/img/btn-plus.svg'
+                // }
+                src="/img/btn-plus.svg"
                 alt="btn-plus"
                 onClick={onClickPlus}
               />
