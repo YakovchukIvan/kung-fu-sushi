@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import { FaCartShopping, FaRegCircleUser } from 'react-icons/fa6';
+// import { FaCartShopping, FaRegCircleUser } from 'react-icons/fa6';
 
 import { useCart } from '../hooks/useCart';
 
 function Header(props) {
-  // console.log('props', props);
+  console.log('props', props);
   const { totalPrice } = useCart();
-
+  console.log('items', props.cartItems.length);
   return (
     <header>
       <div className="header-wrapper">
@@ -68,7 +68,9 @@ function Header(props) {
                 src="/img/cart.svg"
                 alt="cart-icon"
               />
-              <span className="icon__count-orders">4</span>
+              <span className="icon__count-orders">
+                {/* {props.cartItems.length} */}
+              </span>
               {/* <span className="total__price-cart">{totalPrice} грн.</span> */}
             </li>
           </ul>

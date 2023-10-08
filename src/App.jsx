@@ -61,9 +61,9 @@ function App() {
     //   axios.post('https://650f314454d18aabfe99ec68.mockapi.io/cart', obj);
     // }
     try {
-      const findItem = cartItems.find(
-        (item) => Number(item.parentId) === Number(obj.id)
-      );
+      // const findItem = cartItems.find(
+      //   (item) => Number(item.parentId) === Number(obj.id)
+      // );
       // console.log('findItem', findItem);
       // if (findItem) {
       //   setCartItems((prev) =>

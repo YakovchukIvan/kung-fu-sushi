@@ -32,6 +32,7 @@
 .drawer {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: absolute;
   width: 420px;
   height: 100%;
@@ -46,7 +47,7 @@
   .items {
     // border: 2px solid red;
     overflow: auto;
-    height: 500px;
+    height: 100%;
     margin-bottom: 40px;
   }
 

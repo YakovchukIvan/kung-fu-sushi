@@ -9,6 +9,7 @@ function Home({
   onAddToCart,
   isLoading,
 }) {
+  console.log(filteredItems);
   const renderItems = () => {
     return (isLoading ? [...Array(12)] : filteredItems).map((item, index) => (
       <Card
