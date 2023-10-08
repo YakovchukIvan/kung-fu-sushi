@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { FaCartShopping, FaRegCircleUser } from 'react-icons/fa6';
+
 import { useCart } from '../hooks/useCart';
 
 function Header(props) {
@@ -35,12 +37,12 @@ function Header(props) {
           />
         </div>
         <div>
-          <ul className="d-flex">
-            <li className="mr-10 cu-p">
+          <ul className="list__header">
+            <li className="">
               <Link to="/favorites">
                 <img
-                  width={18}
-                  height={18}
+                  width={24}
+                  height={24}
                   src="/img/heart.svg"
                   alt="heart-icon"
                 />
@@ -48,18 +50,26 @@ function Header(props) {
             </li>
             <li>
               <Link to="/orders">
+                {/* <FaRegCircleUser style={{ width: '24px', height: '24px' }} /> */}
                 <img
-                  width={18}
-                  height={18}
+                  width={24}
+                  height={24}
                   src="/img/user.svg"
                   alt="Замовлення"
                 />
               </Link>
             </li>
-            <li onClick={props.onClickCart} className="cu-p">
-              <img width={18} height={18} src="/img/cart.svg" alt="cart-icon" />
-              <span className="icon__count-orders">400</span>
-              <span className="total__price-cart">{totalPrice} грн.</span>
+            <li onClick={props.onClickCart} className="item__cart-icon">
+              {/* <FaCartShopping style={{ width: '24px', height: '24px' }} /> */}
+              <img
+                className=""
+                width={24}
+                height={24}
+                src="/img/cart.svg"
+                alt="cart-icon"
+              />
+              <span className="icon__count-orders">4</span>
+              {/* <span className="total__price-cart">{totalPrice} грн.</span> */}
             </li>
           </ul>
         </div>
