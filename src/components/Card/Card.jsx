@@ -12,6 +12,7 @@ function Card({
   price,
   composition,
   weight,
+  count,
   onFavorite,
   onPlus,
   favorited = false,
@@ -21,10 +22,11 @@ function Card({
 
   const { isItemAdded } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorited);
-  const itemObj = { id, parentId: id, title, imageUrl, price };
+  const itemObj = { id, parentId: id, title, imageUrl, price, count };
 
   const onClickPlus = () => {
     onPlus(itemObj);
+    console.log('itemObj CARD.JSX', itemObj);
   };
 
   const onClickFavorite = () => {

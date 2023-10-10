@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../hooks/useCart';
 
 function Header(props) {
-  console.log('props', props);
+  // console.log('props', props);
   const { totalPrice } = useCart();
-  console.log('items', props.cartItems.length);
+  // console.log('items', props.cartItems.length);
   return (
     <header>
       <div className="header-wrapper">

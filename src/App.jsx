@@ -90,6 +90,7 @@ function App() {
       //     })
       //   );
       // }
+      console.log('obj onAddToCart', obj);
       setCartItems((prev) => [...prev, obj]);
       const { data } = await axios.post(
         'https://650f314454d18aabfe99ec68.mockapi.io/cart',
@@ -159,7 +160,7 @@ function App() {
   }, []);
 
   const onAddToFavorite = async (obj) => {
-    console.log(obj);
+    // console.log(obj);
     // // Перевірка чи вже додано favorite, якщо так тоді видаляємо. Якщо favorite = true, тоді else додаємо товар до favorite
     // console.log(obj);
     try {
@@ -190,7 +191,7 @@ function App() {
       await axios.delete(
         `https://650f314454d18aabfe99ec68.mockapi.io/cart/${id}`
       );
-      console.log(setCartItems);
+
       setCartItems((prev) =>
         prev.filter((item) => Number(item.id) !== Number(id))
       );
