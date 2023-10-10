@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-import Info from '../Info';
+import Info from './Info';
 import { useCart } from '../../hooks/useCart';
 
 import styles from './Drawer.module.scss';
@@ -17,15 +17,8 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
   const onClickOrder = async () => {
     try {
       setIsLoading(true);
-      const { data } = await axios.post(
-        'https://651323cd8e505cebc2e9a121.mockapi.io/orders/',
-        { items: cartItems }
-      );
 
-      setOrderId(data.id);
-      setIsOrderComplate(true);
-      setCartItems([]);
-
+      // Видаляємо товари з сервера
       for (let i = 0; i < cartItems.length; i++) {
         const item = cartItems[i];
         await axios.delete(
@@ -33,10 +26,25 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
         );
         await delay(1000);
       }
+
+      // Після видалення товарів з сервера, очищаємо корзину
+      setCartItems([]);
+
+      // Тепер можна створювати замовлення і робити інші дії
+      const { data } = await axios.post(
+        'https://651323cd8e505cebc2e9a121.mockapi.io/orders/',
+        { items: cartItems }
+      );
+
+      console.log('items', items);
+      console.log('cartItems', cartItems);
+      setOrderId(data.id);
+      setIsOrderComplate(true);
     } catch (error) {
       alert('Помилка створення замовлення :(');
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return (
@@ -61,22 +69,25 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
         {items.length > 0 ? (
           <div className="d-flex flex-column flex justify-between">
             <div className={styles.items}>
-              {items.map((obj) => (
+              {items.map((product) => (
                 <div
-                  key={obj.id}
+                  key={product.id}
                   className="cartItem d-flex align-center mb-20"
                 >
                   <div
-                    style={{ backgroundImage: `url(${obj.imageUrl})` }}
+                    style={{ backgroundImage: `url(${product.imageUrl})` }}
                     className="cartItemImg"
                   ></div>
                   <div className="mr-20 flex">
-                    <p className="mb-5">{obj.title}</p>
-                    <b>{obj.price} грн.</b>
+                    <p className="mb-5">{product.title}</p>
+                    <div className={styles.block__PriceCount}>
+                      <b>{product.price} грн.</b>
+                      <b>{product.count} шт.</b>
+                    </div>
                   </div>
 
                   <img
-                    onClick={() => onRemove(obj.id)}
+                    onClick={() => onRemove(product.id)}
                     className="removeBtn"
                     src="/img/btn-remove.svg"
                     alt="btn-remove"

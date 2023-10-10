@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Card from '../components/Card/Card';
+import Card from '../../components/Card/Card';
 
 function Orders() {
   const [orders, setOrders] = useState([]);

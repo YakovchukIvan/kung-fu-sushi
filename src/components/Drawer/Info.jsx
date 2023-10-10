@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import AppContext from '../Context';
+import AppContext from '../../Context';
 
 const Info = ({ title, image, description }) => {
   const { setCartOpened } = useContext(AppContext);

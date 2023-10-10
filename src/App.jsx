@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Drawer from './components/Drawer/Drawer';
 
-import Home from './pages/Home';
-import Favorites from './pages/Favorites';
-import Orders from './pages/Orders';
+import Home from './pages/Home/Home';
+import Favorites from './pages/Home/Favorites';
+import Orders from './pages/Home/Orders';
 
 import AppContext from './Context';
 
@@ -52,64 +52,128 @@ function App() {
 
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = async (obj) => {
-    // console.log(obj);
-    // console.log(cartItems);
+    console.log('obj', obj);
+    console.log('cartItems', cartItems);
     // const isObjectInCart = cartItems.some((item) => item.title === obj.title); // some - це метод, який перевіряє умову на кожному елементі масиву. Якщо хоча б один елемент у масиві cartItems задовольняє цю умову, то some повертає true, інакше він повертає false.
-    // console.log(isObjectInCart);
+    // console.log('isObjectInCart', isObjectInCart);
     // if (!isObjectInCart) {
     //   setCartItems((prev) => [...prev, obj]); // Додаємо вибраний товар в кошик, шляхом інформації з старого масиву в новий масив та одночасно додавання обєкту до старого масиву, який повернеться вже новим
     //   axios.post('https://650f314454d18aabfe99ec68.mockapi.io/cart', obj);
     // }
-    try {
-      // const findItem = cartItems.find(
-      //   (item) => Number(item.parentId) === Number(obj.id)
-      // );
-      // console.log('findItem', findItem);
-      // if (findItem) {
-      //   setCartItems((prev) =>
-      //     prev.filter((item) => Number(item.parentId) !== Number(obj.id))
-      //   );
-      //   await axios.delete(
-      //     `https://650f314454d18aabfe99ec68.mockapi.io/cart/${findItem.id}`
-      //   );
-      // } else {
-      //   setCartItems((prev) => [...prev, obj]);
-      //   const { data } = await axios.post(
-      //     'https://650f314454d18aabfe99ec68.mockapi.io/cart',
-      //     obj
-      //   );
-      //   setCartItems((prev) =>
-      //     prev.map((item) => {
-      //       if (item.parentId === data.parentId) {
-      //         return {
-      //           ...item,
-      //           id: data.parentId,
-      //         };
-      //       }
-      //       return item;
-      //     })
-      //   );
-      // }
-      console.log('obj onAddToCart', obj);
-      setCartItems((prev) => [...prev, obj]);
-      const { data } = await axios.post(
-        'https://650f314454d18aabfe99ec68.mockapi.io/cart',
-        obj
-      );
+
+    const existingItem = cartItems.find(
+      (item) => item.parentId === obj.parentId
+    );
+
+    // console.log(existingItem);
+
+    if (existingItem) {
+      console.log('Спрацював true');
+      // Якщо товар вже є в кошику, змініть кількість цього товару
+
       setCartItems((prev) =>
         prev.map((item) => {
-          if (item.parentId === data.parentId) {
+          if (item.parentId === obj.parentId) {
+            console.log(item.parentId);
+            console.log(obj.parentId);
             return {
               ...item,
-              id: data.parentId,
+              count: item.count + 1, // Збільшуємо кількість на 1
             };
           }
           return item;
         })
       );
-    } catch (error) {
-      alert('Помилка при додаванні товару в кошик');
+
+      try {
+        await axios.put(
+          `https://650f314454d18aabfe99ec68.mockapi.io/cart/${obj.id}`,
+          {
+            count: existingItem.count + 1, // Збільшуємо кількість на сервері
+          }
+        );
+      } catch (error) {
+        alert('Помилка при оновленні кількості товару в кошику на сервері');
+      }
+    } else {
+      // Якщо товару немає в кошику, додаємо його
+      setCartItems((prev) => [...prev, obj]);
+
+      // Додаємо новий товар на сервер
+      try {
+        const { data } = await axios.post(
+          'https://650f314454d18aabfe99ec68.mockapi.io/cart',
+          obj
+        );
+
+        console.log('data', data);
+      } catch (error) {
+        alert('Помилка при додаванні товару в кошик на сервері');
+      }
     }
+
+    // try {
+    //   //   console.log(cartItems);
+    //   //   const findItem = cartItems.find(
+    //   //     (item) => Number(item.parentId) === Number(obj.id)
+    //   //   );
+    //   //   console.log('findItem', findItem);
+
+    //   //   console.log('item.parentId', findItem.parentId);
+    //   //   console.log('data.parentId', obj.parentId);
+    //   //   if (findItem) {
+    //   //     setCartItems((prev) =>
+    //   //       prev.filter((item) => Number(item.parentId) !== Number(obj.id))
+    //   //     );
+    //   //     return {
+    //   //       ...obj,
+    //   //       count: ++obj.count,
+    //   //     };
+    //   //     // await axios.delete(
+    //   //     //   `https://650f314454d18aabfe99ec68.mockapi.io/cart/${findItem.id}`
+    //   //     // );
+    //   //   } else {
+    //   //     setCartItems((prev) => [...prev, obj]);
+    //   //     const { data } = await axios.post(
+    //   //       'https://650f314454d18aabfe99ec68.mockapi.io/cart',
+    //   //       obj
+    //   //     );
+    //   //     setCartItems((prev) =>
+    //   //       prev.map((item) => {
+    //   //         if (item.parentId === data.parentId) {
+    //   //           return {
+    //   //             ...item,
+    //   //             id: data.parentId,
+    //   //           };
+    //   //         }
+    //   //         return item;
+    //   //       })
+    //   //     );
+    //   //   }
+    //   console.log('obj onAddToCart');
+    //   setCartItems((prev) => [...prev, obj]);
+    //   const { data } = await axios.post(
+    //     'https://650f314454d18aabfe99ec68.mockapi.io/cart',
+    //     obj
+    //   );
+
+    //   console.log('data', data);
+    //   console.log(cartItems);
+
+    //   setCartItems((prev) =>
+    //     prev.map((item) => {
+    //       if (item.parentId === data.parentId) {
+    //         return {
+    //           ...item,
+    //           id: data.parentId,
+    //         };
+    //       }
+    //       return item;
+    //     })
+    //   );
+    // } catch (error) {
+    //   alert('Помилка при додаванні товару в кошик');
+    // }
   };
 
   // Для отримання данних з бек-енда

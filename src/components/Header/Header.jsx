@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 // import { FaCartShopping, FaRegCircleUser } from 'react-icons/fa6';
 
-import { useCart } from '../hooks/useCart';
+// import { useCart } from '../hooks/useCart';
 
 function Header(props) {
   // console.log('props', props);
-  const { totalPrice } = useCart();
+  // const { totalPrice } = useCart();
   // console.log('items', props.cartItems.length);
   return (
     <header>
@@ -69,7 +69,7 @@ function Header(props) {
                 alt="cart-icon"
               />
               <span className="icon__count-orders">
-                {/* {props.cartItems.length} */}
+                {props.cartItems.length}
               </span>
               {/* <span className="total__price-cart">{totalPrice} грн.</span> */}
             </li>

@@ -1,4 +1,5 @@
-import Card from '../components/Card/Card';
+import Card from '../../components/Card/Card';
+import NavSushi from '../../components/NavigationSushi/NavSushi';
 
 function Home({
   onClearSearchInput,
@@ -34,9 +35,9 @@ function Home({
   return (
     <div className="content">
       <div className="d-flex align-center justify-between mb-40">
-        <h1>
-          {searchValue ? `Пошук за запитом: "${searchValue}"` : 'Всі суші'}
-        </h1>
+        <h2>
+          {searchValue ? `Пошук за запитом: "${searchValue}"` : <NavSushi />}
+        </h2>
         {/* <div className="search-block">
           <img src="/img/search.svg" alt="Search-icon" />
           {searchValue && (
