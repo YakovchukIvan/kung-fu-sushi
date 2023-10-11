@@ -6,7 +6,7 @@ body {
   // background-color: #e7f6ff;
   // background: url(./public/img/sneakers/white-fon5.jpg) center center repeat;
   // background-size: auto auto;
-  background-image: url(../public/img//sneakers/white-fon5.jpg);
+  background-image: url(../public/img//product/white-fon5.jpg);
   background-size: auto auto;
 }
 
@@ -65,14 +65,14 @@ body {
 }
 
 .block-items-title {
-  border: 2px solid rgb(221, 14, 14);
+  // border: 2px solid rgb(221, 14, 14);
   display: flex;
   justify-content: center;
 }
 
 .block-items {
   max-width: 1080px;
-  border: 2px solid rgb(69, 69, 231);
+  // border: 2px solid rgb(69, 69, 231);
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
