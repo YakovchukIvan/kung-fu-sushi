@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { RiDeleteBin6Line } from 'react-icons/ri';
 
 import Info from './Info';
 import { useCart } from '../../hooks/useCart';
@@ -85,13 +86,19 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                       <b>{product.count} шт.</b>
                     </div>
                   </div>
-
-                  <img
+                  <div className={styles.btn__remove}>
+                    <RiDeleteBin6Line
+                      size={28}
+                      onClick={() => onRemove(product.id)}
+                      alt="btn-remove"
+                    />
+                  </div>
+                  {/* <img
                     onClick={() => onRemove(product.id)}
                     className="removeBtn"
                     src="/img/btn-remove.svg"
                     alt="btn-remove"
-                  />
+                  /> */}
                 </div>
               ))}
             </div>

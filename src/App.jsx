@@ -5,8 +5,8 @@ import Header from './components/Header/Header';
 import Drawer from './components/Drawer/Drawer';
 
 import Home from './pages/Home/Home';
-import Favorites from './pages/Home/Favorites';
-import Orders from './pages/Home/Orders';
+import Favorites from './pages/Favorites/Favorites';
+import Orders from './pages/Orders/Orders';
 
 import AppContext from './Context';
 

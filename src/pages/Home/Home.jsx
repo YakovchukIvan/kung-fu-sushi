@@ -2,10 +2,8 @@ import Card from '../../components/Card/Card';
 import NavSushi from '../../components/NavigationSushi/NavSushi';
 
 function Home({
-  onClearSearchInput,
   filteredItems,
   searchValue,
-  onChangeSearchInput,
   onAddToFavorite,
   onAddToCart,
   isLoading,
@@ -38,22 +36,6 @@ function Home({
         <h2>
           {searchValue ? `Пошук за запитом: "${searchValue}"` : <NavSushi />}
         </h2>
-        {/* <div className="search-block">
-          <img src="/img/search.svg" alt="Search-icon" />
-          {searchValue && (
-            <img
-              onClick={onClearSearchInput}
-              className="clear cu-p"
-              src="/img/btn-remove.svg"
-              alt="btn-remove-search"
-            />
-          )}
-          <input
-            onChange={onChangeSearchInput}
-            value={searchValue}
-            placeholder="Пошук ..."
-          />
-        </div> */}
       </div>
       <div className="block-items-title">
         <div className="block-items ">{renderItems()}</div>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-// import { FaCartShopping, FaRegCircleUser } from 'react-icons/fa6';
+import styles from './Header.module.scss';
 
 // import { useCart } from '../hooks/useCart';
 
@@ -8,19 +8,19 @@ function Header(props) {
   // const { totalPrice } = useCart();
   // console.log('items', props.cartItems.length);
   return (
-    <header>
-      <div className="header-wrapper">
+    <header className={styles.header}>
+      <div className={styles.header__wrapper}>
         <Link to="/">
-          <div className="d-flex align-center">
+          <div className={styles.block__logo}>
             <img width={60} height={60} src="/img/logo2.jpg" alt="logo" />
 
-            <div>
-              <h3 className="text-uppercase">kung-fu Sushi</h3>
-              <p className="opacity-5">Магазин найсмачніших суші</p>
+            <div className={styles.logo__title}>
+              <h3>kung-fu Sushi</h3>
+              <p>Магазин найсмачніших суші</p>
             </div>
           </div>
         </Link>
-        <div className="search-block">
+        <div className={styles.search__block}>
           <img src="/img/search.svg" alt="Search-icon" />
           {props.searchValue && (
             <img
@@ -37,8 +37,8 @@ function Header(props) {
           />
         </div>
         <div>
-          <ul className="list__header">
-            <li className="">
+          <ul className={styles.list__header}>
+            <li>
               <Link to="/favorites">
                 <img
                   width={24}
@@ -59,16 +59,10 @@ function Header(props) {
                 />
               </Link>
             </li>
-            <li onClick={props.onClickCart} className="item__cart-icon">
+            <li onClick={props.onClickCart} className={styles.item__cart__icon}>
               {/* <FaCartShopping style={{ width: '24px', height: '24px' }} /> */}
-              <img
-                className=""
-                width={24}
-                height={24}
-                src="/img/cart.svg"
-                alt="cart-icon"
-              />
-              <span className="icon__count-orders">
+              <img width={24} height={24} src="/img/cart.svg" alt="cart-icon" />
+              <span className={styles.icon__count__orders}>
                 {props.cartItems.length}
               </span>
               {/* <span className="total__price-cart">{totalPrice} грн.</span> */}

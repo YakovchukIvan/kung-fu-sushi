@@ -1,6 +1,8 @@
 import ContentLoader from 'react-content-loader';
 import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
+import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md';
+
 import AppContext from '../../Context';
 
 import styles from './Card.module.scss';
@@ -20,7 +22,6 @@ function Card({
 }) {
   //
 
-  const { isItemAdded } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorited);
   const itemObj = {
     id,
@@ -62,12 +63,22 @@ function Card({
         </ContentLoader>
       ) : (
         <Link>
-          {/* <div className={styles.favorite} onClick={onClickFavorite}>            {onFavorite && (
+          <div className={styles.favorite} onClick={onClickFavorite}>
+            {' '}
+            {onFavorite &&
+              (isFavorite ? (
+                <MdOutlineFavoriteBorder color="#fff" size={24} />
+              ) : (
+                <MdOutlineFavorite color="#fff" size={24} />
+              ))}
+            {/* {onFavorite && (
               <img
                 src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'}
-                alt="Unliked"
+                alt={isFavorite ? 'Liked' : 'Unliked'}
               />
-            )}</div> */}
+            )} */}
+          </div>
+
           <img className={styles.itemProduct} src={imageUrl} alt="sushi" />
           <h4>{title}</h4>
 
@@ -79,9 +90,6 @@ function Card({
             {onPlus && (
               <img
                 className={styles.plus}
-                // src={
-                //   isItemAdded(id) ? '/img/btn-cheked.svg' : '/img/btn-plus.svg'
-                // }
                 src="/img/btn-plus.svg"
                 alt="btn-plus"
                 onClick={onClickPlus}
