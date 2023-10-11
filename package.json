@@ -2,11 +2,13 @@
   "name": "react-sneakers",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yakovchukivan.github.io/kung-fu-sushi/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.0",
+    "gh-pages": "^6.0.0",
     "macro-css": "^1.0.5",
     "react": "^18.2.0",
     "react-content-loader": "^6.0.3",
@@ -21,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
