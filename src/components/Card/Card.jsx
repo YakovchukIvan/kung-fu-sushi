@@ -90,7 +90,7 @@ function Card({
             {onPlus && (
               <img
                 className={styles.plus}
-                src="/img/btn-plus.svg"
+                src="img/btn-plus.svg"
                 alt="btn-plus"
                 onClick={onClickPlus}
               />

@@ -60,7 +60,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
           <img
             onClick={onClose}
             className="cu-p"
-            src="/img/btn-remove.svg"
+            src="img/btn-remove.svg"
             alt="btn-remove"
           />
         </h2>
@@ -121,8 +121,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                 onClick={onClickOrder}
                 className="greenButton"
               >
-                Оформити замовлення{' '}
-                <img src="/img/arrow.svg" alt="arrow-icon" />
+                Оформити замовлення <img src="img/arrow.svg" alt="arrow-icon" />
               </button>
             </div>
           </div>
@@ -141,7 +140,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
               )
             }
             image={
-              isOrderComplate ? '/img/done-empty.jpg' : '/img/empty-cart.jpg'
+              isOrderComplate ? 'img/done-empty.jpg' : 'img/empty-cart.jpg'
             }
           />
         )}
