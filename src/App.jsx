@@ -54,12 +54,6 @@ function App() {
   const onAddToCart = async (obj) => {
     console.log('obj', obj);
     console.log('cartItems', cartItems);
-    // const isObjectInCart = cartItems.some((item) => item.title === obj.title); // some - це метод, який перевіряє умову на кожному елементі масиву. Якщо хоча б один елемент у масиві cartItems задовольняє цю умову, то some повертає true, інакше він повертає false.
-    // console.log('isObjectInCart', isObjectInCart);
-    // if (!isObjectInCart) {
-    //   setCartItems((prev) => [...prev, obj]); // Додаємо вибраний товар в кошик, шляхом інформації з старого масиву в новий масив та одночасно додавання обєкту до старого масиву, який повернеться вже новим
-    //   axios.post('https://650f314454d18aabfe99ec68.mockapi.io/cart', obj);
-    // }
 
     const existingItem = cartItems.find(
       (item) => item.parentId === obj.parentId
@@ -111,95 +105,14 @@ function App() {
         alert('Помилка при додаванні товару в кошик на сервері');
       }
     }
-
-    // try {
-    //   //   console.log(cartItems);
-    //   //   const findItem = cartItems.find(
-    //   //     (item) => Number(item.parentId) === Number(obj.id)
-    //   //   );
-    //   //   console.log('findItem', findItem);
-
-    //   //   console.log('item.parentId', findItem.parentId);
-    //   //   console.log('data.parentId', obj.parentId);
-    //   //   if (findItem) {
-    //   //     setCartItems((prev) =>
-    //   //       prev.filter((item) => Number(item.parentId) !== Number(obj.id))
-    //   //     );
-    //   //     return {
-    //   //       ...obj,
-    //   //       count: ++obj.count,
-    //   //     };
-    //   //     // await axios.delete(
-    //   //     //   `https://650f314454d18aabfe99ec68.mockapi.io/cart/${findItem.id}`
-    //   //     // );
-    //   //   } else {
-    //   //     setCartItems((prev) => [...prev, obj]);
-    //   //     const { data } = await axios.post(
-    //   //       'https://650f314454d18aabfe99ec68.mockapi.io/cart',
-    //   //       obj
-    //   //     );
-    //   //     setCartItems((prev) =>
-    //   //       prev.map((item) => {
-    //   //         if (item.parentId === data.parentId) {
-    //   //           return {
-    //   //             ...item,
-    //   //             id: data.parentId,
-    //   //           };
-    //   //         }
-    //   //         return item;
-    //   //       })
-    //   //     );
-    //   //   }
-    //   console.log('obj onAddToCart');
-    //   setCartItems((prev) => [...prev, obj]);
-    //   const { data } = await axios.post(
-    //     'https://650f314454d18aabfe99ec68.mockapi.io/cart',
-    //     obj
-    //   );
-
-    //   console.log('data', data);
-    //   console.log(cartItems);
-
-    //   setCartItems((prev) =>
-    //     prev.map((item) => {
-    //       if (item.parentId === data.parentId) {
-    //         return {
-    //           ...item,
-    //           id: data.parentId,
-    //         };
-    //       }
-    //       return item;
-    //     })
-    //   );
-    // } catch (error) {
-    //   alert('Помилка при додаванні товару в кошик');
-    // }
   };
 
   // Для отримання данних з бек-енда
   useEffect(() => {
-    // Метод fetch
-    // fetch('https://650f314454d18aabfe99ec68.mockapi.io/items')
-    //   .then((res) => {
-    //     return res.json();
-    //   })
-    //   .then((json) => {
-    //     setItems(json);
-    //   });
-
-    // Метод axios
     async function fetchData() {
       try {
         setIsLoading(true);
 
-        // Відправлення всіх запитів відразу
-        // const [cartResponse, favoritesResponse, itemsResponse] =
-        //   await Promise.all([
-        //     axios.get('https://650f314454d18aabfe99ec68.mockapi.io/cart'),
-        //     axios.get('https://651323cd8e505cebc2e9a121.mockapi.io/favorites'),
-        //     axios.get('https://650f314454d18aabfe99ec68.mockapi.io/items'),
-        //   ]);
-        // Варіант з відправлення запитів кожен окремо. Найчастіше цей використовують
         const cartResponse = await axios.get(
           'https://650f314454d18aabfe99ec68.mockapi.io/cart'
         );
@@ -298,7 +211,7 @@ function App() {
 
         <Routes>
           <Route
-            path=""
+            path="/"
             element={
               <Home
                 filterItems={filterItems}
@@ -313,8 +226,8 @@ function App() {
               />
             }
           />
-          <Route path="favorites" element={<Favorites />} />
-          <Route path="orders" element={<Orders />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </div>
     </AppContext.Provider>

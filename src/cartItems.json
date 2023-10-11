@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "title": "Макі з авокадо",
+    "price": 47,
+    "count": 1,
+    "composition": "норі, рис, авокадо",
+    "weight": 115,
+    "imageUrl": "/img/product/1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Макі з вугрем",
+    "price": 65,
+    "count": 1,
+    "composition": "норі, рис, вугор, кунжут, унагі соус",
+    "weight": 125,
+    "imageUrl": "/img/product/2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Макі з копченим лососем",
+    "price": 62,
+    "count": 1,
+    "composition": "норі, рис, х/к",
+    "weight": 120,
+    "imageUrl": "/img/product/3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Макі з лососем",
+    "price": 59,
+    "count": 1,
+    "composition": "норі, рис, лосось філе",
+    "weight": 120,
+    "imageUrl": "/img/product/4.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Макі з манго",
+    "price": 52,
+    "count": 1,
+    "composition": "норі, рис, манго",
+    "weight": 115,
+    "imageUrl": "/img/product/5.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Макі з огірком",
+    "price": 39,
+    "count": 1,
+    "composition": "норі, рис, огірок, кунжут",
+    "weight": 115,
+    "imageUrl": "/img/product/6.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Макі з тунцем",
+    "price": 58,
+    "count": 1,
+    "composition": "норі, рис, тунець, унагі соус",
+    "weight": 123,
+    "imageUrl": "/img/product/7.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Макі філа",
+    "price": 42,
+    "count": 1,
+    "composition": "норі, рис, сир філа",
+    "weight": 115,
+    "imageUrl": "/img/product/8.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Макі з авокадо",
+    "price": 47,
+    "count": 1,
+    "composition": "норі, рис, авокадо",
+    "weight": 115,
+    "imageUrl": "/img/product/1.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Макі з вугрем",
+    "price": 65,
+    "count": 1,
+    "composition": "норі, рис, вугор, кунжут, унагі соус",
+    "weight": 125,
+    "imageUrl": "/img/product/2.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Макі з копченим лососем",
+    "price": 62,
+    "count": 1,
+    "composition": "норі, рис, х/к",
+    "weight": 120,
+    "imageUrl": "/img/product/3.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Макі з лососем",
+    "price": 59,
+    "count": 1,
+    "composition": "норі, рис, лосось філе",
+    "weight": 120,
+    "imageUrl": "/img/product/4.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Макі з манго",
+    "price": 52,
+    "count": 1,
+    "composition": "норі, рис, манго",
+    "weight": 115,
+    "imageUrl": "/img/product/5.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Макі з огірком",
+    "price": 39,
+    "count": 1,
+    "composition": "норі, рис, огірок, кунжут",
+    "weight": 115,
+    "imageUrl": "/img/product/6.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Макі з тунцем",
+    "price": 58,
+    "count": 1,
+    "composition": "норі, рис, тунець, унагі соус",
+    "weight": 123,
+    "imageUrl": "/img/product/7.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Макі філа",
+    "price": 42,
+    "count": 1,
+    "composition": "норі, рис, сир філа",
+    "weight": 115,
+    "imageUrl": "/img/product/8.jpg"
+  }
+]
