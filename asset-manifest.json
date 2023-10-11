@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/kung-fu-sushi/static/css/main.018c3aa5.css",
-    "main.js": "/kung-fu-sushi/static/js/main.8c620576.js",
+    "main.css": "/kung-fu-sushi/static/css/main.17dfb103.css",
+    "main.js": "/kung-fu-sushi/static/js/main.5f18f693.js",
     "static/media/white-fon5.jpg": "/kung-fu-sushi/static/media/white-fon5.bf773ef813767ab9eadb.jpg",
     "index.html": "/kung-fu-sushi/index.html",
-    "main.018c3aa5.css.map": "/kung-fu-sushi/static/css/main.018c3aa5.css.map",
-    "main.8c620576.js.map": "/kung-fu-sushi/static/js/main.8c620576.js.map"
+    "main.17dfb103.css.map": "/kung-fu-sushi/static/css/main.17dfb103.css.map",
+    "main.5f18f693.js.map": "/kung-fu-sushi/static/js/main.5f18f693.js.map"
   },
   "entrypoints": [
-    "static/css/main.018c3aa5.css",
-    "static/js/main.8c620576.js"
+    "static/css/main.17dfb103.css",
+    "static/js/main.5f18f693.js"
   ]
 }
