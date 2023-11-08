@@ -7,6 +7,7 @@ import Drawer from './components/Drawer/Drawer';
 import Home from './pages/Home/Home';
 import Favorites from './pages/Favorites/Favorites';
 import Orders from './pages/Orders/Orders';
+import NotFound from './pages/Error/NotFound';
 
 import AppContext from './Context';
 
@@ -52,8 +53,11 @@ function App() {
 
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = async (obj) => {
+
+
     console.log('obj', obj);
     console.log('cartItems', cartItems);
+
 
     const existingItem = cartItems.find(
       (item) => item.parentId === obj.parentId
@@ -122,7 +126,6 @@ function App() {
         const itemsResponse = await axios.get(
           'https://650f314454d18aabfe99ec68.mockapi.io/items'
         );
-
         setIsLoading(false);
         setCartItems(cartResponse.data);
         setFavorites(favoritesResponse.data);
@@ -131,6 +134,9 @@ function App() {
         alert('Помилка при запиті данних.');
         console.error(error);
       }
+      // axios.get(`http://localhost:5174/pizzas`).then(({ data }) => {
+      //   console.log('axios.get  data:', data);
+      // });
     }
 
     fetchData();
@@ -228,6 +234,7 @@ function App() {
           />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </AppContext.Provider>

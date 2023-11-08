@@ -37,8 +37,8 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
         { items: cartItems }
       );
 
-      console.log('items', items);
-      console.log('cartItems', cartItems);
+      // console.log('items', items);
+      // console.log('cartItems', cartItems);
       setOrderId(data.id);
       setIsOrderComplate(true);
     } catch (error) {
@@ -137,11 +137,13 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                   відправення'
                 </span>
               ) : (
-                'Добавте хоча би одну пару кросівок, щоб зробити замовлення.'
+                'Потрібно замовити хоча би одне суші'
               )
             }
             image={
-              isOrderComplate ? '/img/done-empty.jpg' : '/img/empty-cart.jpg'
+              isOrderComplate
+                ? '/img/done-empty.jpg'
+                : 'https://i.pinimg.com/474x/a0/ef/b2/a0efb23fe8bd66ca55dc7a2bcf4bed33.jpg'
             }
           />
         )}

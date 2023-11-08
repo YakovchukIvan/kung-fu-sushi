@@ -1,50 +1,50 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import styles from './NavSushi.module.scss';
 
-const NavSushi = () => {
+const NavSushi = ({ namePages }) => {
+  const [activePages, setActivePages] = useState(null);
+
   return (
     <>
       <nav className={styles.nav__sushi}>
+        {/* <ul>
+          <li
+            className={activeCategory === null ? 'active' : ''}
+            onClick={() => onClickCategory(null)}
+          >
+            Вся продукція
+          </li>
+          {items && // Якщо items зберігає true то функція виконається, якщо буде false(undefined, null) то функція не виконається
+            items.map((name, index) => (
+              <li
+                key={`${name}_${index}`}
+                className={activeCategory === index ? 'focus__item' : ''}
+                onClick={() => onClickCategory(index)}
+              >
+                {name}
+              </li>
+            ))}
+        </ul> */}
         <ul className={styles.list__navSushi}>
-          <li className={styles.list__navSushi}>
+          {namePages.map((name, index) => (
+            <li key={`${name}_${index}`} onClick={() => setActivePages(index)}>
+              <Link
+                className={
+                  activePages === index
+                    ? styles.active__item // Використовуємо змінну з CSS-модулем
+                    : '' // Використовуємо ту саму змінну
+                }
+                to="/"
+              >
+                {name}
+              </Link>
+            </li>
+          ))}
+          {/* <li className={styles.list__navSushi}>
             <Link to="/">Дракони</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Каліфорнія</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Макі</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Напої</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Нігірі</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Пропозиція тижня</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Від шефа</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Сети</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Філадельфія</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Футомака</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Новинки(pumpkinrolls)</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Новинки (авторські роли)</Link>
-          </li>
-          <li className={styles.list__navSushi}>
-            <Link to="/">Вега роли</Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </>
