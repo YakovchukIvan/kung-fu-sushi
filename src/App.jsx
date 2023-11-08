@@ -53,8 +53,11 @@ function App() {
 
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = async (obj) => {
-    // console.log('obj', obj);
-    // console.log('cartItems', cartItems);
+
+
+    console.log('obj', obj);
+    console.log('cartItems', cartItems);
+
 
     const existingItem = cartItems.find(
       (item) => item.parentId === obj.parentId
@@ -113,6 +116,7 @@ function App() {
     async function fetchData() {
       try {
         setIsLoading(true);
+
         const cartResponse = await axios.get(
           'https://650f314454d18aabfe99ec68.mockapi.io/cart'
         );
