@@ -9,6 +9,23 @@ function Home({
   isLoading,
 }) {
   // console.log(filteredItems);
+
+  const navPages = [
+    'Дракони',
+    'Каліфорнія',
+    'Макі',
+    'Напої',
+    'Нігірі',
+    'Пропозиція тижня',
+    'Від шефа',
+    'Сети',
+    'Філадельфія',
+    'Футомака',
+    'Новинки(pumpkinrolls)',
+    'Новинки (авторські роли)',
+    'Вега роли',
+  ];
+
   const renderItems = () => {
     return (isLoading ? [...Array(12)] : filteredItems).map((item, index) => (
       <Card
@@ -34,7 +51,11 @@ function Home({
     <div className="content">
       <div className="d-flex align-center justify-between mb-40">
         <h2>
-          {searchValue ? `Пошук за запитом: "${searchValue}"` : <NavSushi />}
+          {searchValue ? (
+            `Пошук за запитом: "${searchValue}"`
+          ) : (
+            <NavSushi namePages={navPages} />
+          )}
         </h2>
       </div>
       <div className="block-items-title">
