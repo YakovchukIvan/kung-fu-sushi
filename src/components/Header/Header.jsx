@@ -16,20 +16,20 @@ function Header(props) {
 
             <div className={styles.logo__title}>
               <h3>kung-fu Sushi</h3>
-              <p>Магазин найсмачніших суші</p>
+              <p>Магазин пандових суші</p>
             </div>
           </div>
         </Link>
         <div className={styles.search__block}>
           <img src="/img/search.svg" alt="Search-icon" />
-          {props.searchValue && (
+          {/* {props.searchValue && (
             <img
               onClick={props.onClearSearchInput}
               className="clear cu-p"
               src="/img/btn-remove.svg"
               alt="btn-remove-search"
             />
-          )}
+          )} */}
           <input
             onChange={props.onChangeSearchInput}
             value={props.searchValue}
