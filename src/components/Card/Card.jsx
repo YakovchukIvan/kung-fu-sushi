@@ -1,9 +1,9 @@
 import ContentLoader from 'react-content-loader';
 import { Link } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md';
 
-import AppContext from '../../Context';
+// import AppContext from '../../Context';
 
 import styles from './Card.module.scss';
 
