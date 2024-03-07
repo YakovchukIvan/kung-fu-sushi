@@ -1,10 +1,6 @@
 import ContentLoader from 'react-content-loader';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md';
 
-// import AppContext from '../../Context';
-
+import Item from './Item';
 import styles from './Card.module.scss';
 
 function Card({
@@ -20,90 +16,23 @@ function Card({
   favorited = false,
   loading = false,
 }) {
-  //
-
-  const [isFavorite, setIsFavorite] = useState(favorited);
-  const itemObj = {
-    id,
-    parentId: id,
-    title,
-    imageUrl,
-    price,
-    count,
-    composition,
-    weight,
-  };
-
-  const onClickPlus = () => {
-    onPlus(itemObj);
-    console.log('itemObj CARD.JSX', itemObj);
-  };
-
-  const onClickFavorite = () => {
-    onFavorite(itemObj);
-    setIsFavorite(!isFavorite);
-  };
-
   return (
     <div className={styles.card}>
       {loading ? (
-        <ContentLoader
-          speed={2}
-          width={160}
-          height={250}
-          viewBox="0 0 155 187"
-          backgroundColor="#f3f3f3"
-          foregroundColor="#ecebeb"
-        >
-          <rect x="0" y="0" rx="10" ry="10" width="155" height="90" />
-          <rect x="0" y="100" rx="5" ry="5" width="155" height="15" />
-          <rect x="0" y="125" rx="5" ry="5" width="100" height="15" />
-          <rect x="0" y="155" rx="5" ry="5" width="80" height="25" />
-          <rect x="122" y="150" rx="5" ry="5" width="32" height="32" />
-        </ContentLoader>
+        <ContentLoader />
       ) : (
-        <Link>
-          <div className={styles.favorite} onClick={onClickFavorite}>
-            {' '}
-            {onFavorite &&
-              (isFavorite ? (
-                <MdOutlineFavoriteBorder color="#fff" size={24} />
-              ) : (
-                <MdOutlineFavorite color="#fff" size={24} />
-              ))}
-            {/* {onFavorite && (
-              <img
-                src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'}
-                alt={isFavorite ? 'Liked' : 'Unliked'}
-              />
-            )} */}
-          </div>
-
-          <img className={styles.itemProduct} src={imageUrl} alt="sushi" />
-          <h4>{title}</h4>
-
-          <div className="d-flex justify-between align-center mt-10">
-            <div className="d-flex flex-column">
-              <span>Ціна:</span>
-              <b>{price}.00 грн.</b>
-            </div>
-            {onPlus && (
-              <img
-                className={styles.plus}
-                src="/img/btn-plus.svg"
-                alt="btn-plus"
-                onClick={onClickPlus}
-              />
-            )}
-          </div>
-          <div className={styles.compositionBlock}>
-            <strong>Склад: </strong>
-            <span>{composition}</span>
-            <p className={styles.compositionWeight}>
-              <span>{weight} г</span>
-            </p>
-          </div>
-        </Link>
+        <Item
+          id={id}
+          title={title}
+          imageUrl={imageUrl}
+          price={price}
+          composition={composition}
+          weight={weight}
+          count={count}
+          onFavorite={onFavorite}
+          onPlus={onPlus}
+          favorited={favorited}
+        />
       )}
     </div>
   );

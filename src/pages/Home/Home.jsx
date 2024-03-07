@@ -8,8 +8,6 @@ function Home({
   onAddToCart,
   isLoading,
 }) {
-  // console.log(filteredItems);
-
   const navPages = [
     'Дракони',
     'Каліфорнія',

@@ -53,11 +53,8 @@ function App() {
 
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = async (obj) => {
-
-
     console.log('obj', obj);
     console.log('cartItems', cartItems);
-
 
     const existingItem = cartItems.find(
       (item) => item.parentId === obj.parentId
@@ -85,7 +82,7 @@ function App() {
 
       try {
         await axios.put(
-          `https://650f314454d18aabfe99ec68.mockapi.io/cart/${obj.id}`,
+          `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${obj.id}`,
           {
             count: existingItem.count + 1, // Збільшуємо кількість на сервері
           }
@@ -100,7 +97,7 @@ function App() {
       // Додаємо новий товар на сервер
       try {
         const { data } = await axios.post(
-          'https://650f314454d18aabfe99ec68.mockapi.io/cart',
+          'https://651323cd8e505cebc2e9a121.mockapi.io/cart',
           obj
         );
 
@@ -118,7 +115,7 @@ function App() {
         setIsLoading(true);
 
         const cartResponse = await axios.get(
-          'https://650f314454d18aabfe99ec68.mockapi.io/cart'
+          'https://651323cd8e505cebc2e9a121.mockapi.io/cart'
         );
         const favoritesResponse = await axios.get(
           'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
@@ -172,7 +169,7 @@ function App() {
     try {
       console.log(id);
       await axios.delete(
-        `https://650f314454d18aabfe99ec68.mockapi.io/cart/${id}`
+        `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${id}`
       );
 
       setCartItems((prev) =>
