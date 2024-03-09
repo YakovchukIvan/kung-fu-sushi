@@ -1,5 +1,7 @@
 .nav__sushi {
   width: 100%;
+  margin-top: 100px;
+
   // border: 1px solid red;
   // display: flex;
   // flex-direction: row;
@@ -9,7 +11,7 @@
     flex-wrap: wrap;
     gap: 5px;
 
-    .active__item {
+    .active__nav {
       color: #de0000;
       border-bottom: 1px solid red;
     }

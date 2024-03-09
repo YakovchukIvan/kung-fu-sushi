@@ -41,7 +41,7 @@ body {
 }
 
 .content {
-  margin-top: 100px;
+  // margin-top: 100px;
   width: 100%;
   // border: 1px solid red;
   h2 {
@@ -89,6 +89,7 @@ body {
   max-width: 1080px;
   // border: 2px solid rgb(69, 69, 231);
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
 }
@@ -225,7 +226,7 @@ body {
 
 @media screen and (max-width: 905px) {
   .block-items {
-    width: 500px;
+    // width: 600px;
     // border: 1px solid red;
   }
 }

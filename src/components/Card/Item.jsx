@@ -30,7 +30,7 @@ function Item({
 
   const onClickPlus = () => {
     onPlus(itemObj);
-    console.log('itemObj CARD.JSX', itemObj);
+    console.log('CARD.JSX', itemObj);
   };
 
   const onClickFavorite = () => {

@@ -10,7 +10,6 @@ import Orders from './pages/Orders/Orders';
 import NotFound from './pages/Error/NotFound';
 
 import AppContext from './Context';
-import NavSushi from './components/NavigationSushi/NavSushi';
 
 function App() {
   // Створюємо масив з данним з бек-енд
@@ -26,7 +25,8 @@ function App() {
   // Поки не загрузився повністю сайт, використовуємо skeleton в компоненті card
   const [isLoading, setIsLoading] = useState(true);
   // Масив з вкладками категорій суші
-  const [categorySushi, setCategorySushi] = useState([]);
+  const [categorySushi, setCategorySushi] = useState('Dracon');
+  // Масив з вкладками категорій суші
 
   //
   const isItemAdded = (id) => {
@@ -63,8 +63,6 @@ function App() {
     const existingItem = cartItems.find(
       (item) => item.parentId === obj.parentId
     );
-
-    // console.log(existingItem);
 
     if (existingItem) {
       console.log('Спрацював true');
@@ -113,42 +111,39 @@ function App() {
   };
 
   // Для отримання данних з бек-енда
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setIsLoading(true);
+  useEffect(
+    () => {
+      async function fetchData() {
+        try {
+          setIsLoading(true);
 
-        const cartResponse = await axios.get(
-          'https://651323cd8e505cebc2e9a121.mockapi.io/cart'
-        );
-        const favoritesResponse = await axios.get(
-          'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
-        );
-        const itemsResponse = await axios.get(
-          'https://650f314454d18aabfe99ec68.mockapi.io/items'
-        );
-        setIsLoading(false);
-        setCartItems(cartResponse.data);
-        setFavorites(favoritesResponse.data);
-        setItems(itemsResponse.data);
-
-        const uniqueCategories = [
-          ...new Set(itemsResponse.data.map((product) => product.category)),
-        ];
-        setCategorySushi(uniqueCategories);
-
-        console.log(uniqueCategories); // Виведе всі унікальні категорії у вигляді масиву
-      } catch (error) {
-        alert('Помилка при запиті данних.');
-        console.error(error);
+          const cartResponse = await axios.get(
+            'https://651323cd8e505cebc2e9a121.mockapi.io/cart'
+          );
+          const favoritesResponse = await axios.get(
+            'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
+          );
+          const itemsResponse = await axios.get(
+            `https://650f314454d18aabfe99ec68.mockapi.io/items?filter=${categorySushi}`
+          );
+          setIsLoading(false);
+          setCartItems(cartResponse.data);
+          setFavorites(favoritesResponse.data);
+          setItems(itemsResponse.data);
+        } catch (error) {
+          alert('Помилка при запиті данних.');
+          console.error(error);
+        }
+        // axios.get(`http://localhost:5174/pizzas`).then(({ data }) => {
+        //   console.log('axios.get  data:', data);
+        // });
       }
-      // axios.get(`http://localhost:5174/pizzas`).then(({ data }) => {
-      //   console.log('axios.get  data:', data);
-      // });
-    }
 
-    fetchData();
-  }, []);
+      fetchData();
+    },
+    [categorySushi],
+    [cartItems]
+  );
 
   const onAddToFavorite = async (obj) => {
     // console.log(obj);
@@ -204,7 +199,7 @@ function App() {
         setCartOpened,
         setCartItems,
         setItems,
-        categorySushi,
+        setCategorySushi,
       }}
     >
       <div className="wrapper clear">
@@ -242,7 +237,6 @@ function App() {
               />
             }
           />
-          <Route path="/category" element={<NavSushi />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="*" element={<NotFound />} />

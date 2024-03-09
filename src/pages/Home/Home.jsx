@@ -1,5 +1,5 @@
 import Card from '../../components/Card/Card';
-import NavSushi from '../../components/NavigationSushi/NavSushi';
+import CategorySushi from './CategorySushi';
 
 function Home({
   filteredItems,
@@ -8,22 +8,6 @@ function Home({
   onAddToCart,
   isLoading,
 }) {
-  const navPages = [
-    'Дракони',
-    'Каліфорнія',
-    'Макі',
-    'Напої',
-    'Нігірі',
-    'Пропозиція тижня',
-    'Від шефа',
-    'Сети',
-    'Філадельфія',
-    'Футомака',
-    'Новинки(pumpkinrolls)',
-    'Новинки (авторські роли)',
-    'Вега роли',
-  ];
-
   const renderItems = () => {
     return (isLoading ? [...Array(12)] : filteredItems).map((item, index) => (
       <Card
@@ -39,13 +23,11 @@ function Home({
   return (
     <div className="content">
       <div className="d-flex align-center justify-between mb-40">
-        <h2>
-          {searchValue ? (
-            `Пошук за запитом: "${searchValue}"`
-          ) : (
-            <NavSushi namePages={navPages} />
-          )}
-        </h2>
+        {searchValue ? (
+          <h2>Пошук за запитом: {searchValue}</h2>
+        ) : (
+          <CategorySushi />
+        )}
       </div>
       <div className="block-items-title">
         <div className="block-items ">{renderItems()}</div>
