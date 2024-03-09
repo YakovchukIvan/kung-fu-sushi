@@ -225,7 +225,8 @@ body {
 
 @media screen and (max-width: 905px) {
   .block-items {
-    max-width: 529px;
+    width: 500px;
+    // border: 1px solid red;
   }
 }
 

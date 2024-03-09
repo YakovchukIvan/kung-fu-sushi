@@ -10,6 +10,7 @@ import Orders from './pages/Orders/Orders';
 import NotFound from './pages/Error/NotFound';
 
 import AppContext from './Context';
+import NavSushi from './components/NavigationSushi/NavSushi';
 
 function App() {
   // Створюємо масив з данним з бек-енд
@@ -24,6 +25,9 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   // Поки не загрузився повністю сайт, використовуємо skeleton в компоненті card
   const [isLoading, setIsLoading] = useState(true);
+  // Масив з вкладками категорій суші
+  const [categorySushi, setCategorySushi] = useState([]);
+
   //
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
@@ -127,6 +131,13 @@ function App() {
         setCartItems(cartResponse.data);
         setFavorites(favoritesResponse.data);
         setItems(itemsResponse.data);
+
+        const uniqueCategories = [
+          ...new Set(itemsResponse.data.map((product) => product.category)),
+        ];
+        setCategorySushi(uniqueCategories);
+
+        console.log(uniqueCategories); // Виведе всі унікальні категорії у вигляді масиву
       } catch (error) {
         alert('Помилка при запиті данних.');
         console.error(error);
@@ -192,6 +203,8 @@ function App() {
         onAddToFavorite,
         setCartOpened,
         setCartItems,
+        setItems,
+        categorySushi,
       }}
     >
       <div className="wrapper clear">
@@ -229,6 +242,7 @@ function App() {
               />
             }
           />
+          <Route path="/category" element={<NavSushi />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="*" element={<NotFound />} />

@@ -27,15 +27,6 @@ function Home({
   const renderItems = () => {
     return (isLoading ? [...Array(12)] : filteredItems).map((item, index) => (
       <Card
-        // Перший спосіб, просто вписуючи сюди метод
-        // items.filter((item) =>
-        //   item.title.toLowerCase().includes(searchValue.toLowerCase())
-        // )
-        // Другий спосіб з створенням окремих функцій filteredItems
-        // id={item.id}
-        // title={item.title}
-        // price={item.price}
-        // imageUrl={item.imageUrl}
         {...item}
         key={index}
         onFavorite={(obj) => onAddToFavorite(obj)}
