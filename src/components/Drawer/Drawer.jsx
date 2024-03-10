@@ -19,23 +19,30 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
     try {
       setIsLoading(true);
 
+      // Тепер можна створювати замовлення і робити інші дії
+      console.log(cartItems);
+      const { data } = await new Promise((resolve) => {
+        setTimeout(async () => {
+          resolve(
+            await axios.post(
+              'https://65ed7a9908706c584d99d718.mockapi.io/orders',
+              { items: cartItems }
+            )
+          );
+        }, 2000); // Затримка в 5 секунд
+      });
+
       // Видаляємо товари з сервера
       for (let i = 0; i < cartItems.length; i++) {
         const item = cartItems[i];
         await axios.delete(
-          'https://650f314454d18aabfe99ec68.mockapi.io/cart/' + item.id
+          'https://651323cd8e505cebc2e9a121.mockapi.io/cart/' + item.id
         );
         await delay(1000);
       }
 
       // Після видалення товарів з сервера, очищаємо корзину
       setCartItems([]);
-
-      // Тепер можна створювати замовлення і робити інші дії
-      const { data } = await axios.post(
-        'https://651323cd8e505cebc2e9a121.mockapi.io/orders/',
-        { items: cartItems }
-      );
 
       // console.log('items', items);
       // console.log('cartItems', cartItems);
@@ -50,8 +57,6 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 
   return (
     <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
-      {/*  */}
-
       <div className={`${styles.bgClose}`} onClick={() => onClose()}></div>
 
       <div className={styles.drawer}>
@@ -72,7 +77,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
             <div className={styles.items}>
               {items.map((product) => (
                 <div
-                  key={product.id}
+                  key={product.imageUrl}
                   className="cartItem d-flex align-center mb-20"
                 >
                   <div
@@ -93,12 +98,6 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                       alt="btn-remove"
                     />
                   </div>
-                  {/* <img
-                    onClick={() => onRemove(product.id)}
-                    className="removeBtn"
-                    src="/img/btn-remove.svg"
-                    alt="btn-remove"
-                  /> */}
                 </div>
               ))}
             </div>
@@ -121,7 +120,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                 onClick={onClickOrder}
                 className="greenButton"
               >
-                Оформити замовлення{' '}
+                Оформити замовлення
                 <img src="/img/arrow.svg" alt="arrow-icon" />
               </button>
             </div>
@@ -140,11 +139,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                 'Потрібно замовити хоча би одне суші'
               )
             }
-            image={
-              isOrderComplate
-                ? '/img/done-empty.jpg'
-                : 'https://i.pinimg.com/474x/a0/ef/b2/a0efb23fe8bd66ca55dc7a2bcf4bed33.jpg'
-            }
+            image={isOrderComplate ? '/img/logo2.jpg' : '/img/cart-empty.jpg'}
           />
         )}
       </div>

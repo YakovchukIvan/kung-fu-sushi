@@ -17,6 +17,7 @@ function Item({
   favorited = false,
 }) {
   const [isFavorite, setIsFavorite] = useState(favorited);
+
   const itemObj = {
     id,
     parentId: id,
@@ -58,7 +59,7 @@ function Item({
       <h4>{title}</h4>
 
       <div className="d-flex justify-between align-center mt-10">
-        <div className="d-flex flex-column">
+        <div className={`d-flex flex-column ${styles.priceTitle}`}>
           <span>Ціна:</span>
           <b>{price}.00 грн.</b>
         </div>

@@ -10,7 +10,7 @@ function Orders() {
     async function fetchData() {
       try {
         const { data } = await axios.get(
-          'https://651323cd8e505cebc2e9a121.mockapi.io/orders/'
+          'https://65ed7a9908706c584d99d718.mockapi.io/orders/'
         );
         // Перший варіант. Дістаємо з бекенд масив з orders та поєднуємо його в один масив з окремими обєктами
         // console.log(data.map((obj) => obj.items).flat());

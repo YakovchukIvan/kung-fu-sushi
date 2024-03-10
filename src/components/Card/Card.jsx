@@ -16,6 +16,8 @@ function Card({
   favorited = false,
   loading = false,
 }) {
+  console.log('card', id);
+
   return (
     <div className={styles.card}>
       {loading ? (

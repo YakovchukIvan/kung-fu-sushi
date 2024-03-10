@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 
-import styles from './NavSushi.module.scss';
+import styles from './CategorySushi.module.scss';
 import AppContext from '../../Context';
 
 const navPages = [
@@ -12,10 +12,10 @@ const navPages = [
   'Пропозиція тижня',
   'Від шефа',
   'Сети',
+  'Новинки (авторські роли)',
   'Філадельфія',
   'Футомака',
   'Новинки(pumpkinrolls)',
-  'Новинки (авторські роли)',
   'Вега роли',
 ];
 
@@ -28,10 +28,10 @@ const categorySushi = [
   'Offer-of-the-week',
   'from-boss',
   'Sets',
+  'Novelty-master',
   'Philadelphia',
   'Futomaki',
   'Novelty',
-  'Novelty-master',
   'Vega-roles',
 ];
 

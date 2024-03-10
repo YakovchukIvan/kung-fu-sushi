@@ -57,12 +57,7 @@ function App() {
 
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = async (obj) => {
-    console.log('obj', obj);
-    console.log('cartItems', cartItems);
-
-    const existingItem = cartItems.find(
-      (item) => item.parentId === obj.parentId
-    );
+    const existingItem = cartItems.find((item) => item.title === obj.title);
 
     if (existingItem) {
       console.log('Спрацював true');
@@ -71,8 +66,6 @@ function App() {
       setCartItems((prev) =>
         prev.map((item) => {
           if (item.parentId === obj.parentId) {
-            console.log(item.parentId);
-            console.log(obj.parentId);
             return {
               ...item,
               count: item.count + 1, // Збільшуємо кількість на 1
@@ -84,7 +77,7 @@ function App() {
 
       try {
         await axios.put(
-          `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${obj.id}`,
+          `https://651323cd8e505cebc2e9a121.mockapi.io/cart?filter=${obj.parentId}`,
           {
             count: existingItem.count + 1, // Збільшуємо кількість на сервері
           }
@@ -105,7 +98,8 @@ function App() {
 
         console.log('data', data);
       } catch (error) {
-        alert('Помилка при додаванні товару в кошик на сервері');
+        console.log(error);
+        alert('Помилка при додаванні товару в кошик на сервері', error);
       }
     }
   };
@@ -187,6 +181,16 @@ function App() {
     }
   };
 
+  const drawerClose = () => {
+    setCartOpened(false);
+    document.body.style.overflow = 'visible';
+  };
+
+  const drawerOpen = () => {
+    setCartOpened(true);
+    document.body.style.overflow = 'hidden';
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -207,7 +211,7 @@ function App() {
 
         <Drawer
           items={cartItems}
-          onClose={() => setCartOpened(false)}
+          onClose={() => drawerClose()}
           onRemove={onRemoveItem}
           opened={cartOpened}
         />
@@ -217,7 +221,7 @@ function App() {
           searchValue={searchValue}
           onChangeSearchInput={onChangeSearchInput}
           onClearSearchInput={onClearSearchInput}
-          onClickCart={() => setCartOpened(true)}
+          onClickCart={() => drawerOpen()}
         />
 
         <Routes>
