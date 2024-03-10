@@ -11,8 +11,10 @@ function Card({
   composition,
   weight,
   count,
+  category,
   onFavorite,
   onPlus,
+  favorite,
   favorited = false,
   loading = false,
 }) {
@@ -42,8 +44,10 @@ function Card({
           composition={composition}
           weight={weight}
           count={count}
+          category={category}
           onFavorite={onFavorite}
           onPlus={onPlus}
+          favorite={favorite}
           favorited={favorited}
         />
       )}

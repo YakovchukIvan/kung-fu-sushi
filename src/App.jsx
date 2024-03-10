@@ -88,7 +88,7 @@ function App() {
           'Мокапі обмежує правильне додавання кількості товару:',
           error
         );
-        alert('Помилка при оновленні кількості товару в кошику на сервері');
+        // alert('Помилка при оновленні кількості товару в кошику на сервері');
       }
     } else {
       // Якщо товару немає в кошику, додаємо його
@@ -136,9 +136,6 @@ function App() {
           alert('Помилка при запиті данних.');
           console.error(error);
         }
-        // axios.get(`http://localhost:5174/pizzas`).then(({ data }) => {
-        //   console.log('axios.get  data:', data);
-        // });
       }
 
       fetchData();
@@ -148,17 +145,12 @@ function App() {
   );
 
   const onAddToFavorite = async (obj) => {
-    // console.log(obj);
     // // Перевірка чи вже додано favorite, якщо так тоді видаляємо. Якщо favorite = true, тоді else додаємо товар до favorite
-    // console.log(obj);
     try {
       if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
         await axios.delete(
           `https://651323cd8e505cebc2e9a121.mockapi.io/favorites/${obj.id}`
         );
-        // setFavorites((prev) =>
-        //   prev.filter((item) => Number(item.id) === Number(obj.id))
-        // );
       } else {
         const { data } = await axios.post(
           'https://651323cd8e505cebc2e9a121.mockapi.io/favorites',
@@ -233,7 +225,6 @@ function App() {
           onClearSearchInput={onClearSearchInput}
           onClickCart={() => drawerOpen()}
         />
-
         <Routes>
           <Route
             path="/"

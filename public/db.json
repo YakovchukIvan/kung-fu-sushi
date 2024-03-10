@@ -7,7 +7,8 @@
     "composition": "норі, рис, тигрова креветка, огірок, лосось філе, тобіко (зверху), сир філа",
     "weight": 270,
     "imageUrl": "/img/product/Dracon/1.jpg",
-    "category": "Dracon"
+    "category": "Dracon",
+    "favorite": false
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "composition": "норі, рис, сир філа, вугор, ікра тобіко, авокадо, унагі соус, кунжут, огірок",
     "weight": 275,
     "imageUrl": "/img/product/Dracon/2.jpg",
-    "category": "Dracon"
+    "category": "Dracon",
+    "favorite": false
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
     "composition": "норі, рис, огірок, вугор, тобіко, сир філа, тигрова креветка",
     "weight": 255,
     "imageUrl": "/img/product/Dracon/3.jpg",
-    "category": "Dracon"
+    "category": "Dracon",
+    "favorite": false
   },
   {
     "id": 4,
@@ -37,7 +40,8 @@
     "composition": "норі, рис, огірок, тигрова креветка, сир філа, авокадо, тунець, унагі соус, ікра тобіко",
     "weight": 290,
     "imageUrl": "/img/product/Dracon/4.jpg",
-    "category": "Dracon"
+    "category": "Dracon",
+    "favorite": false
   },
   {
     "id": 5,
@@ -47,7 +51,8 @@
     "composition": "норі, рис, ікра тобіко, авокадо, сир філа, лосось сирий, вугор, унагі соус, кунжут",
     "weight": 285,
     "imageUrl": "/img/product/Dracon/5.jpg",
-    "category": "Dracon"
+    "category": "Dracon",
+    "favorite": false
   },
   {
     "id": 6,
@@ -57,7 +62,8 @@
     "composition": "норі, рис, копчений лосось, огірок, авокадо, сир філа, кунжут",
     "weight": 265,
     "imageUrl": "/img/product/California/1.jpg",
-    "category": "California"
+    "category": "California",
+    "favorite": false
   },
   {
     "id": 7,
@@ -67,7 +73,8 @@
     "composition": "норі, рис, тобіко, лосось, сир філадельфія, огірок",
     "weight": 255,
     "imageUrl": "/img/product/California/2.jpg",
-    "category": "California"
+    "category": "California",
+    "favorite": false
   },
   {
     "id": 8,
@@ -77,7 +84,8 @@
     "composition": "норі, рис, огірок, авокадо, тобіко (зверху), лосось філе, японський м.",
     "weight": 255,
     "imageUrl": "/img/product/California/3.jpg",
-    "category": "California"
+    "category": "California",
+    "favorite": false
   },
   {
     "id": 9,
@@ -87,7 +95,8 @@
     "composition": "норі, рис, лосось філе, авокадо, огірок, японський м., кунжут",
     "weight": 255,
     "imageUrl": "/img/product/California/4.jpg",
-    "category": "California"
+    "category": "California",
+    "favorite": false
   },
   {
     "id": 10,
@@ -97,7 +106,8 @@
     "composition": "норі, рис, авокадо",
     "weight": 115,
     "imageUrl": "/img/product/Maki/1.jpg",
-    "category": "Maki"
+    "category": "Maki",
+    "favorite": false
   },
   {
     "id": 11,
@@ -107,7 +117,8 @@
     "composition": "норі, рис, вугор, кунжут, унагі соус",
     "weight": 125,
     "imageUrl": "/img/product/Maki/2.jpg",
-    "category": "Maki"
+    "category": "Maki",
+    "favorite": false
   },
   {
     "id": 12,
@@ -117,7 +128,8 @@
     "composition": "норі, рис, х/к",
     "weight": 120,
     "imageUrl": "/img/product/Maki/3.jpg",
-    "category": "Maki"
+    "category": "Maki",
+    "favorite": false
   },
   {
     "id": 13,
@@ -127,7 +139,8 @@
     "composition": "норі, рис, лосось філе",
     "weight": 120,
     "imageUrl": "/img/product/Maki/4.jpg",
-    "category": "Maki"
+    "category": "Maki",
+    "favorite": false
   },
   {
     "id": 14,
@@ -137,7 +150,8 @@
     "composition": "норі, рис, манго",
     "weight": 115,
     "imageUrl": "/img/product/Maki/5.jpg",
-    "category": "Maki"
+    "category": "Maki",
+    "favorite": false
   },
   {
     "id": 15,
@@ -147,7 +161,8 @@
     "composition": "норі, рис, огірок, кунжут",
     "weight": 115,
     "imageUrl": "/img/product/Maki/6.jpg",
-    "category": "Maki"
+    "category": "Maki",
+    "favorite": false
   },
   {
     "id": 16,
@@ -157,7 +172,8 @@
     "composition": "норі, рис, тунець, унагі соус",
     "weight": 123,
     "imageUrl": "/img/product/Maki/7.jpg",
-    "category": "Maki"
+    "category": "Maki",
+    "favorite": false
   },
   {
     "id": 17,
@@ -167,7 +183,8 @@
     "composition": "норі, рис, сир філа",
     "weight": 115,
     "imageUrl": "/img/product/Maki/8.jpg",
-    "category": "Maki"
+    "category": "Maki",
+    "favorite": false
   },
   {
     "id": 18,
@@ -176,7 +193,8 @@
     "count": 1,
     "weight": 0.5,
     "imageUrl": "/img/product/Drinks/1.jpg",
-    "category": "Drinks"
+    "category": "Drinks",
+    "favorite": false
   },
   {
     "id": 19,
@@ -185,7 +203,8 @@
     "count": 1,
     "weight": 0.75,
     "imageUrl": "/img/product/Drinks/2.jpg",
-    "category": "Drinks"
+    "category": "Drinks",
+    "favorite": false
   },
   {
     "id": 20,
@@ -194,7 +213,8 @@
     "count": 1,
     "weight": 1,
     "imageUrl": "/img/product/Drinks/3.jpg",
-    "category": "Drinks"
+    "category": "Drinks",
+    "favorite": false
   },
   {
     "id": 21,
@@ -203,7 +223,8 @@
     "count": 1,
     "weight": 52,
     "imageUrl": "/img/product/Nigiri/1.jpg",
-    "category": "Nigiri"
+    "category": "Nigiri",
+    "favorite": false
   },
   {
     "id": 22,
@@ -212,7 +233,8 @@
     "count": 1,
     "weight": 52,
     "imageUrl": "/img/product/Nigiri/2.jpg",
-    "category": "Nigiri"
+    "category": "Nigiri",
+    "favorite": false
   },
   {
     "id": 23,
@@ -221,7 +243,8 @@
     "count": 1,
     "weight": 52,
     "imageUrl": "/img/product/Nigiri/3.jpg",
-    "category": "Nigiri"
+    "category": "Nigiri",
+    "favorite": false
   },
   {
     "id": 24,
@@ -232,7 +255,8 @@
     "composition": "Філадельфія з лососем 0,5 - Філадельфія з тунцем 0,5 - Філадельфія з креветкою - чіз рол з лососем - Каліфорнія зі смаженим лососем ",
     "weight": 1035,
     "imageUrl": "/img/product/Offer-of-the-week/1.JPEG",
-    "category": "Offer-of-the-week"
+    "category": "Offer-of-the-week",
+    "favorite": false
   },
 
   {
@@ -243,7 +267,8 @@
     "composition": "норі, рис, авокадо, лосось, огірок, унагі соуc, сир філа",
     "weight": 300,
     "imageUrl": "/img/product/from-boss/1.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
   {
     "id": 26,
@@ -253,7 +278,8 @@
     "composition": "норі, рис, сир філа, тобіко, авокадо, унагі соус, манго, лосось печений",
     "weight": 295,
     "imageUrl": "/img/product/from-boss/2.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
   {
     "id": 27,
@@ -263,7 +289,8 @@
     "composition": "норі, рис, лосось гриль, авокадо, унагі соус або шрірача (гострий соус), сир філадельфія, ікра тобіко",
     "weight": 285,
     "imageUrl": "/img/product/from-boss/3.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
   {
     "id": 28,
@@ -273,7 +300,8 @@
     "composition": "соєвий папір, рис, лосось печений, огірок, унагі соус, сир філадельфія, вугор, авокадо",
     "weight": 285,
     "imageUrl": "/img/product/from-boss/4.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
   {
     "id": 29,
@@ -283,7 +311,8 @@
     "composition": "норі, рис, авокадо, сир філа, лосось (печений), унагі соус, лосось сирий, перець (мелений)",
     "weight": 310,
     "imageUrl": "/img/product/from-boss/5.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
   {
     "id": 30,
@@ -293,7 +322,8 @@
     "composition": "норі, рис, сир філа, лосось гриль, огірок, шрірачі соус, унагі, вугор, кунжут",
     "weight": 300,
     "imageUrl": "/img/product/from-boss/6.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
   {
     "id": 31,
@@ -303,7 +333,8 @@
     "composition": "норі, рис, сир філа, манго, лосось печений, лимон",
     "weight": 295,
     "imageUrl": "/img/product/from-boss/7.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
   {
     "id": 32,
@@ -313,7 +344,8 @@
     "composition": "норі, рис, сир філа, огірок, вугор, спайсі, кунжут, унагі",
     "weight": 300,
     "imageUrl": "/img/product/from-boss/8.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
   {
     "id": 33,
@@ -323,7 +355,8 @@
     "composition": "норі, рис, тунець, сир філа, огірок, авокадо, унагі",
     "weight": 290,
     "imageUrl": "/img/product/from-boss/9.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
   {
     "id": 34,
@@ -333,7 +366,8 @@
     "composition": "норі, рис,тостовий сир, сир філа, унагі",
     "weight": 245,
     "imageUrl": "/img/product/from-boss/10.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
   {
     "id": 35,
@@ -343,7 +377,8 @@
     "composition": "норі, рис, сир філа, тигрова креветка, тобіко, сир тостовий, унагі соус",
     "weight": 260,
     "imageUrl": "/img/product/from-boss/11.jpg",
-    "category": "from-boss"
+    "category": "from-boss",
+    "favorite": false
   },
 
   {
@@ -354,7 +389,8 @@
     "composition": "зелений дракон, золотий дракон, вогняний дракон, чорний дракон, червоний дракон",
     "weight": 1375,
     "imageUrl": "/img/product/Sets/1.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 37,
@@ -364,7 +400,8 @@
     "composition": "макі з манго, макі з тунцем, макі з сиром філа, макі з лососем, макі з огірком, макі з копченим лососем",
     "weight": 705,
     "imageUrl": "/img/product/Sets/2.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 38,
@@ -374,7 +411,8 @@
     "composition": "рол гриль голд, спайсі рол, філадельфія з лососем, авокадо рол з лососем",
     "weight": 1180,
     "imageUrl": "/img/product/Sets/3.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 39,
@@ -384,7 +422,8 @@
     "composition": "філа з лососесм ½, філа з тунцем ½, філа з копч.лососем ½, філа з вугрем ½, філа з тигровою креветкою ½, філа сезам ½, рол хіко мак",
     "weight": 1090,
     "imageUrl": "/img/product/Sets/4.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 40,
@@ -394,7 +433,8 @@
     "composition": "філадельфія з лососем, філадельфія з х/к, філадельфія з тунцем, філадельфія з тигровою креветкою, філадельфія з вугрем",
     "weight": 1375,
     "imageUrl": "/img/product/Sets/5.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 41,
@@ -404,7 +444,8 @@
     "composition": "футо з куркою, футо зі смаженим тунцем, футо асорті, футо з лососем",
     "weight": 1170,
     "imageUrl": "/img/product/Sets/6.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 42,
@@ -414,7 +455,8 @@
     "composition": "філадельфія з лососем, філадельфія з тунцем, філадельфія сезам, каліфорнія з лососем в кунжуті",
     "weight": 1045,
     "imageUrl": "/img/product/Sets/7.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 43,
@@ -424,7 +466,8 @@
     "composition": "рол гриль голд, авокадо рол з печеним лососем та манго, філадельфія гриль з манго, чіз рол, футумак зі смаженим тунцем",
     "weight": 1450,
     "imageUrl": "/img/product/Sets/8.jpg",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 44,
@@ -434,7 +477,8 @@
     "composition": "Філадельфія з лососем 0,5 - Філадельфія з тунцем 0,5 - Філадельфія з креветкою - чіз рол з лососем - Каліфорнія зі смаженим лососем ",
     "weight": 725,
     "imageUrl": "/img/product/Sets/9.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 45,
@@ -444,7 +488,8 @@
     "composition": "Хіко Мак, Чіз рол, Каліфорнія зі смаженим лососем, Каліфорнія з копченим лососем",
     "weight": 1040,
     "imageUrl": "/img/product/Sets/10.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 46,
@@ -454,7 +499,8 @@
     "composition": "Філадельфія з лососем, Філадельфія з креветкою, Філадельфія сезам, Філадельфія з вугрем",
     "weight": 1065,
     "imageUrl": "/img/product/Sets/11.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 47,
@@ -464,7 +510,8 @@
     "composition": "філадельфія з лососем 1/2, філадельфія з копченим лососем 1/2, філадельфія з тунцем 1/2, філадельфія з вугрем 1/2, філадельфія з тигровою креветкою 1/2",
     "weight": 685,
     "imageUrl": "/img/product/Sets/12.jpg",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
   {
     "id": 48,
@@ -474,7 +521,8 @@
     "composition": "макі філа, філадельфія класік з лососем, чіз рол, блек чіз",
     "weight": 960,
     "imageUrl": "/img/product/Sets/13.png",
-    "category": "Sets"
+    "category": "Sets",
+    "favorite": false
   },
 
   {
@@ -485,7 +533,8 @@
     "composition": "норі, рис, сир філа, огірок, вугор, унагі соус, кунжут",
     "weight": 290,
     "imageUrl": "/img/product/Philadelphia/1.jpg",
-    "category": "Philadelphia"
+    "category": "Philadelphia",
+    "favorite": false
   },
   {
     "id": 50,
@@ -495,7 +544,8 @@
     "composition": "норі, рис, сир філа, огірок, копчений лосось",
     "weight": 270,
     "imageUrl": "/img/product/Philadelphia/2.jpg",
-    "category": "Philadelphia"
+    "category": "Philadelphia",
+    "favorite": false
   },
   {
     "id": 51,
@@ -505,7 +555,8 @@
     "composition": "норі, рис, сир філа, огірок, лосось сирий",
     "weight": 270,
     "imageUrl": "/img/product/Philadelphia/3.jpg",
-    "category": "Philadelphia"
+    "category": "Philadelphia",
+    "favorite": false
   },
   {
     "id": 52,
@@ -515,7 +566,8 @@
     "composition": "норі, рис, авокадо, лосось, сурімі, сир філадельфія",
     "weight": 275,
     "imageUrl": "/img/product/Philadelphia/4.jpg",
-    "category": "Philadelphia"
+    "category": "Philadelphia",
+    "favorite": false
   },
   {
     "id": 53,
@@ -525,7 +577,8 @@
     "composition": "норі, рис, сир філа, огірок, тигрова креветка",
     "weight": 260,
     "imageUrl": "/img/product/Philadelphia/5.jpg",
-    "category": "Philadelphia"
+    "category": "Philadelphia",
+    "favorite": false
   },
   {
     "id": 54,
@@ -535,7 +588,8 @@
     "composition": "норі, рис, сир філа, огірок, тунець, унагі соус",
     "weight": 285,
     "imageUrl": "/img/product/Philadelphia/6.jpg",
-    "category": "Philadelphia"
+    "category": "Philadelphia",
+    "favorite": false
   },
   {
     "id": 55,
@@ -545,7 +599,8 @@
     "composition": "норі, рис, сир філа, вугор, кунжут, унагі соус",
     "weight": 330,
     "imageUrl": "/img/product/Philadelphia/7.jpg",
-    "category": "Philadelphia"
+    "category": "Philadelphia",
+    "favorite": false
   },
   {
     "id": 56,
@@ -555,7 +610,8 @@
     "composition": "норі, рис, сир філа, х/к",
     "weight": 310,
     "imageUrl": "/img/product/Philadelphia/8.jpg",
-    "category": "Philadelphia"
+    "category": "Philadelphia",
+    "favorite": false
   },
   {
     "id": 57,
@@ -565,7 +621,8 @@
     "composition": "норі, рис, сир філа, лосось",
     "weight": 310,
     "imageUrl": "/img/product/Philadelphia/9.jpg",
-    "category": "Philadelphia"
+    "category": "Philadelphia",
+    "favorite": false
   },
   {
     "id": 58,
@@ -575,7 +632,8 @@
     "composition": "норі, рис, огірок, сир філа, кунжут",
     "weight": 235,
     "imageUrl": "/img/product/Philadelphia/10.jpg",
-    "category": "Philadelphia"
+    "category": "Philadelphia",
+    "favorite": false
   },
 
   {
@@ -586,7 +644,8 @@
     "composition": "норі, рис, японський м., сурімі, лосось сирий, огірок, салат, авокадо",
     "weight": 300,
     "imageUrl": "/img/product/Futomaki/1.jpg",
-    "category": "Futomaki"
+    "category": "Futomaki",
+    "favorite": false
   },
   {
     "id": 60,
@@ -596,7 +655,8 @@
     "composition": "норі, рис, огірок, сир філа, кунжут",
     "weight": 295,
     "imageUrl": "/img/product/Futomaki/2.jpg",
-    "category": "Futomaki"
+    "category": "Futomaki",
+    "favorite": false
   },
   {
     "id": 61,
@@ -606,7 +666,8 @@
     "composition": "норі, рис, огірок, сир філа, кунжут",
     "weight": 275,
     "imageUrl": "/img/product/Futomaki/3.jpg",
-    "category": "Futomaki"
+    "category": "Futomaki",
+    "favorite": false
   },
   {
     "id": 62,
@@ -616,7 +677,8 @@
     "composition": "норі, рис, огірок, сир філа, кунжут",
     "weight": 300,
     "imageUrl": "/img/product/Futomaki/4.jpg",
-    "category": "Futomaki"
+    "category": "Futomaki",
+    "favorite": false
   },
 
   {
@@ -627,7 +689,8 @@
     "composition": "Норі, Рис, Кунжут, Огірок, Манго, Лосось смажений, Маринований гарбуз",
     "weight": 255,
     "imageUrl": "/img/product/Novelty/1.jpg",
-    "category": "Novelty"
+    "category": "Novelty",
+    "favorite": false
   },
   {
     "id": 64,
@@ -637,7 +700,8 @@
     "composition": "Норі, Рис, Авокадо, Вугор, Маринований гарбуз, Унагі, Лосось",
     "weight": 315,
     "imageUrl": "/img/product/Novelty/2.jpg",
-    "category": "Novelty"
+    "category": "Novelty",
+    "favorite": false
   },
   {
     "id": 65,
@@ -647,7 +711,8 @@
     "composition": "Рис, Норі, Крем-сир, Авокадо, Ікра тобіко, Лосось, Кунжут білий, Маринований гарбуз, Унагі",
     "weight": 336,
     "imageUrl": "/img/product/Novelty/3.jpg",
-    "category": "Novelty"
+    "category": "Novelty",
+    "favorite": false
   },
   {
     "id": 66,
@@ -657,7 +722,8 @@
     "composition": "Рис, Соєвий папір, Авокадо, Вугор, Маринований гарбуз, Унагі, Кунжут білий, Крем-сир",
     "weight": 266,
     "imageUrl": "/img/product/Novelty/4.jpg",
-    "category": "Novelty"
+    "category": "Novelty",
+    "favorite": false
   },
 
   {
@@ -668,7 +734,8 @@
     "composition": "Норі, Рис, Сир філа, Тигрова креветка, Манго, Авокадо, Кунжут чорний, Унагі",
     "weight": 290,
     "imageUrl": "/img/product/Novelty-master/1.jpg",
-    "category": "Novelty-master"
+    "category": "Novelty-master",
+    "favorite": false
   },
   {
     "id": 68,
@@ -678,7 +745,8 @@
     "composition": "Норі, Рис, Тунець гриль, Манго, Сир філа, Лайм , Унагі",
     "weight": 295,
     "imageUrl": "/img/product/Novelty-master/2.jpg",
-    "category": "Novelty-master"
+    "category": "Novelty-master",
+    "favorite": false
   },
   {
     "id": 69,
@@ -688,7 +756,8 @@
     "composition": "Норі, Рис, Сир філа, Огірок, Авокадо, Лосось сирий, Вугор, Унагі соус, Кунжут білий",
     "weight": 290,
     "imageUrl": "/img/product/Novelty-master/3.jpg",
-    "category": "Novelty-master"
+    "category": "Novelty-master",
+    "favorite": false
   },
   {
     "id": 70,
@@ -698,7 +767,8 @@
     "composition": "Норі, Рис, Сир філа, Огірок, Лосось смажений,  Авокадо, Унагі",
     "weight": 310,
     "imageUrl": "/img/product/Novelty-master/4.jpg",
-    "category": "Novelty-master"
+    "category": "Novelty-master",
+    "favorite": false
   },
   {
     "id": 71,
@@ -708,7 +778,8 @@
     "composition": "Норі, авокадо, лосось, манго, огірок, кнжут, соус унагі.",
     "weight": 295,
     "imageUrl": "/img/product/Vega-roles/1.jpg",
-    "category": "Vega-roles"
+    "category": "Vega-roles",
+    "favorite": false
   },
   {
     "id": 72,
@@ -718,7 +789,8 @@
     "composition": "Соєвий папір, рис, авокадо, манго, листя салату, кунжут білий, соус унагі.",
     "weight": 235,
     "imageUrl": "/img/product/Vega-roles/2.jpg",
-    "category": "Vega-roles"
+    "category": "Vega-roles",
+    "favorite": false
   },
   {
     "id": 73,
@@ -728,7 +800,8 @@
     "composition": "Норі, рис, сир філадельфія, манго, тостовий сир, апельсин.",
     "weight": 245,
     "imageUrl": "/img/product/Vega-roles/3.jpg",
-    "category": "Vega-roles"
+    "category": "Vega-roles",
+    "favorite": false
   },
   {
     "id": 74,
@@ -738,6 +811,7 @@
     "composition": "Норі, рис, салат, огірок, ікра тобіко, сурімі.",
     "weight": 235,
     "imageUrl": "/img/product/Vega-roles/4.jpg",
-    "category": "Vega-roles"
+    "category": "Vega-roles",
+    "favorite": false
   }
 ]

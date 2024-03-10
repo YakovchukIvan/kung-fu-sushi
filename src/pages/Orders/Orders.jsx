@@ -22,7 +22,6 @@ function Orders() {
         console.error(error);
       }
     }
-
     fetchData();
   }, []);
 

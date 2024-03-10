@@ -13,15 +13,17 @@ function Item({
   composition,
   weight,
   count,
+  category,
+  favorite,
   onFavorite,
   onPlus,
   favorited = false,
 }) {
-  const [isFavorite, setIsFavorite] = useState(favorited);
+  const [isFavorite, setIsFavorite] = useState(favorite);
   const { setModalOpen } = useContext(AppContext);
 
   const itemObj = {
-    id: '23',
+    id,
     parentId: id,
     title,
     imageUrl,
@@ -29,6 +31,7 @@ function Item({
     count,
     composition,
     weight,
+    favorite,
   };
 
   const onClickPlus = () => {
@@ -48,18 +51,17 @@ function Item({
   return (
     <Link>
       <div className={styles.favorite} onClick={onClickFavorite}>
-        {onFavorite &&
+        {isFavorite ? (
+          <MdOutlineFavorite color="#fff" size={24} />
+        ) : (
+          <MdOutlineFavoriteBorder color="#fff" size={24} />
+        )}
+        {/* {favorite &&
           (isFavorite ? (
-            <MdOutlineFavoriteBorder color="#fff" size={24} />
-          ) : (
             <MdOutlineFavorite color="#fff" size={24} />
-          ))}
-        {/* {onFavorite && (
-        <img
-          src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'}
-          alt={isFavorite ? 'Liked' : 'Unliked'}
-        />
-      )} */}
+          ) : (
+            <MdOutlineFavoriteBorder color="#fff" size={24} />
+          ))} */}
       </div>
 
       <img className={styles.itemProduct} src={imageUrl} alt="sushi" />
@@ -83,7 +85,9 @@ function Item({
         <strong>Склад: </strong>
         <span>{composition}</span>
         <p className={styles.compositionWeight}>
-          <span>{weight} г</span>
+          <span>
+            {weight} {category === 'Drinks' ? 'л' : 'г'}
+          </span>
         </p>
       </div>
     </Link>
