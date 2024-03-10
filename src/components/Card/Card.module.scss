@@ -89,6 +89,13 @@
   }
 }
 
+@media screen and (max-width: 926px) {
+  .card {
+    padding: 15px;
+    max-width: 180px;
+  }
+}
+
 @media screen and (max-width: 913px) {
   .card {
     padding: 15px;
@@ -96,21 +103,21 @@
   }
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 831px) {
   .card {
     padding: 15px;
     max-width: 215px;
   }
 }
 
-@media screen and (max-width: 713px) {
+@media screen and (max-width: 721px) {
   .card {
     padding: 15px;
     max-width: 190px;
   }
 }
 
-@media screen and (max-width: 623px) {
+@media screen and (max-width: 636px) {
   .card {
     padding: 10px;
     max-width: 175px;
@@ -122,7 +129,7 @@
   }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 591px) {
   .card {
     max-width: 155px;
   }
@@ -171,7 +178,10 @@
   }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 471px) {
+  .wrapper {
+    padding: 0;
+  }
   .card {
     max-width: 170px;
     padding: 5px;
@@ -190,7 +200,7 @@
   }
 }
 
-@media screen and (max-width: 365px) {
+@media screen and (max-width: 381px) {
   .card {
     max-width: 150px;
   }

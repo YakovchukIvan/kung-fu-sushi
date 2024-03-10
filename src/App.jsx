@@ -26,7 +26,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   // Масив з вкладками категорій суші
   const [categorySushi, setCategorySushi] = useState('Dracon');
-  // Масив з вкладками категорій суші
+  // Стан для модального вікна при замовленні
+  const [modalOpen, setModalOpen] = useState(false);
 
   //
   const isItemAdded = (id) => {
@@ -77,12 +78,16 @@ function App() {
 
       try {
         await axios.put(
-          `https://651323cd8e505cebc2e9a121.mockapi.io/cart?filter=${obj.parentId}`,
+          `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${obj.id}`,
           {
             count: existingItem.count + 1, // Збільшуємо кількість на сервері
           }
         );
       } catch (error) {
+        console.log(
+          'Мокапі обмежує правильне додавання кількості товару:',
+          error
+        );
         alert('Помилка при оновленні кількості товару в кошику на сервері');
       }
     } else {
@@ -98,8 +103,11 @@ function App() {
 
         console.log('data', data);
       } catch (error) {
-        console.log(error);
-        alert('Помилка при додаванні товару в кошик на сервері', error);
+        console.log(
+          'Мокапі обмежує правильне додавання кількості товару:',
+          error
+        );
+        // alert('Помилка при додаванні товару в кошик на сервері', error);
       }
     }
   };
@@ -204,6 +212,8 @@ function App() {
         setCartItems,
         setItems,
         setCategorySushi,
+        modalOpen,
+        setModalOpen,
       }}
     >
       <div className="wrapper clear">

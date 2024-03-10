@@ -23,7 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // border: 1px solid red;
+    // border: 1px solid blue;
     max-width: 1280px;
     margin: 0 auto;
 
@@ -107,6 +107,39 @@
         font-size: 12px;
         color: #fff;
       }
+    }
+  }
+
+  .modalAddItem {
+    background: linear-gradient(to right, #50c878, #59cc80);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    width: 285px;
+    bottom: -30px;
+    right: -5px;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #ffffff;
+    padding: 10px 20px;
+    animation: slideInRightToLeft 1.5s forwards, fadeOut 0.5s forwards 2.5s; /* Додали дві анімації: slideInRightToLeft та fadeOut */
+  }
+
+  @keyframes slideInRightToLeft {
+    from {
+      right: -285px; /* Початкове значення позиції справа */
+    }
+    to {
+      right: 0; /* Значення позиції зліва */
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1; /* Початкова прозорість */
+    }
+    to {
+      opacity: 0; /* Значення прозорості */
     }
   }
 }

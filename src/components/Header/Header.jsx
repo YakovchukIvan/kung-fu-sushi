@@ -1,12 +1,12 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Header.module.scss';
 
-// import { useCart } from '../hooks/useCart';
+import styles from './Header.module.scss';
+import AppContext from '../../Context';
 
 function Header(props) {
-  // console.log('props', props);
-  // const { totalPrice } = useCart();
-  // console.log('items', props.cartItems.length);
+  const { modalOpen } = useContext(AppContext);
+
   return (
     <header className={styles.header}>
       <div className={styles.header__wrapper}>
@@ -22,14 +22,6 @@ function Header(props) {
         </Link>
         <div className={styles.search__block}>
           <img src="/img/search.svg" alt="Search-icon" />
-          {/* {props.searchValue && (
-            <img
-              onClick={props.onClearSearchInput}
-              className="clear cu-p"
-              src="/img/btn-remove.svg"
-              alt="btn-remove-search"
-            />
-          )} */}
           <input
             onChange={props.onChangeSearchInput}
             value={props.searchValue}
@@ -60,16 +52,17 @@ function Header(props) {
               </Link>
             </li>
             <li onClick={props.onClickCart} className={styles.item__cart__icon}>
-              {/* <FaCartShopping style={{ width: '24px', height: '24px' }} /> */}
               <img width={24} height={24} src="/img/cart.svg" alt="cart-icon" />
               <span className={styles.icon__count__orders}>
                 {props.cartItems.length}
               </span>
-              {/* <span className="total__price-cart">{totalPrice} грн.</span> */}
             </li>
           </ul>
         </div>
       </div>
+      {modalOpen && (
+        <div className={styles.modalAddItem}>Product added to cart!</div>
+      )}
     </header>
   );
 }

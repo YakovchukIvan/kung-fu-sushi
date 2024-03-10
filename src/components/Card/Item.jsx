@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md';
 
 import styles from './Card.module.scss';
+import AppContext from '../../Context';
 
 function Item({
   id,
@@ -17,9 +18,10 @@ function Item({
   favorited = false,
 }) {
   const [isFavorite, setIsFavorite] = useState(favorited);
+  const { setModalOpen } = useContext(AppContext);
 
   const itemObj = {
-    id,
+    id: '23',
     parentId: id,
     title,
     imageUrl,
@@ -32,6 +34,11 @@ function Item({
   const onClickPlus = () => {
     onPlus(itemObj);
     console.log('CARD.JSX', itemObj);
+    setModalOpen(true);
+
+    setTimeout(() => {
+      setModalOpen(false);
+    }, 5000);
   };
 
   const onClickFavorite = () => {

@@ -233,7 +233,18 @@ body {
   }
 }
 
-@media screen and (max-width: 912px) {
+@media screen and (max-width: 926px) {
+  .block-items {
+    width: 735px;
+    gap: 5px;
+    // border: 2px solid rgb(69, 69, 231);
+  }
+  .total__price-cart {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 913px) {
   .block-items {
     width: 780px;
     gap: 5px;
@@ -244,7 +255,7 @@ body {
   }
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 831px) {
   .block-items {
     width: 670px;
     gap: 10px;
@@ -252,7 +263,7 @@ body {
   }
 }
 
-@media screen and (max-width: 713px) {
+@media screen and (max-width: 721px) {
   .block-items {
     width: 585px;
     gap: 5px;
@@ -260,7 +271,7 @@ body {
   }
 }
 
-@media screen and (max-width: 623px) {
+@media screen and (max-width: 636px) {
   .block-items {
     width: 540px;
     gap: 5px;
@@ -268,7 +279,10 @@ body {
   }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 591px) {
+  .wrapper {
+    padding: 0px 10px;
+  }
   .block-items {
     width: 480px;
     gap: 5px;
@@ -285,11 +299,6 @@ body {
 }
 
 @media screen and (max-width: 486px) {
-  .wrapper {
-    padding: 0px 10px;
-    // padding: 0px 7px;
-  }
-
   .block-items {
     width: 435px;
     gap: 5px;
@@ -297,7 +306,7 @@ body {
   }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 471px) {
   .block-items {
     width: 345px;
     gap: 5px;
@@ -305,7 +314,7 @@ body {
   }
 }
 
-@media screen and (max-width: 365px) {
+@media screen and (max-width: 381px) {
   .wrapper {
     padding: 0px 7px;
   }
