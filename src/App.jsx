@@ -78,8 +78,7 @@ function App() {
 
       try {
         await axios.put(
-          // `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${obj.id}`,
-          `https://651323cd8e505cebc2e9a121.mockapi.io/cart?weight=705`,
+          `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${obj.id}`,
           {
             count: existingItem.count + 1, // Збільшуємо кількість на сервері
           }
@@ -123,8 +122,11 @@ function App() {
           const cartResponse = await axios.get(
             'https://651323cd8e505cebc2e9a121.mockapi.io/cart'
           );
+          // const favoritesResponse = await axios.get(
+          //   'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
+          // );
           const favoritesResponse = await axios.get(
-            'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
+            'https://650f314454d18aabfe99ec68.mockapi.io/items'
           );
           const itemsResponse = await axios.get(
             `https://650f314454d18aabfe99ec68.mockapi.io/items?filter=${categorySushi}`
@@ -148,17 +150,35 @@ function App() {
   const onAddToFavorite = async (obj) => {
     // // Перевірка чи вже додано favorite, якщо так тоді видаляємо. Якщо favorite = true, тоді else додаємо товар до favorite
     try {
-      if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
-        await axios.delete(
-          `https://651323cd8e505cebc2e9a121.mockapi.io/favorites/${obj.id}`
-        );
-      } else {
-        const { data } = await axios.post(
-          'https://651323cd8e505cebc2e9a121.mockapi.io/favorites',
-          obj
-        );
-        setFavorites((prev) => [...prev, data]);
-      }
+      // if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
+      //   await axios.delete(
+      //     `https://651323cd8e505cebc2e9a121.mockapi.io/favorites/${obj.id}`
+      //   );
+      //   await axios.put(
+      //     `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
+      //     {
+      //       favorite: !obj.favorite, // Збільшуємо кількість на сервері
+      //     }
+      //   );
+      // } else {
+      //   const { data } = await axios.post(
+      //     'https://651323cd8e505cebc2e9a121.mockapi.io/favorites',
+      //     obj
+      //   );
+      //   await axios.put(
+      //     `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
+      //     {
+      //       favorite: !obj.favorite, // Збільшуємо кількість на сервері
+      //     }
+      //   );
+      //   setFavorites((prev) => [...prev, data]);
+      // }
+      await axios.put(
+        `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
+        {
+          favorite: !obj.favorite, // Збільшуємо кількість на сервері
+        }
+      );
     } catch (error) {
       alert('Не вдалося додати "вибране"');
       console.error(error);
@@ -204,6 +224,7 @@ function App() {
         setCartOpened,
         setCartItems,
         setItems,
+        categorySushi,
         setCategorySushi,
         modalOpen,
         setModalOpen,

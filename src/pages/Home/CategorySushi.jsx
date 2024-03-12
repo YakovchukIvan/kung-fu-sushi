@@ -19,7 +19,7 @@ const navPages = [
   'Вега роли',
 ];
 
-const categorySushi = [
+const category = [
   'Dracon',
   'California',
   'Maki',
@@ -36,12 +36,15 @@ const categorySushi = [
 ];
 
 function CategorySushi() {
-  const [activeItem, setActiveItem] = useState(0);
-  const { setCategorySushi } = useContext(AppContext);
+  const { setCategorySushi, categorySushi } = useContext(AppContext);
+
+  const activeNavigation = category.findIndex((item) => item === categorySushi);
+
+  const [activeItem, setActiveItem] = useState(activeNavigation);
 
   function clickActivePages(index) {
     setActiveItem(index);
-    setCategorySushi(categorySushi[index]);
+    setCategorySushi(category[index]);
   }
 
   return (

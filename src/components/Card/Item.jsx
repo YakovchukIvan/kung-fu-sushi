@@ -46,22 +46,25 @@ function Item({
 
   const onClickFavorite = () => {
     onFavorite(itemObj);
+    console.log('onClickFavorite:', itemObj);
     setIsFavorite(!isFavorite);
   };
   return (
     <Link>
       <div className={styles.favorite} onClick={onClickFavorite}>
         {isFavorite ? (
-          <MdOutlineFavorite color="#fff" size={24} />
+          <MdOutlineFavorite
+            color="#fff"
+            size={24}
+            title={'Видалити з обраного'}
+          />
         ) : (
-          <MdOutlineFavoriteBorder color="#fff" size={24} />
+          <MdOutlineFavoriteBorder
+            color="#fff"
+            size={24}
+            title={'Додати в обране'}
+          />
         )}
-        {/* {favorite &&
-          (isFavorite ? (
-            <MdOutlineFavorite color="#fff" size={24} />
-          ) : (
-            <MdOutlineFavoriteBorder color="#fff" size={24} />
-          ))} */}
       </div>
 
       <img className={styles.itemProduct} src={imageUrl} alt="sushi" />

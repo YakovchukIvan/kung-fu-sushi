@@ -8,11 +8,10 @@ import styles from './Favorite.module.scss';
 
 function Favorites() {
   const { favorites, onAddToFavorite, isLoading } = useContext(AppContext);
-  console.log(isLoading);
-  /*"content p-40"*/
-  // "d-flex align-center justify-between mb-40"
-  // "d-flex flex-wrap"
-  // "d-flex flex-wrap"
+  console.log(favorites);
+  const favorit = favorites.filter((item) => item.favorite === true);
+  console.log('  favorit:', favorit);
+
   return (
     <div className={styles.wrapperFavorite}>
       <div className={styles.title}>
@@ -23,7 +22,7 @@ function Favorites() {
         <div className={styles.itemFavorite}>
           {isLoading
             ? [...Array(12)].map((_, index) => <Loader key={index} />)
-            : favorites.map((item, index) => (
+            : favorit.map((item, index) => (
                 <Card
                   key={index}
                   favorited={true}
