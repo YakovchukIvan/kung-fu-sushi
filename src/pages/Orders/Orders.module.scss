@@ -1,18 +1,18 @@
-.wrapperFavorite {
+.wrapperOrders {
   //   border: 1px solid red;
   margin-top: 150px;
 
-  .title {
+  .titleOrders {
     margin-bottom: 40px;
   }
 
-  .blockItems {
+  .blockItemsOrders {
     // border: 2px solid blue;
     display: flex;
     justify-content: center;
 
-    .itemFavorite {
-      // border: 1px solid red;
+    .itemOrders {
+      //   border: 1px solid red;
       width: fit-content;
       display: grid;
       grid-template-columns: repeat(4, minmax(150px, 1fr));

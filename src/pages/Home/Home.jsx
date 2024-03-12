@@ -2,14 +2,23 @@ import Card from '../../components/Card/Card';
 import CategorySushi from './CategorySushi';
 
 function Home({
+  items,
   filteredItems,
   searchValue,
   onAddToFavorite,
   onAddToCart,
   isLoading,
 }) {
+  let product = [];
+  if (searchValue) {
+    console.log('searchValue', searchValue);
+    product = filteredItems;
+  } else {
+    product = items;
+  }
+
   const renderItems = () => {
-    return (isLoading ? [...Array(12)] : filteredItems).map((item, index) => (
+    return (isLoading ? [...Array(12)] : product).map((item, index) => (
       <Card
         {...item}
         key={index}

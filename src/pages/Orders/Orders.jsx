@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from '../../components/Card/Card';
 
+import styles from './Orders.module.scss';
+
 function Orders() {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,15 +28,17 @@ function Orders() {
   }, []);
 
   return (
-    <div className="content p-40">
-      <div className="d-flex align-center justify-between mb-40">
+    <div className={styles.wrapperOrders}>
+      <div className={styles.titleOrders}>
         <h1>Профіль</h1>
       </div>
 
-      <div className="d-flex flex-wrap">
-        {(isLoading ? [...Array(12)] : orders).map((item, index) => (
-          <Card key={index} loading={isLoading} {...item} />
-        ))}
+      <div className={styles.blockItemsOrders}>
+        <div className={styles.itemOrders}>
+          {(isLoading ? [...Array(12)] : orders).map((item, index) => (
+            <Card key={index} loading={isLoading} {...item} />
+          ))}
+        </div>
       </div>
     </div>
   );

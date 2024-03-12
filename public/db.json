@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "title": "Дракон вогняний",
     "price": 198,
     "count": 1,
@@ -8,10 +8,11 @@
     "weight": 270,
     "imageUrl": "/img/product/Dracon/1.jpg",
     "category": "Dracon",
-    "favorite": false
+    "favorite": true,
+    "cart": false
   },
   {
-    "id": 2,
+    "id": "2",
     "title": "Дракон зелений",
     "price": 159,
     "count": 1,
@@ -19,10 +20,11 @@
     "weight": 275,
     "imageUrl": "/img/product/Dracon/2.jpg",
     "category": "Dracon",
-    "favorite": false
+    "favorite": true,
+    "cart": false
   },
   {
-    "id": 3,
+    "id": "3",
     "title": "Дракон золотий",
     "price": 173,
     "count": 1,
@@ -30,10 +32,11 @@
     "weight": 255,
     "imageUrl": "/img/product/Dracon/3.jpg",
     "category": "Dracon",
-    "favorite": false
+    "favorite": true,
+    "cart": false
   },
   {
-    "id": 4,
+    "id": "4",
     "title": "Дракон червоний",
     "price": 166,
     "count": 1,
@@ -41,10 +44,11 @@
     "weight": 290,
     "imageUrl": "/img/product/Dracon/4.jpg",
     "category": "Dracon",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 5,
+    "id": "5",
     "title": "Дракон чорний",
     "price": 199,
     "count": 1,
@@ -52,10 +56,11 @@
     "weight": 285,
     "imageUrl": "/img/product/Dracon/5.jpg",
     "category": "Dracon",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 6,
+    "id": "6",
     "title": "Каліфорнія з копченим лососем",
     "price": 114,
     "count": 1,
@@ -63,10 +68,11 @@
     "weight": 265,
     "imageUrl": "/img/product/California/1.jpg",
     "category": "California",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 7,
+    "id": "7",
     "title": "Каліфорнія з лососем",
     "price": 159,
     "count": 1,
@@ -74,10 +80,11 @@
     "weight": 255,
     "imageUrl": "/img/product/California/2.jpg",
     "category": "California",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 8,
+    "id": "8",
     "title": "Каліфорнія з лососем в ікрі",
     "price": 154,
     "count": 1,
@@ -85,10 +92,11 @@
     "weight": 255,
     "imageUrl": "/img/product/California/3.jpg",
     "category": "California",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 9,
+    "id": "9",
     "title": "Каліфорнія з лососем в кунжуті",
     "price": 108,
     "count": 1,
@@ -96,10 +104,11 @@
     "weight": 255,
     "imageUrl": "/img/product/California/4.jpg",
     "category": "California",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 10,
+    "id": "10",
     "title": "Макі з авокадо",
     "price": 47,
     "count": 1,
@@ -107,10 +116,11 @@
     "weight": 115,
     "imageUrl": "/img/product/Maki/1.jpg",
     "category": "Maki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 11,
+    "id": "11",
     "title": "Макі з вугрем",
     "price": 65,
     "count": 1,
@@ -118,10 +128,11 @@
     "weight": 125,
     "imageUrl": "/img/product/Maki/2.jpg",
     "category": "Maki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 12,
+    "id": "12",
     "title": "Макі з копченим лососем",
     "price": 62,
     "count": 1,
@@ -129,10 +140,11 @@
     "weight": 120,
     "imageUrl": "/img/product/Maki/3.jpg",
     "category": "Maki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 13,
+    "id": "13",
     "title": "Макі з лососем",
     "price": 59,
     "count": 1,
@@ -140,10 +152,11 @@
     "weight": 120,
     "imageUrl": "/img/product/Maki/4.jpg",
     "category": "Maki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 14,
+    "id": "14",
     "title": "Макі з манго",
     "price": 52,
     "count": 1,
@@ -151,10 +164,11 @@
     "weight": 115,
     "imageUrl": "/img/product/Maki/5.jpg",
     "category": "Maki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 15,
+    "id": "15",
     "title": "Макі з огірком",
     "price": 39,
     "count": 1,
@@ -162,10 +176,11 @@
     "weight": 115,
     "imageUrl": "/img/product/Maki/6.jpg",
     "category": "Maki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 16,
+    "id": "16",
     "title": "Макі з тунцем",
     "price": 58,
     "count": 1,
@@ -173,10 +188,11 @@
     "weight": 123,
     "imageUrl": "/img/product/Maki/7.jpg",
     "category": "Maki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 17,
+    "id": "17",
     "title": "Макі філа",
     "price": 42,
     "count": 1,
@@ -184,70 +200,77 @@
     "weight": 115,
     "imageUrl": "/img/product/Maki/8.jpg",
     "category": "Maki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 18,
+    "id": "18",
     "title": "Вода негазована та сильногазована",
     "price": 20,
     "count": 1,
     "weight": 0.5,
     "imageUrl": "/img/product/Drinks/1.jpg",
     "category": "Drinks",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 19,
+    "id": "19",
     "title": "Кола",
     "price": 35,
     "count": 1,
     "weight": 0.75,
     "imageUrl": "/img/product/Drinks/2.jpg",
     "category": "Drinks",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 20,
+    "id": "20",
     "title": "Сік 'Rich'",
     "price": 65,
     "count": 1,
     "weight": 1,
     "imageUrl": "/img/product/Drinks/3.jpg",
     "category": "Drinks",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 21,
+    "id": "21",
     "title": "Нігірі з копченим лососем",
     "price": 42,
     "count": 1,
     "weight": 52,
     "imageUrl": "/img/product/Nigiri/1.jpg",
     "category": "Nigiri",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 22,
+    "id": "22",
     "title": "Нігірі з лососем",
     "price": 36,
     "count": 1,
     "weight": 52,
     "imageUrl": "/img/product/Nigiri/2.jpg",
     "category": "Nigiri",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 23,
+    "id": "23",
     "title": "Нігірі з печеним лососем",
     "price": 39,
     "count": 1,
     "weight": 52,
     "imageUrl": "/img/product/Nigiri/3.jpg",
     "category": "Nigiri",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 24,
+    "id": "24",
     "title": "Пропозиція тижня",
     "thenPrice": 645,
     "price": 555,
@@ -256,11 +279,11 @@
     "weight": 1035,
     "imageUrl": "/img/product/Offer-of-the-week/1.JPEG",
     "category": "Offer-of-the-week",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
-
   {
-    "id": 25,
+    "id": "25",
     "title": "Авокадо Роз з лососем",
     "price": 142,
     "count": 1,
@@ -268,10 +291,11 @@
     "weight": 300,
     "imageUrl": "/img/product/from-boss/1.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 26,
+    "id": "26",
     "title": "Авокадо Роз з лососем та манго",
     "price": 175,
     "count": 1,
@@ -279,10 +303,11 @@
     "weight": 295,
     "imageUrl": "/img/product/from-boss/2.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 27,
+    "id": "27",
     "title": "Гранд Рол",
     "price": 197,
     "count": 1,
@@ -290,10 +315,11 @@
     "weight": 285,
     "imageUrl": "/img/product/from-boss/3.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 28,
+    "id": "28",
     "title": "Рол ORANGE",
     "price": 185,
     "count": 1,
@@ -301,10 +327,11 @@
     "weight": 285,
     "imageUrl": "/img/product/from-boss/4.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 29,
+    "id": "29",
     "title": "Рол Гриль Голд",
     "price": 188,
     "count": 1,
@@ -312,10 +339,11 @@
     "weight": 310,
     "imageUrl": "/img/product/from-boss/5.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 30,
+    "id": "30",
     "title": "Спайсі Рол",
     "price": 186,
     "count": 1,
@@ -323,10 +351,11 @@
     "weight": 300,
     "imageUrl": "/img/product/from-boss/6.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 31,
+    "id": "31",
     "title": "Філадельфія Гриль Манго",
     "price": 157,
     "count": 1,
@@ -334,10 +363,11 @@
     "weight": 295,
     "imageUrl": "/img/product/from-boss/7.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 32,
+    "id": "32",
     "title": "Фудзі",
     "price": 196,
     "count": 1,
@@ -345,10 +375,11 @@
     "weight": 300,
     "imageUrl": "/img/product/from-boss/8.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 33,
+    "id": "33",
     "title": "Хіко Мак",
     "price": 124,
     "count": 1,
@@ -356,10 +387,11 @@
     "weight": 290,
     "imageUrl": "/img/product/from-boss/9.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 34,
+    "id": "34",
     "title": "Чіз Рол",
     "price": 98,
     "count": 1,
@@ -367,10 +399,11 @@
     "weight": 245,
     "imageUrl": "/img/product/from-boss/10.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 35,
+    "id": "35",
     "title": "Чіз Рол з креветкою",
     "price": 139,
     "count": 1,
@@ -378,11 +411,11 @@
     "weight": 260,
     "imageUrl": "/img/product/from-boss/11.jpg",
     "category": "from-boss",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
-
   {
-    "id": 36,
+    "id": "36",
     "title": "Сет 'Дракони'",
     "price": 817,
     "count": 1,
@@ -390,10 +423,11 @@
     "weight": 1375,
     "imageUrl": "/img/product/Sets/1.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 37,
+    "id": "37",
     "title": "Сет 'Макі'",
     "price": 345,
     "count": 1,
@@ -401,10 +435,11 @@
     "weight": 705,
     "imageUrl": "/img/product/Sets/2.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 38,
+    "id": "38",
     "title": "Сет 'Осама'",
     "price": 607,
     "count": 1,
@@ -412,10 +447,11 @@
     "weight": 1180,
     "imageUrl": "/img/product/Sets/3.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 39,
+    "id": "39",
     "title": "Сет 'Токіо'",
     "price": 534,
     "count": 1,
@@ -423,10 +459,11 @@
     "weight": 1090,
     "imageUrl": "/img/product/Sets/4.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 40,
+    "id": "40",
     "title": "Сет 'Філадельфія'(повна)",
     "price": 728,
     "count": 1,
@@ -434,10 +471,11 @@
     "weight": 1375,
     "imageUrl": "/img/product/Sets/5.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 41,
+    "id": "41",
     "title": "Сет 'Футомакі'",
     "price": 484,
     "count": 1,
@@ -445,10 +483,11 @@
     "weight": 1170,
     "imageUrl": "/img/product/Sets/6.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 42,
+    "id": "42",
     "title": "Сет 'FUSION'",
     "price": 449,
     "count": 1,
@@ -456,10 +495,11 @@
     "weight": 1045,
     "imageUrl": "/img/product/Sets/7.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 43,
+    "id": "43",
     "title": "Сет від Шефа",
     "price": 687,
     "count": 1,
@@ -467,10 +507,11 @@
     "weight": 1450,
     "imageUrl": "/img/product/Sets/8.jpg",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 44,
+    "id": "44",
     "title": "Сет від Шефа 50/50",
     "price": 347,
     "count": 1,
@@ -478,10 +519,11 @@
     "weight": 725,
     "imageUrl": "/img/product/Sets/9.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 45,
+    "id": "45",
     "title": "Сет 'Сезам'",
     "price": 422,
     "count": 1,
@@ -489,10 +531,11 @@
     "weight": 1040,
     "imageUrl": "/img/product/Sets/10.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 46,
+    "id": "46",
     "title": "Сет 'Філадельфія ТОР'",
     "price": 537,
     "count": 1,
@@ -500,10 +543,11 @@
     "weight": 1065,
     "imageUrl": "/img/product/Sets/11.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 47,
+    "id": "47",
     "title": "Сет 'Філадельфія 50/50'",
     "price": 366,
     "count": 1,
@@ -511,10 +555,11 @@
     "weight": 685,
     "imageUrl": "/img/product/Sets/12.jpg",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 48,
+    "id": "48",
     "title": "Чіз Сет",
     "price": 468,
     "count": 1,
@@ -522,11 +567,11 @@
     "weight": 960,
     "imageUrl": "/img/product/Sets/13.png",
     "category": "Sets",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
-
   {
-    "id": 49,
+    "id": "49",
     "title": "Філадельфія з вугрем",
     "price": 182,
     "count": 1,
@@ -534,10 +579,11 @@
     "weight": 290,
     "imageUrl": "/img/product/Philadelphia/1.jpg",
     "category": "Philadelphia",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 50,
+    "id": "50",
     "title": "Філадельфія з копченим лососем",
     "price": 159,
     "count": 1,
@@ -545,10 +591,11 @@
     "weight": 270,
     "imageUrl": "/img/product/Philadelphia/2.jpg",
     "category": "Philadelphia",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 51,
+    "id": "51",
     "title": "Філадельфія з лососем",
     "price": 147,
     "count": 1,
@@ -556,10 +603,11 @@
     "weight": 270,
     "imageUrl": "/img/product/Philadelphia/3.jpg",
     "category": "Philadelphia",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 52,
+    "id": "52",
     "title": "Філадельфія з сурімі та лососем",
     "price": 154,
     "count": 1,
@@ -567,10 +615,11 @@
     "weight": 275,
     "imageUrl": "/img/product/Philadelphia/4.jpg",
     "category": "Philadelphia",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 53,
+    "id": "53",
     "title": "Філадельфія з тигровою креветкою",
     "price": 157,
     "count": 1,
@@ -578,10 +627,11 @@
     "weight": 260,
     "imageUrl": "/img/product/Philadelphia/5.jpg",
     "category": "Philadelphia",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 54,
+    "id": "54",
     "title": "Філадельфія з тунцем",
     "price": 155,
     "count": 1,
@@ -589,10 +639,11 @@
     "weight": 285,
     "imageUrl": "/img/product/Philadelphia/6.jpg",
     "category": "Philadelphia",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 55,
+    "id": "55",
     "title": "Філадельфія класична з вугрем",
     "price": 249,
     "count": 1,
@@ -600,10 +651,11 @@
     "weight": 330,
     "imageUrl": "/img/product/Philadelphia/7.jpg",
     "category": "Philadelphia",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 56,
+    "id": "56",
     "title": "Філадельфія класична з копченим лососем",
     "price": 218,
     "count": 1,
@@ -611,10 +663,11 @@
     "weight": 310,
     "imageUrl": "/img/product/Philadelphia/8.jpg",
     "category": "Philadelphia",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 57,
+    "id": "57",
     "title": "Філадельфія класична з лососем",
     "price": 203,
     "count": 1,
@@ -622,10 +675,11 @@
     "weight": 310,
     "imageUrl": "/img/product/Philadelphia/9.jpg",
     "category": "Philadelphia",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 58,
+    "id": "58",
     "title": "Філадельфія сезам",
     "price": 85,
     "count": 1,
@@ -633,11 +687,11 @@
     "weight": 235,
     "imageUrl": "/img/product/Philadelphia/10.jpg",
     "category": "Philadelphia",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
-
   {
-    "id": 59,
+    "id": "59",
     "title": "Футомак асорті",
     "price": 114,
     "count": 1,
@@ -645,10 +699,11 @@
     "weight": 300,
     "imageUrl": "/img/product/Futomaki/1.jpg",
     "category": "Futomaki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 60,
+    "id": "60",
     "title": "Футомак з куркою",
     "price": 119,
     "count": 1,
@@ -656,10 +711,11 @@
     "weight": 295,
     "imageUrl": "/img/product/Futomaki/2.jpg",
     "category": "Futomaki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 61,
+    "id": "61",
     "title": "Футомак з лососем",
     "price": 144,
     "count": 1,
@@ -667,10 +723,11 @@
     "weight": 275,
     "imageUrl": "/img/product/Futomaki/3.jpg",
     "category": "Futomaki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 62,
+    "id": "62",
     "title": "Футомак зі смаженим тунцем",
     "price": 148,
     "count": 1,
@@ -678,11 +735,11 @@
     "weight": 300,
     "imageUrl": "/img/product/Futomaki/4.jpg",
     "category": "Futomaki",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
-
   {
-    "id": 63,
+    "id": "63",
     "title": "Каліфорнія з маринованим гарбузом",
     "price": 157,
     "count": 1,
@@ -690,10 +747,11 @@
     "weight": 255,
     "imageUrl": "/img/product/Novelty/1.jpg",
     "category": "Novelty",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 64,
+    "id": "64",
     "title": "Рол 'Кіото'",
     "price": 299,
     "count": 1,
@@ -701,10 +759,11 @@
     "weight": 315,
     "imageUrl": "/img/product/Novelty/2.jpg",
     "category": "Novelty",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 65,
+    "id": "65",
     "title": "Рол 'Фудзіяма'",
     "price": 207,
     "count": 1,
@@ -712,10 +771,11 @@
     "weight": 336,
     "imageUrl": "/img/product/Novelty/3.jpg",
     "category": "Novelty",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 66,
+    "id": "66",
     "title": "Рол 'Ханамі'",
     "price": 197,
     "count": 1,
@@ -723,11 +783,11 @@
     "weight": 266,
     "imageUrl": "/img/product/Novelty/4.jpg",
     "category": "Novelty",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
-
   {
-    "id": 67,
+    "id": "67",
     "title": "Авторський 'Авокадо рол'",
     "price": 189,
     "count": 1,
@@ -735,10 +795,11 @@
     "weight": 290,
     "imageUrl": "/img/product/Novelty-master/1.jpg",
     "category": "Novelty-master",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 68,
+    "id": "68",
     "title": "Авторський 'Гриль рол'",
     "price": 177,
     "count": 1,
@@ -746,10 +807,11 @@
     "weight": 295,
     "imageUrl": "/img/product/Novelty-master/2.jpg",
     "category": "Novelty-master",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 69,
+    "id": "69",
     "title": "Авторський 'Мікс рол'",
     "price": 207,
     "count": 1,
@@ -757,10 +819,11 @@
     "weight": 290,
     "imageUrl": "/img/product/Novelty-master/3.jpg",
     "category": "Novelty-master",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 70,
+    "id": "70",
     "title": "Рол 'Ханамі'",
     "price": 184,
     "count": 1,
@@ -768,10 +831,11 @@
     "weight": 310,
     "imageUrl": "/img/product/Novelty-master/4.jpg",
     "category": "Novelty-master",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 71,
+    "id": "71",
     "title": "Рол Вегатеріанський",
     "price": 164,
     "count": 1,
@@ -779,10 +843,11 @@
     "weight": 295,
     "imageUrl": "/img/product/Vega-roles/1.jpg",
     "category": "Vega-roles",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 72,
+    "id": "72",
     "title": "Рол Техас",
     "price": 112,
     "count": 1,
@@ -790,10 +855,11 @@
     "weight": 235,
     "imageUrl": "/img/product/Vega-roles/2.jpg",
     "category": "Vega-roles",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 73,
+    "id": "73",
     "title": "Рол Тропік",
     "price": 113,
     "count": 1,
@@ -801,10 +867,11 @@
     "weight": 245,
     "imageUrl": "/img/product/Vega-roles/3.jpg",
     "category": "Vega-roles",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   },
   {
-    "id": 74,
+    "id": "74",
     "title": "Самурай",
     "price": 135,
     "count": 1,
@@ -812,6 +879,7 @@
     "weight": 235,
     "imageUrl": "/img/product/Vega-roles/4.jpg",
     "category": "Vega-roles",
-    "favorite": false
+    "favorite": false,
+    "cart": false
   }
 ]

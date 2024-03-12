@@ -35,17 +35,19 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
       // Видаляємо товари з сервера
       for (let i = 0; i < cartItems.length; i++) {
         const item = cartItems[i];
-        await axios.delete(
-          'https://651323cd8e505cebc2e9a121.mockapi.io/cart/' + item.id
+        console.log('onClickOrder  :', item);
+        // await axios.delete(
+        //   'https://651323cd8e505cebc2e9a121.mockapi.io/cart/' + item.id
+        // );
+        await axios.put(
+          `https://650f314454d18aabfe99ec68.mockapi.io/items/${item.id}`,
+          { count: 1, cart: false }
         );
         await delay(1000);
       }
 
       // Після видалення товарів з сервера, очищаємо корзину
       setCartItems([]);
-
-      // console.log('items', items);
-      // console.log('cartItems', cartItems);
       setOrderId(data.id);
       setIsOrderComplate(true);
     } catch (error) {

@@ -17,10 +17,10 @@ function Item({
   favorite,
   onFavorite,
   onPlus,
-  favorited = false,
+  // favorited = false,
 }) {
   const [isFavorite, setIsFavorite] = useState(favorite);
-  const { setModalOpen } = useContext(AppContext);
+  const { setModalOpen, location } = useContext(AppContext);
 
   const itemObj = {
     id,
@@ -47,25 +47,31 @@ function Item({
   const onClickFavorite = () => {
     onFavorite(itemObj);
     console.log('onClickFavorite:', itemObj);
-    setIsFavorite(!isFavorite);
+    if (location.pathname === '/') {
+      return setIsFavorite(!isFavorite);
+    }
   };
+
   return (
     <Link>
-      <div className={styles.favorite} onClick={onClickFavorite}>
-        {isFavorite ? (
-          <MdOutlineFavorite
-            color="#fff"
-            size={24}
-            title={'Видалити з обраного'}
-          />
-        ) : (
-          <MdOutlineFavoriteBorder
-            color="#fff"
-            size={24}
-            title={'Додати в обране'}
-          />
-        )}
-      </div>
+      {location.pathname !== '/orders' && (
+        <div className={styles.favorite} onClick={onClickFavorite}>
+          {isFavorite ? (
+            <MdOutlineFavorite
+              color="#fff"
+              size={24}
+              title={'Видалити з обраного'}
+              className="test"
+            />
+          ) : (
+            <MdOutlineFavoriteBorder
+              color="#fff"
+              size={24}
+              title={'Додати в обране'}
+            />
+          )}
+        </div>
+      )}
 
       <img className={styles.itemProduct} src={imageUrl} alt="sushi" />
       <h4>{title}</h4>
