@@ -78,7 +78,8 @@ function App() {
 
       try {
         await axios.put(
-          `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${obj.id}`,
+          // `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${obj.id}`,
+          `https://651323cd8e505cebc2e9a121.mockapi.io/cart?weight=705`,
           {
             count: existingItem.count + 1, // Збільшуємо кількість на сервері
           }
@@ -206,6 +207,7 @@ function App() {
         setCategorySushi,
         modalOpen,
         setModalOpen,
+        isLoading,
       }}
     >
       <div className="wrapper clear">

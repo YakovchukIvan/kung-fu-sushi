@@ -1,0 +1,23 @@
+.wrapperFavorite {
+  //   border: 1px solid red;
+  margin-top: 150px;
+
+  .title {
+    margin-bottom: 40px;
+  }
+
+  .blockItems {
+    // border: 2px solid blue;
+    display: flex;
+    justify-content: center;
+
+    .itemFavorite {
+      border: 1px solid red;
+      width: fit-content;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      gap: 15px 10px; /* Відступ між карточками */
+      justify-content: flex-start; /* Змінюємо властивість justify-content */
+    }
+  }
+}

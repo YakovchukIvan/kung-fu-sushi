@@ -1,27 +1,36 @@
 import { useContext } from 'react';
-import Card from '../../components/Card/Card';
 
+import Card from '../../components/Card/Card';
 import AppContext from '../../Context';
+import Loader from '../../components/Card/Loader';
+
+import styles from './Favorite.module.scss';
 
 function Favorites() {
-  const { favorites, onAddToFavorite } = useContext(AppContext);
-
+  const { favorites, onAddToFavorite, isLoading } = useContext(AppContext);
+  console.log(isLoading);
+  /*"content p-40"*/
+  // "d-flex align-center justify-between mb-40"
+  // "d-flex flex-wrap"
+  // "d-flex flex-wrap"
   return (
-    <div className="content p-40">
-      <div className="d-flex align-center justify-between mb-40">
+    <div className={styles.wrapperFavorite}>
+      <div className={styles.title}>
         <h1>Мої вибрані</h1>
       </div>
 
-      <div className="d-flex flex-wrap">
-        <div className="d-flex flex-wrap">
-          {favorites.map((item, index) => (
-            <Card
-              key={index}
-              favorited={true}
-              onFavorite={onAddToFavorite}
-              {...item}
-            />
-          ))}
+      <div className={styles.blockItems}>
+        <div className={styles.itemFavorite}>
+          {isLoading
+            ? [...Array(12)].map((_, index) => <Loader key={index} />)
+            : favorites.map((item, index) => (
+                <Card
+                  key={index}
+                  favorited={true}
+                  onFavorite={onAddToFavorite}
+                  {...item}
+                />
+              ))}
         </div>
       </div>
     </div>
