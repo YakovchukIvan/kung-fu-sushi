@@ -72,11 +72,15 @@
     display: flex;
 
     li {
+      // border: 1px solid blue;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 7px 7px 2px 7px;
       margin: 6px;
+
+      a {
+        padding: 7px 7px 2px 7px;
+      }
 
       &:hover {
         cursor: pointer;
@@ -88,6 +92,7 @@
 
     .item__cart__icon {
       position: relative;
+      padding: 5px 11px 2px 8px;
 
       .icon__count__orders {
         background: #d12626cc;

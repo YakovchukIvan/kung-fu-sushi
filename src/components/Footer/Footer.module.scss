@@ -1,5 +1,17 @@
 .footer {
-  border: 1px solid blue;
-  //   height: 300px;
-  margin-top: 50px;
+  margin-top: 150px;
+  padding-bottom: 20px;
+
+  hr {
+    margin: 35px 0;
+  }
+
+  .protectText {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      margin-left: 10px;
+    }
+  }
 }
