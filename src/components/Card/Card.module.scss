@@ -23,6 +23,19 @@
     }
   }
 
+  .plusDisabled {
+    cursor: wait;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 0.6;
+    }
+    &:active {
+      transform: none;
+      transition: none;
+    }
+  }
+
   .favorite {
     position: absolute;
     top: 25px;

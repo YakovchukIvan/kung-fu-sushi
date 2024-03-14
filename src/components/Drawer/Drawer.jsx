@@ -15,8 +15,6 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
   const [isOrderComplate, setIsOrderComplate] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(cartItems);
-
   const onClickOrder = async () => {
     try {
       setIsLoading(true);

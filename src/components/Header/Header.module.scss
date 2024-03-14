@@ -127,7 +127,7 @@
     font-size: 18px;
     color: #ffffff;
     padding: 10px 20px;
-    animation: slideInRightToLeft 1.5s forwards, fadeOut 0.5s forwards 2.5s; /* Додали дві анімації: slideInRightToLeft та fadeOut */
+    animation: slideInRightToLeft 1.5s forwards, fadeOut 0.5s forwards 3s; /* Додали дві анімації: slideInRightToLeft та fadeOut */
   }
 
   @keyframes slideInRightToLeft {

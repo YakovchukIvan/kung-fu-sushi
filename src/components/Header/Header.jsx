@@ -5,7 +5,7 @@ import styles from './Header.module.scss';
 import AppContext from '../../Context';
 
 function Header(props) {
-  const { modalOpen } = useContext(AppContext);
+  const { modalOpen, location } = useContext(AppContext);
 
   return (
     <header className={styles.header}>
@@ -20,14 +20,18 @@ function Header(props) {
             </div>
           </div>
         </Link>
-        <div className={styles.search__block}>
-          <img src="/img/search.svg" alt="Search-icon" />
-          <input
-            onChange={props.onChangeSearchInput}
-            value={props.searchValue}
-            placeholder="Пошук ..."
-          />
-        </div>
+
+        {location.pathname === '/' && (
+          <div className={styles.search__block}>
+            <img src="/img/search.svg" alt="Search-icon" />
+            <input
+              onChange={props.onChangeSearchInput}
+              value={props.searchValue}
+              placeholder="Пошук ..."
+            />
+          </div>
+        )}
+
         <div>
           <ul className={styles.list__header}>
             <li>

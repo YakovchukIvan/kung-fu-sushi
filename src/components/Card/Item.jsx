@@ -19,8 +19,9 @@ function Item({
   onPlus,
   // favorited = false,
 }) {
-  const [isFavorite, setIsFavorite] = useState(favorite);
   const { setModalOpen, location } = useContext(AppContext);
+  const [isFavorite, setIsFavorite] = useState(favorite);
+  const [clickDisabled, setClickDisabled] = useState(false);
 
   const itemObj = {
     id,
@@ -39,9 +40,16 @@ function Item({
     console.log('CARD.JSX', itemObj);
     setModalOpen(true);
 
+    if (clickDisabled) {
+      return;
+    }
+
+    setClickDisabled(true);
+
     setTimeout(() => {
       setModalOpen(false);
-    }, 2000);
+      setClickDisabled(false);
+    }, 3000);
   };
 
   const onClickFavorite = () => {
@@ -83,10 +91,13 @@ function Item({
         </div>
         {onPlus && (
           <img
-            className={styles.plus}
+            className={`${styles.plus} ${
+              clickDisabled && styles.plusDisabled
+            } `}
             src="/img/btn-plus.svg"
             alt="btn-plus"
             onClick={onClickPlus}
+            disabled={clickDisabled}
           />
         )}
       </div>
