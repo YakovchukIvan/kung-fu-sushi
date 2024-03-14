@@ -15,12 +15,14 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
   const [isOrderComplate, setIsOrderComplate] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log(cartItems);
+
   const onClickOrder = async () => {
     try {
       setIsLoading(true);
 
       // Тепер можна створювати замовлення і робити інші дії
-      console.log(cartItems);
+      // console.log(cartItems);
       const { data } = await new Promise((resolve) => {
         setTimeout(async () => {
           resolve(

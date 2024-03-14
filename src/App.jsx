@@ -105,12 +105,10 @@ function App() {
         //   'https://651323cd8e505cebc2e9a121.mockapi.io/cart',
         //   obj
         // );
-        const { data } = await axios.put(
+        await axios.put(
           `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
           { cart: true }
         );
-
-        console.log('data', data);
       } catch (error) {
         console.log(
           'Мокапі обмежує правильне додавання кількості товару:',
@@ -147,19 +145,16 @@ function App() {
           (item) => item.cart === true
         );
 
-        console.log(categorySushi);
         setIsLoading(false);
         // setCartItems(cartResponse.data);
         setCartItems(cartItems);
         setFavorites(favoritesResponse.data);
         setItems(itemsResponse.data);
-        console.log(itemsResponse.data);
       } catch (error) {
         alert('Помилка при запиті данних.');
         console.error(error);
       }
     }
-    console.log('Працює');
     fetchData();
   }, [categorySushi]);
 
@@ -237,6 +232,7 @@ function App() {
         `https://650f314454d18aabfe99ec68.mockapi.io/items/${id}`,
         {
           cart: false, // Збільшуємо кількість на сервері
+          count: 1,
         }
       );
       setCartItems((prev) =>
