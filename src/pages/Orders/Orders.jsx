@@ -53,10 +53,13 @@ function Orders() {
           return (
             <div className={styles.orders}>
               <div className={styles.itemOrders}>
-                {items.map((item) => {
-                  console.log(item);
-                  return <img src={item.src} alt={item.title} />;
-                })}
+                {items.map((item) => (
+                  <img
+                    className={styles.imgOrder}
+                    src={item.imageUrl}
+                    alt={item.title}
+                  />
+                ))}
               </div>
               <div className={styles.ordersInfo}>
                 <p>дата</p>

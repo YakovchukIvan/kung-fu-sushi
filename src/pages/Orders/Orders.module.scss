@@ -23,7 +23,7 @@
 // }
 
 .wrapperOrders {
-  border: 1px solid red;
+  // border: 1px solid red;
   margin-top: 150px;
 
   .titleOrders {
@@ -36,34 +36,41 @@
     gap: 20px;
 
     .orders {
-      border: 2px solid blue;
+      // border: 2px solid blue;
       display: grid;
       grid-template-columns: 2fr 1fr;
 
       .itemOrders {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px -1px 1px 1px,
+          rgba(0, 0, 0, 0.23) 1px 2px 3px;
+        border-radius: 6px;
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         flex-wrap: wrap;
+        padding: 10px;
+        margin: 15px;
 
         img {
           display: block;
-          width: 100px;
-          height: 100px;
-          border: 2px solid green;
+          max-width: 150px;
+          height: 150px;
+
+          padding: 5px;
         }
       }
 
       .ordersInfo {
-        border: 2px solid gold;
+        // border: 2px solid gold;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-
         gap: 10px;
 
         p {
           border: 1px solid red;
+          margin: 0;
         }
       }
     }
