@@ -20,16 +20,17 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
       setIsLoading(true);
 
       // Тепер можна створювати замовлення і робити інші дії
-      // console.log(cartItems);
+      const totalSum = totalPrice - (totalPrice * 0.05).toFixed(2);
+      console.log('  totalSum:', totalSum);
       const { data } = await new Promise((resolve) => {
         setTimeout(async () => {
           resolve(
             await axios.post(
               'https://65ed7a9908706c584d99d718.mockapi.io/orders',
-              { items: cartItems }
+              { items: cartItems, totalPrice: totalSum }
             )
           );
-        }, 2000); // Затримка в 5 секунд
+        }, 1000); // Затримка в 2 секунд
       });
 
       // Видаляємо товари з сервера
@@ -43,13 +44,18 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
           `https://650f314454d18aabfe99ec68.mockapi.io/items/${item.id}`,
           { count: 1, cart: false }
         );
-        await delay(1000);
+        await delay(500);
       }
 
       // Після видалення товарів з сервера, очищаємо корзину
       setCartItems([]);
       setOrderId(data.id);
       setIsOrderComplate(true);
+
+      setTimeout(() => {
+        onClose();
+        setIsOrderComplate(false);
+      }, 3000);
     } catch (error) {
       alert('Помилка створення замовлення :(');
     } finally {
@@ -145,8 +151,6 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
           />
         )}
       </div>
-
-      {/*  */}
     </div>
   );
 }

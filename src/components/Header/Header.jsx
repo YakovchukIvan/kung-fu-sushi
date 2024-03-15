@@ -10,7 +10,7 @@ function Header(props) {
   return (
     <header className={styles.header}>
       <div className={styles.header__wrapper}>
-        <Link to="/">
+        <Link to="/" title="На головну">
           <div className={styles.block__logo}>
             <img width={60} height={60} src="/img/logo2.jpg" alt="logo" />
 
@@ -35,7 +35,7 @@ function Header(props) {
         <div>
           <ul className={styles.list__header}>
             <li>
-              <Link to="/favorites">
+              <Link to="/favorites" title="Обране">
                 <img
                   width={24}
                   height={24}
@@ -45,7 +45,7 @@ function Header(props) {
               </Link>
             </li>
             <li>
-              <Link to="/orders">
+              <Link to="/orders" title="Замовлення">
                 {/* <FaRegCircleUser style={{ width: '24px', height: '24px' }} /> */}
                 <img
                   width={24}
@@ -55,7 +55,11 @@ function Header(props) {
                 />
               </Link>
             </li>
-            <li onClick={props.onClickCart} className={styles.item__cart__icon}>
+            <li
+              onClick={props.onClickCart}
+              className={styles.item__cart__icon}
+              title="Кошик"
+            >
               <img width={24} height={24} src="/img/cart.svg" alt="cart-icon" />
               <span className={styles.icon__count__orders}>
                 {props.cartItems.length}

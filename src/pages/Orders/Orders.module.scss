@@ -33,7 +33,6 @@
   .blockItemsOrders {
     display: flex;
     flex-direction: column;
-    gap: 20px;
 
     .orders {
       // border: 2px solid blue;
@@ -48,29 +47,56 @@
         justify-content: start;
         align-items: center;
         flex-wrap: wrap;
-        padding: 10px;
+        padding: 10px 10px 0px 10px;
         margin: 15px;
 
-        img {
-          display: block;
-          max-width: 150px;
-          height: 150px;
+        .orderTitle {
+          position: relative;
+          padding: 5px 5px 0px 5px;
 
-          padding: 5px;
+          img {
+            display: block;
+            max-width: 150px;
+            height: 150px;
+          }
+
+          .orderCountItem {
+            position: absolute;
+            left: 10px;
+            bottom: 53px;
+            color: white;
+          }
+
+          h4 {
+            max-width: 150px;
+            min-height: 40px;
+            margin: 5px 0;
+          }
         }
       }
 
       .ordersInfo {
         // border: 2px solid gold;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
 
-        p {
-          border: 1px solid red;
-          margin: 0;
+        div {
+          // border: 1px solid red;
+          border-radius: 6px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px -1px 1px 1px,
+            rgba(0, 0, 0, 0.23) 1px 2px 3px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          padding: 10px;
+
+          p {
+            // border: 1px solid red;
+            margin: 0;
+          }
         }
       }
     }
