@@ -1,3 +1,6 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -32,47 +35,69 @@ function Orders() {
   return (
     <div className={styles.wrapperOrders}>
       <div className={styles.titleOrders}>
-        <h1>Профіль</h1>
+        <h1>Замовлення</h1>
       </div>
 
-      <div className={styles.blockItemsOrders}>
-        {isLoading
-          ? [...Array(12)].map((_, index) => <Loader key={index} />)
-          : orders.map((order) => {
-              const { orderDate, id, items, totalPrice } = order;
+      {orders.length ? (
+        <div className={styles.blockItemsOrders}>
+          {isLoading
+            ? [...Array(1)].map((_, index) => <Loader key={index} />)
+            : orders.map((order) => {
+                const { orderDate, id, items, totalPrice } = order;
 
-              const formattedDate = new Date(
-                orderDate * 1000
-              ).toLocaleDateString(); // Перетворення timestamp на дату
+                const formattedDate = new Date(
+                  orderDate * 1000
+                ).toLocaleDateString(); // Перетворення timestamp на дату
 
-              return (
-                <div className={styles.orders} key={id}>
-                  <div className={styles.itemOrders}>
-                    {items.map((item) => (
-                      <div className={styles.orderTitle} key={item.id}>
-                        <img
-                          className={styles.orderImg}
-                          src={item.imageUrl}
-                          alt={item.title}
-                        />
-                        <span className={styles.orderCountItem}>
-                          {item.count} шт
-                        </span>
-                        <h4>{item.title}</h4>
+                return (
+                  <div className={styles.orders} key={id}>
+                    <div className={styles.itemOrders}>
+                      <Swiper
+                        spaceBetween={10}
+                        slidesPerView={3}
+                        onSlideChange={() => console.log('slide change')}
+                        onSwiper={(swiper) => console.log(swiper)}
+                      >
+                        {items.map((item) => (
+                          <SwiperSlide
+                            key={item.id}
+                            style={{ margin: 0, width: 160 }}
+                          >
+                            <div className={styles.orderTitle} key={item.id}>
+                              <img
+                                className={styles.orderImg}
+                                src={item.imageUrl}
+                                alt={item.title}
+                              />
+                              <span className={styles.orderCountItem}>
+                                {item.count} шт
+                              </span>
+                              <h4>{item.title}</h4>
+                            </div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    </div>
+                    <div className={styles.ordersInfo}>
+                      <div>
+                        <p className={styles.orderDate}>{formattedDate}</p>
+                        <p>
+                          Замовлення номер: <span>№ {id}</span>
+                        </p>
+                        <p className={styles.orderPrice}>
+                          {totalPrice.toFixed()} грн.
+                        </p>
                       </div>
-                    ))}
-                  </div>
-                  <div className={styles.ordersInfo}>
-                    <div>
-                      <p>{formattedDate}</p>
-                      <p>Замовлення номер: № {id}</p>
-                      <p>{totalPrice.toFixed()} грн.</p>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-      </div>
+                );
+              })}
+        </div>
+      ) : (
+        <div className={styles.emptyOrder}>
+          <h2>У вас ще немає замовлень</h2>
+        </div>
+      )}
     </div>
   );
 }

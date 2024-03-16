@@ -20,4 +20,9 @@
       justify-content: flex-start; /* Змінюємо властивість justify-content */
     }
   }
+
+  .emptyFavorite {
+    display: flex;
+    justify-content: center;
+  }
 }
