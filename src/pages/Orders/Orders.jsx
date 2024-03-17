@@ -67,7 +67,14 @@ function Orders() {
                       <Swiper
                         modules={[Navigation, Pagination, Scrollbar, A11y]}
                         spaceBetween={0}
-                        slidesPerView={4}
+                        // slidesPerView={4}
+                        slidesPerView={
+                          window.innerWidth < 840
+                            ? window.innerWidth < 540
+                              ? 2
+                              : 3
+                            : 4
+                        }
                         pagination={{ clickable: true }}
                         onSlideChange={() => console.log('slide change')}
                         onSwiper={(swiper) => console.log(swiper)}
