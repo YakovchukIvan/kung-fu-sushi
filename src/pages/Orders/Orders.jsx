@@ -1,5 +1,13 @@
+// import Swiper core and required modules
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -37,8 +45,12 @@ function Orders() {
       <div className={styles.titleOrders}>
         <h1>Замовлення</h1>
       </div>
-
-      {orders.length ? (
+      {!orders.length && !isLoading && (
+        <div className={styles.emptyOrder}>
+          <h2>У вас ще немає замовлень</h2>
+        </div>
+      )}
+      {orders && (
         <div className={styles.blockItemsOrders}>
           {isLoading
             ? [...Array(1)].map((_, index) => <Loader key={index} />)
@@ -53,15 +65,17 @@ function Orders() {
                   <div className={styles.orders} key={id}>
                     <div className={styles.itemOrders}>
                       <Swiper
-                        spaceBetween={10}
-                        slidesPerView={3}
+                        modules={[Navigation, Pagination, Scrollbar, A11y]}
+                        spaceBetween={0}
+                        slidesPerView={4}
+                        pagination={{ clickable: true }}
                         onSlideChange={() => console.log('slide change')}
                         onSwiper={(swiper) => console.log(swiper)}
                       >
                         {items.map((item) => (
                           <SwiperSlide
                             key={item.id}
-                            style={{ margin: 0, width: 160 }}
+                            style={{ margin: 0, width: 125 }}
                           >
                             <div className={styles.orderTitle} key={item.id}>
                               <img
@@ -92,10 +106,6 @@ function Orders() {
                   </div>
                 );
               })}
-        </div>
-      ) : (
-        <div className={styles.emptyOrder}>
-          <h2>У вас ще немає замовлень</h2>
         </div>
       )}
     </div>
