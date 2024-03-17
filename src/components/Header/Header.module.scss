@@ -148,3 +148,9 @@
     }
   }
 }
+
+@media (max-width: 540px) {
+  .search__block {
+    display: none !important;
+  }
+}
