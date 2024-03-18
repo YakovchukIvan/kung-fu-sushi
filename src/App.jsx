@@ -31,6 +31,9 @@ function App() {
   const [categorySushi, setCategorySushi] = useState('Dracon');
   // Стан для модального вікна при замовленні
   const [modalOpen, setModalOpen] = useState(false);
+  // Лічильник щоб показувати вікно заново, якщо користувач швикдо додасть товар в кошик
+  const [snackbarCount, setSnackbarCount] = useState(0);
+  console.log('App  snackbarCount:', snackbarCount);
 
   //
   const isItemAdded = (id) => {
@@ -62,10 +65,11 @@ function App() {
 
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = async (obj) => {
+    setSnackbarCount((prevCount) => prevCount + 1);
     const existingItem = cartItems.find((item) => item.title === obj.title);
 
     if (existingItem) {
-      console.log('Спрацював true');
+      // console.log('Спрацював true');
       // Якщо товар вже є в кошику, змініть кількість цього товару
 
       setCartItems((prev) =>
@@ -272,6 +276,7 @@ function App() {
         modalOpen,
         setModalOpen,
         isLoading,
+        snackbarCount,
       }}
     >
       <div className="wrapper clear">

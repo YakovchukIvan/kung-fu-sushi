@@ -19,9 +19,8 @@ function Item({
   onPlus,
   // favorited = false,
 }) {
-  const { setModalOpen, location } = useContext(AppContext);
+  const { location } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorite);
-  const [clickDisabled, setClickDisabled] = useState(false);
 
   const itemObj = {
     id,
@@ -38,18 +37,6 @@ function Item({
   const onClickPlus = () => {
     onPlus(itemObj);
     console.log('CARD.JSX', itemObj);
-    setModalOpen(true);
-
-    if (clickDisabled) {
-      return;
-    }
-
-    setClickDisabled(true);
-
-    setTimeout(() => {
-      setModalOpen(false);
-      setClickDisabled(false);
-    }, 3000);
   };
 
   const onClickFavorite = () => {
@@ -61,7 +48,7 @@ function Item({
   };
 
   return (
-    <Link>
+    <div>
       {location.pathname !== '/orders' && (
         <div className={styles.favorite} onClick={onClickFavorite}>
           {isFavorite ? (
@@ -91,13 +78,10 @@ function Item({
         </div>
         {onPlus && (
           <img
-            className={`${styles.plus} ${
-              clickDisabled && styles.plusDisabled
-            } `}
+            className={styles.plus}
             src="/img/btn-plus.svg"
             alt="btn-plus"
             onClick={onClickPlus}
-            disabled={clickDisabled}
           />
         )}
       </div>
@@ -105,12 +89,20 @@ function Item({
         <strong>Склад: </strong>
         <span>{composition}</span>
         <p className={styles.compositionWeight}>
-          <span>
+          <span className={styles.weightProduct}>
             {weight} {category === 'Drinks' ? 'л' : 'г'}
           </span>
         </p>
+        <img
+          className={styles.notificationAddProduct}
+          width={30}
+          height={30}
+          src="/img/cart-red.svg"
+          alt="cart-icon"
+          title="Товар додано в кошик"
+        />
       </div>
-    </Link>
+    </div>
   );
 }
 
