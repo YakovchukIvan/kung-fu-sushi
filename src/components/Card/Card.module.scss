@@ -5,6 +5,7 @@
   max-width: 250px;
   display: flex;
   flex-direction: column;
+  user-select: none;
 
   .itemProduct {
     width: 100%;
@@ -92,6 +93,7 @@
       // border: 1px solid red;
       background-color: rgba(255, 0, 0, 0.1);
       color: red;
+      cursor: pointer;
       border-radius: 6px;
       position: absolute;
       bottom: 11px;

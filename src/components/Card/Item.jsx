@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md';
 
@@ -19,7 +19,7 @@ function Item({
   onPlus,
   // favorited = false,
 }) {
-  const { location } = useContext(AppContext);
+  const { location, drawerOpen } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorite);
 
   const itemObj = {
@@ -93,14 +93,17 @@ function Item({
             {weight} {category === 'Drinks' ? 'л' : 'г'}
           </span>
         </p>
-        <img
-          className={styles.notificationAddProduct}
-          width={30}
-          height={30}
-          src="/img/cart-red.svg"
-          alt="cart-icon"
-          title="Товар додано в кошик"
-        />
+        {count > 1 && (
+          <img
+            className={styles.notificationAddProduct}
+            onClick={() => drawerOpen()}
+            width={30}
+            height={30}
+            src="/img/cart-red.svg"
+            alt="cart-icon"
+            title="Товар додано в кошик"
+          />
+        )}
       </div>
     </div>
   );

@@ -5,13 +5,14 @@ import styles from './Header.module.scss';
 import AppContext from '../../Context';
 
 function Header(props) {
-  const { modalOpen, setModalOpen, snackbarCount, location } =
+  const { modalOpen, setModalOpen, snackbarCount, setSnackbarCount, location } =
     useContext(AppContext);
 
   const Snackbar = ({ duration = 3000 }) => {
     useEffect(() => {
-      // console.log('Працює модальне');
       const timeout = setTimeout(() => {
+        console.log('Працює модальне');
+        setSnackbarCount(0);
         setModalOpen(false);
       }, duration);
       return () => clearTimeout(timeout); // Очистка таймера при демонтажі
@@ -81,7 +82,7 @@ function Header(props) {
           </ul>
         </div>
       </div>
-      {snackbarCount > 0 && (
+      {snackbarCount > 0 && location.pathname === '/' && (
         <Snackbar />
         // <div className={styles.modalAddItem}>Product added to cart!</div>
       )}
