@@ -1,6 +1,7 @@
 .card {
   position: relative;
   border: 1px solid #d4d4d4;
+  border-radius: 6px;
   padding: 20px;
   max-width: 250px;
   display: flex;
@@ -9,6 +10,7 @@
 
   .itemProduct {
     width: 100%;
+    border-radius: 6px;
   }
 
   .plus {
@@ -25,7 +27,6 @@
   }
 
   .plusDisabled {
-    cursor: wait;
     opacity: 0.6;
 
     &:hover {
@@ -96,8 +97,8 @@
       cursor: pointer;
       border-radius: 6px;
       position: absolute;
-      bottom: 11px;
-      right: 20px;
+      bottom: 7px;
+      right: 15px;
       padding: 3px;
     }
   }

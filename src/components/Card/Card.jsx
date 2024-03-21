@@ -16,7 +16,7 @@ function Card({
   onFavorite,
   onPlus,
   favorite,
-  // favorited = false,
+  cart,
   loading = false,
 }) {
   return (
@@ -36,7 +36,7 @@ function Card({
           onFavorite={onFavorite}
           onPlus={onPlus}
           favorite={favorite}
-          // favorited={favorited}
+          cart={cart}
         />
       )}
     </div>

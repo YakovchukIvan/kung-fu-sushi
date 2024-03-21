@@ -149,6 +149,23 @@
   }
 }
 
+@media (max-width: 730px) {
+  .logo__title {
+    h3 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .search__block {
+    input {
+      width: 170px !important;
+    }
+  }
+}
+
 @media (max-width: 540px) {
   .search__block {
     display: none !important;

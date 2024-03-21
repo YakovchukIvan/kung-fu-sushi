@@ -33,8 +33,7 @@ function App() {
   const [modalOpen, setModalOpen] = useState(true);
   // Лічильник щоб показувати вікно заново, якщо користувач швикдо додасть товар в кошик
   const [snackbarCount, setSnackbarCount] = useState(0);
-  console.log('App  snackbarCount:', snackbarCount);
-  //
+
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
   };
@@ -65,7 +64,6 @@ function App() {
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = async (obj) => {
     setSnackbarCount((prevCount) => prevCount + 1);
-    // setModalOpen(true);
     const existingItem = cartItems.find((item) => item.title === obj.title);
 
     if (existingItem) {
@@ -148,6 +146,7 @@ function App() {
         const cartItems = cartResponse.data.filter(
           (item) => item.cart === true
         );
+        // console.log(cartItems);
 
         setIsLoading(false);
         // setCartItems(cartResponse.data);
@@ -224,10 +223,26 @@ function App() {
     }
   };
 
+  const onAddToCartIcon = (id) => {
+    setItems((prev) =>
+      prev.map((item) => {
+        console.log('item', item);
+        if (item.id === id) {
+          console.log('TYT', item.cart);
+          return {
+            ...item,
+            cart: !item.cart,
+          };
+        }
+        return item;
+      })
+    );
+  };
   // Функція для видалення товару з бек-енд
   const onRemoveItem = async (id) => {
     try {
-      console.log(id);
+      onAddToCartIcon(id);
+
       // await axios.delete(
       //   `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${id}`
       // );
@@ -242,6 +257,7 @@ function App() {
       setCartItems((prev) =>
         prev.filter((item) => Number(item.id) !== Number(id))
       );
+      console.log(items);
     } catch (error) {
       alert('Помилка при видаленні товару з корзини');
       console.error(error);
@@ -269,6 +285,7 @@ function App() {
         favorites,
         isItemAdded,
         onAddToFavorite,
+        onAddToCartIcon,
         setCartOpened,
         setCartItems,
         setItems,

@@ -17,9 +17,10 @@ function Item({
   favorite,
   onFavorite,
   onPlus,
-  // favorited = false,
+  cart,
 }) {
-  const { location, drawerOpen } = useContext(AppContext);
+  console.log('cart:', cart);
+  const { location, drawerOpen, onAddToCartIcon } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorite);
 
   const itemObj = {
@@ -37,6 +38,7 @@ function Item({
   const onClickPlus = () => {
     onPlus(itemObj);
     console.log('CARD.JSX', itemObj);
+    onAddToCartIcon(itemObj.id);
   };
 
   const onClickFavorite = () => {
@@ -46,7 +48,6 @@ function Item({
       return setIsFavorite(!isFavorite);
     }
   };
-
   return (
     <div>
       {location.pathname !== '/orders' && (
@@ -93,7 +94,7 @@ function Item({
             {weight} {category === 'Drinks' ? 'л' : 'г'}
           </span>
         </p>
-        {count > 1 && (
+        {cart && (
           <img
             className={styles.notificationAddProduct}
             onClick={() => drawerOpen()}
