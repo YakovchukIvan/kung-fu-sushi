@@ -104,6 +104,10 @@
   }
 }
 
+.test > div {
+  background: red !important;
+}
+
 @media screen and (max-width: 1124px) {
   .card {
     max-width: 220px;

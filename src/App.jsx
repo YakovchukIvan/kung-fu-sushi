@@ -226,9 +226,9 @@ function App() {
   const onAddToCartIcon = (id) => {
     setItems((prev) =>
       prev.map((item) => {
-        console.log('item', item);
+        // console.log('item', item);
         if (item.id === id) {
-          console.log('TYT', item.cart);
+          // console.log('TYT', item.cart);
           return {
             ...item,
             cart: !item.cart,

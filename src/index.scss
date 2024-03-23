@@ -202,6 +202,11 @@ body {
   }
 }
 
+.notistack-SnackbarContainer {
+  display: flex;
+  flex-direction: column-reverse !important;
+}
+
 @keyframes button-loading {
   0% {
     opacity: 1;

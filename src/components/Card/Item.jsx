@@ -4,6 +4,7 @@ import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md';
 
 import styles from './Card.module.scss';
 import AppContext from '../../Context';
+import ConsecutiveSnackbars from './Snackbars';
 
 function Item({
   id,
@@ -19,7 +20,6 @@ function Item({
   onPlus,
   cart,
 }) {
-  console.log('cart:', cart);
   const { location, drawerOpen, onAddToCartIcon } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorite);
 
@@ -48,6 +48,7 @@ function Item({
       return setIsFavorite(!isFavorite);
     }
   };
+
   return (
     <div>
       {location.pathname !== '/orders' && (
@@ -105,6 +106,7 @@ function Item({
             title="Товар додано в кошик"
           />
         )}
+        <ConsecutiveSnackbars />
       </div>
     </div>
   );
