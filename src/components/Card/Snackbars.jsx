@@ -1,41 +1,36 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
 import { SnackbarProvider, useSnackbar } from 'notistack';
 
 import styles from './Card.module.scss';
 
-function MyApp() {
+function Snackbar({ onClickPlus }) {
   const { enqueueSnackbar } = useSnackbar();
-
-  const handleClick = () => {
-    enqueueSnackbar('I love snacks.');
-  };
 
   const handleClickVariant = (variant) => () => {
     // variant could be success, error, warning, info, or default
-    enqueueSnackbar('This is a success message!', { variant });
+    enqueueSnackbar('Товар додано в кошик!', { variant });
+    onClickPlus();
   };
 
   return (
-    <React.Fragment>
-      <Button onClick={handleClick}>Show snackbar</Button>
-      <Button onClick={handleClickVariant('success')}>
-        Show success snackbar
-      </Button>
-    </React.Fragment>
+    <img
+      className={styles.plus}
+      src="/img/btn-plus.svg"
+      alt="btn-plus"
+      onClick={handleClickVariant('success')}
+    />
   );
 }
 
-export default function IntegrationNotistack() {
+export default function Snackbars({ onClickPlus }) {
   return (
-    <div className={styles.test}>
+    <div className={styles.SnackbarBlock}>
       <SnackbarProvider
         maxSnack={3}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         autoHideDuration={3000}
-        style={{ backgroundColor: 'yellow' }}
+        // style={{ backgroundColor: 'yellow' }}
       >
-        <MyApp />
+        <Snackbar onClickPlus={onClickPlus} />
       </SnackbarProvider>
     </div>
   );

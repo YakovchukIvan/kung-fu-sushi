@@ -30,9 +30,6 @@ function App() {
   // Масив з вкладками категорій суші
   const [categorySushi, setCategorySushi] = useState('Dracon');
   // Стан для модального вікна при замовленні
-  const [modalOpen, setModalOpen] = useState(true);
-  // Лічильник щоб показувати вікно заново, якщо користувач швикдо додасть товар в кошик
-  const [snackbarCount, setSnackbarCount] = useState(0);
 
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
@@ -63,7 +60,6 @@ function App() {
 
   // Додавання товару в кошик при кліку на плюс
   const onAddToCart = async (obj) => {
-    setSnackbarCount((prevCount) => prevCount + 1);
     const existingItem = cartItems.find((item) => item.title === obj.title);
 
     if (existingItem) {
@@ -223,17 +219,20 @@ function App() {
     }
   };
 
+  // Додавання іконки в card що товар в кошику
   const onAddToCartIcon = (id) => {
     setItems((prev) =>
       prev.map((item) => {
-        // console.log('item', item);
+        console.log('item', item);
         if (item.id === id) {
           // console.log('TYT', item.cart);
+          console.log('1');
           return {
             ...item,
             cart: !item.cart,
           };
         }
+        console.log('2');
         return item;
       })
     );
@@ -272,7 +271,6 @@ function App() {
   const drawerOpen = () => {
     setCartOpened(true);
     document.body.style.overflow = 'hidden';
-    setSnackbarCount(0);
   };
 
   return (
@@ -291,11 +289,7 @@ function App() {
         setItems,
         categorySushi,
         setCategorySushi,
-        modalOpen,
-        setModalOpen,
         isLoading,
-        snackbarCount,
-        setSnackbarCount,
         drawerOpen,
       }}
     >

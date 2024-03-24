@@ -1,25 +1,11 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import AppContext from '../../Context';
 
 function Header(props) {
-  const { modalOpen, setModalOpen, snackbarCount, setSnackbarCount, location } =
-    useContext(AppContext);
-
-  const Snackbar = ({ duration = 3000 }) => {
-    useEffect(() => {
-      const timeout = setTimeout(() => {
-        console.log('Працює модальне');
-        setSnackbarCount(0);
-        setModalOpen(false);
-      }, duration);
-      return () => clearTimeout(timeout); // Очистка таймера при демонтажі
-    }, [modalOpen, duration]);
-
-    return <div className={styles.modalAddItem}>Product added to cart!</div>;
-  };
+  const { location } = useContext(AppContext);
 
   return (
     <header className={styles.header}>
@@ -82,10 +68,6 @@ function Header(props) {
           </ul>
         </div>
       </div>
-      {snackbarCount > 0 && location.pathname === '/' && (
-        <Snackbar />
-        // <div className={styles.modalAddItem}>Product added to cart!</div>
-      )}
     </header>
   );
 }

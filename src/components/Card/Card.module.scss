@@ -97,15 +97,16 @@
       cursor: pointer;
       border-radius: 6px;
       position: absolute;
-      bottom: 7px;
-      right: 15px;
+      bottom: 10px;
+      right: 20px;
       padding: 3px;
     }
   }
 }
 
-.test > div {
-  background: red !important;
+.SnackbarBlock > div {
+  // background: red !important;
+  margin-top: 70px;
 }
 
 @media screen and (max-width: 1124px) {

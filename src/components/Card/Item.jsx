@@ -4,7 +4,7 @@ import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md';
 
 import styles from './Card.module.scss';
 import AppContext from '../../Context';
-import ConsecutiveSnackbars from './Snackbars';
+import Snackbars from './Snackbars';
 
 function Item({
   id,
@@ -37,7 +37,7 @@ function Item({
 
   const onClickPlus = () => {
     onPlus(itemObj);
-    console.log('CARD.JSX', itemObj);
+    // console.log('CARD.JSX', itemObj);
     onAddToCartIcon(itemObj.id);
   };
 
@@ -78,14 +78,7 @@ function Item({
           <span>Ціна:</span>
           <b>{price}.00 грн.</b>
         </div>
-        {onPlus && (
-          <img
-            className={styles.plus}
-            src="/img/btn-plus.svg"
-            alt="btn-plus"
-            onClick={onClickPlus}
-          />
-        )}
+        {onPlus && <Snackbars onClickPlus={onClickPlus} />}
       </div>
       <div className={styles.compositionBlock}>
         <strong>Склад: </strong>
@@ -106,7 +99,6 @@ function Item({
             title="Товар додано в кошик"
           />
         )}
-        <ConsecutiveSnackbars />
       </div>
     </div>
   );
