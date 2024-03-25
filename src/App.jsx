@@ -221,34 +221,36 @@ function App() {
 
   // Додавання іконки в card що товар в кошику
   const onAddToCartIcon = (id, check) => {
-    const newIconCart = items.find((item) => item.id === id);
-    console.log('  newIconCart:', newIconCart);
-
-    if (check) {
-      console.log('Це видалення товару');
-    }
-
     setItems((prev) =>
       prev.map((item) => {
-        if (newIconCart.cart === true && check) {
+        if (item.id === id) {
+          if (item.cart === true && check) {
+            return {
+              ...item,
+              cart: !item.cart,
+            };
+          }
+          if (item.cart === true) {
+            return item;
+          }
           return {
             ...item,
             cart: !item.cart,
           };
         }
-        if (newIconCart.cart === true) {
-          return item;
-        }
-        return {
-          ...item,
-          cart: !item.cart,
-        };
+        return item;
       })
     );
 
     setFavorites((prev) =>
       prev.map((item) => {
         if (item.id === id) {
+          if (item.cart === true && check) {
+            return {
+              ...item,
+              cart: !item.cart,
+            };
+          }
           if (item.cart === true) {
             return item;
           }
@@ -261,6 +263,7 @@ function App() {
       })
     );
   };
+
   // Функція для видалення товару з бек-енд
   const onRemoveItem = async (id) => {
     try {

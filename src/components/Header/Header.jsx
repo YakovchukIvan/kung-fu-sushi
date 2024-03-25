@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import AppContext from '../../Context';
+import ResponsiveAppBar from './ReponsiveMenu';
 
 function Header(props) {
   const { location } = useContext(AppContext);
@@ -68,6 +69,7 @@ function Header(props) {
           </ul>
         </div>
       </div>
+      <ResponsiveAppBar />
     </header>
   );
 }

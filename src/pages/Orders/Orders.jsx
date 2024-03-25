@@ -76,8 +76,8 @@ function Orders() {
                             : 4
                         }
                         pagination={{ clickable: true }}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)}
+                        // onSlideChange={() => console.log('slide change')}
+                        // onSwiper={(swiper) => console.log(swiper)}
                       >
                         {items.map((item) => (
                           <SwiperSlide
