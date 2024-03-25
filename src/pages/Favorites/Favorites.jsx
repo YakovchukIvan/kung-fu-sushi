@@ -16,7 +16,7 @@ function Favorites() {
         <h1>Мої вибрані</h1>
       </div>
 
-      {favorit.length ? (
+      {favorit && (
         <div className={styles.blockItems}>
           <div className={styles.itemFavorite}>
             {isLoading
@@ -31,7 +31,9 @@ function Favorites() {
                 ))}
           </div>
         </div>
-      ) : (
+      )}
+
+      {favorit.length < 1 && (
         <div className={styles.emptyFavorite}>
           <h2>У вас ще немає обраних товарів</h2>
         </div>

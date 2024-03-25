@@ -145,7 +145,7 @@ function App() {
         // console.log(cartItems);
 
         setIsLoading(false);
-        // setCartItems(cartResponse.data);
+        //  setCartItems(cartResponse.data);
         setCartItems(cartItems);
         setFavorites(favoritesResponse.data);
         setItems(itemsResponse.data);
@@ -189,7 +189,7 @@ function App() {
           if (item.id === obj.id) {
             return {
               ...item,
-              favorite: !obj.favorite, // Збільшуємо кількість на 1
+              favorite: !obj.favorite,
             };
           }
           return item;
@@ -200,7 +200,7 @@ function App() {
           if (item.id === obj.id) {
             return {
               ...item,
-              favorite: !obj.favorite, // Збільшуємо кількість на 1
+              favorite: !obj.favorite,
             };
           }
           return item;
@@ -220,19 +220,43 @@ function App() {
   };
 
   // Додавання іконки в card що товар в кошику
-  const onAddToCartIcon = (id) => {
+  const onAddToCartIcon = (id, check) => {
+    const newIconCart = items.find((item) => item.id === id);
+    console.log('  newIconCart:', newIconCart);
+
+    if (check) {
+      console.log('Це видалення товару');
+    }
+
     setItems((prev) =>
       prev.map((item) => {
-        console.log('item', item);
-        if (item.id === id) {
-          // console.log('TYT', item.cart);
-          console.log('1');
+        if (newIconCart.cart === true && check) {
           return {
             ...item,
             cart: !item.cart,
           };
         }
-        console.log('2');
+        if (newIconCart.cart === true) {
+          return item;
+        }
+        return {
+          ...item,
+          cart: !item.cart,
+        };
+      })
+    );
+
+    setFavorites((prev) =>
+      prev.map((item) => {
+        if (item.id === id) {
+          if (item.cart === true) {
+            return item;
+          }
+          return {
+            ...item,
+            cart: !item.cart,
+          };
+        }
         return item;
       })
     );
@@ -240,7 +264,7 @@ function App() {
   // Функція для видалення товару з бек-енд
   const onRemoveItem = async (id) => {
     try {
-      onAddToCartIcon(id);
+      onAddToCartIcon(id, 'Delete');
 
       // await axios.delete(
       //   `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${id}`
@@ -256,7 +280,7 @@ function App() {
       setCartItems((prev) =>
         prev.filter((item) => Number(item.id) !== Number(id))
       );
-      console.log(items);
+      // console.log(items);
     } catch (error) {
       alert('Помилка при видаленні товару з корзини');
       console.error(error);
