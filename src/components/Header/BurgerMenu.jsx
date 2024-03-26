@@ -2,9 +2,14 @@ import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 
 function BurgerMenu({ openMenu, setOpenMenu }) {
-  {
-    openMenu && `${document.body.style.overflow} = ${'visible'}`;
-  }
+  const closeVisible = () => {
+    document.body.style.overflow = 'hidden';
+    setOpenMenu(false);
+  };
+
+  const openVisible = () => {
+    document.body.style.overflow = 'visible';
+  };
 
   return (
     <div
@@ -12,18 +17,12 @@ function BurgerMenu({ openMenu, setOpenMenu }) {
         openMenu ? styles.overlayVisibleBurger : ''
       }`}
     >
-      <div
-        className={`${styles.bgClose}`}
-        onClick={() => setOpenMenu(false)}
-      ></div>
+      <div className={`${styles.bgClose}`} onClick={() => closeVisible()}></div>
 
       <div className={styles.drawer}>
         <h2 className="d-flex justify-between mb-30">
           <Link to="/" title="На головну">
-            <div
-              className={styles.block__logo}
-              onClick={() => setOpenMenu(false)}
-            >
+            <div className={styles.block__logo} onClick={() => closeVisible()}>
               <img width={60} height={60} src="/img/logo2.jpg" alt="logo" />
 
               <div className={styles.logo__title}>
@@ -33,7 +32,7 @@ function BurgerMenu({ openMenu, setOpenMenu }) {
             </div>
           </Link>
           <img
-            onClick={() => setOpenMenu(false)}
+            onClick={() => closeVisible()}
             className="cu-p"
             src="/img/btn-remove.svg"
             alt="btn-remove"

@@ -9,7 +9,7 @@ import BurgerMenu from './BurgerMenu';
 function Header(props) {
   const { location } = useContext(AppContext);
 
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(true);
 
   return (
     <header className={styles.header}>
