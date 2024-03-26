@@ -9,6 +9,83 @@
   z-index: 11; /* Значення z-index, яке дозволяє вам контролювати, як ваш заголовок взаємодіє з іншими елементами на сторінці */
   padding: 10px 20px;
 
+  .overlayBurger {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    border: 3px solid rgb(20, 18, 172);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+    overflow: hidden;
+  }
+
+  .overlayVisibleBurger {
+    visibility: visible;
+    opacity: 1;
+
+    .drawer {
+      transform: translateX(0);
+    }
+  }
+
+  .bgClose {
+    // border: 2px solid rgb(192, 243, 7);
+    width: 100%;
+  }
+
+  .drawer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    width: 420px;
+    height: 100%;
+    right: 0;
+    background: #ffffff;
+    box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    border: 2px solid red;
+    overflow-y: auto;
+
+    .items {
+      // border: 2px solid red;
+      margin-bottom: 40px;
+
+      .block__PriceCount {
+        // border: 2px solid green;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .btn__remove {
+        color: #cecece;
+        &:hover {
+          // border: 1px solid red;
+          cursor: pointer;
+          color: #969696;
+        }
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+  }
+
   img {
     cursor: pointer;
     // border: 2px solid red;

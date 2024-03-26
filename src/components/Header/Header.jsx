@@ -1,13 +1,15 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import styles from './Header.module.scss';
 import AppContext from '../../Context';
-import ResponsiveAppBar from './ReponsiveMenu';
+import BurgerMenu from './BurgerMenu';
 
 function Header(props) {
   const { location } = useContext(AppContext);
+
+  const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <header className={styles.header}>
@@ -48,7 +50,6 @@ function Header(props) {
             </li>
             <li>
               <Link to="/orders" title="Замовлення">
-                {/* <FaRegCircleUser style={{ width: '24px', height: '24px' }} /> */}
                 <img
                   width={24}
                   height={24}
@@ -67,8 +68,11 @@ function Header(props) {
                 {props.cartItems.length}
               </span>
             </li>
+            <li>
+              <MenuIcon onClick={() => setOpenMenu(true)} />
+              <BurgerMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
+            </li>
           </ul>
-          {/* <MenuIcon /> */}
         </div>
       </div>
       {/* <ResponsiveAppBar /> */}
