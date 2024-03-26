@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
 
 import styles from './Header.module.scss';
 import AppContext from '../../Context';
@@ -67,9 +68,10 @@ function Header(props) {
               </span>
             </li>
           </ul>
+          {/* <MenuIcon /> */}
         </div>
       </div>
-      <ResponsiveAppBar />
+      {/* <ResponsiveAppBar /> */}
     </header>
   );
 }
