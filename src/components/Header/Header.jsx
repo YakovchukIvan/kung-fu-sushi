@@ -11,6 +11,16 @@ function Header(props) {
 
   const [openMenu, setOpenMenu] = useState(true);
 
+  const closeVisible = () => {
+    document.body.style.overflow = 'hidden';
+    setOpenMenu(false);
+  };
+
+  const openVisible = () => {
+    openMenu(true);
+    document.body.style.overflow = 'visible';
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.header__wrapper}>
@@ -69,8 +79,8 @@ function Header(props) {
               </span>
             </li>
             <li>
-              <MenuIcon onClick={() => setOpenMenu(true)} />
-              <BurgerMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
+              <MenuIcon onClick={() => openVisible()} />
+              <BurgerMenu />
             </li>
           </ul>
         </div>

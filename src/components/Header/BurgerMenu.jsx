@@ -2,15 +2,6 @@ import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 
 function BurgerMenu({ openMenu, setOpenMenu }) {
-  const closeVisible = () => {
-    document.body.style.overflow = 'hidden';
-    setOpenMenu(false);
-  };
-
-  const openVisible = () => {
-    document.body.style.overflow = 'visible';
-  };
-
   return (
     <div
       className={`${styles.overlayBurger} ${
