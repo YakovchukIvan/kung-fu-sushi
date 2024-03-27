@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 
-function BurgerMenu({ openMenu, setOpenMenu }) {
+function BurgerMenu({ openMenu, closeVisible }) {
   return (
     <div
       className={`${styles.overlayBurger} ${
@@ -11,7 +11,7 @@ function BurgerMenu({ openMenu, setOpenMenu }) {
       <div className={`${styles.bgClose}`} onClick={() => closeVisible()}></div>
 
       <div className={styles.drawer}>
-        <h2 className="d-flex justify-between mb-30">
+        <h2 className="d-flex justify-center">
           <Link to="/" title="На головну">
             <div className={styles.block__logo} onClick={() => closeVisible()}>
               <img width={60} height={60} src="/img/logo2.jpg" alt="logo" />
@@ -24,14 +24,29 @@ function BurgerMenu({ openMenu, setOpenMenu }) {
           </Link>
           <img
             onClick={() => closeVisible()}
-            className="cu-p"
+            className="cu-p ml-30"
             src="/img/btn-remove.svg"
             alt="btn-remove"
           />
         </h2>
+
+        <hr className="mb-30" />
+
         <ul>
-          <li>Обрані</li>
-          <li>Замовлення</li>
+          <li>
+            <Link to="/favorites" title="Обране" onClick={() => closeVisible()}>
+              ОБРАНІ
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/orders"
+              title="Замовлення"
+              onClick={() => closeVisible()}
+            >
+              ЗАМОВЛЕННЯ
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

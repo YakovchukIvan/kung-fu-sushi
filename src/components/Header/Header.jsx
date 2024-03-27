@@ -9,20 +9,20 @@ import BurgerMenu from './BurgerMenu';
 function Header(props) {
   const { location } = useContext(AppContext);
 
-  const [openMenu, setOpenMenu] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
 
   const closeVisible = () => {
-    document.body.style.overflow = 'hidden';
     setOpenMenu(false);
-  };
-
-  const openVisible = () => {
-    openMenu(true);
     document.body.style.overflow = 'visible';
   };
 
+  const openVisible = () => {
+    setOpenMenu(true);
+    document.body.style.overflow = 'hidden';
+  };
+
   return (
-    <header className={styles.header}>
+    <header className={styles.header} id="header">
       <div className={styles.header__wrapper}>
         <Link to="/" title="На головну">
           <div className={styles.block__logo}>
@@ -46,7 +46,7 @@ function Header(props) {
           </div>
         )}
 
-        <div>
+        <div className={styles.blockMenu}>
           <ul className={styles.list__header}>
             <li>
               <Link to="/favorites" title="Обране">
@@ -78,14 +78,11 @@ function Header(props) {
                 {props.cartItems.length}
               </span>
             </li>
-            <li>
-              <MenuIcon onClick={() => openVisible()} />
-              <BurgerMenu />
-            </li>
           </ul>
+          <MenuIcon onClick={() => openVisible()} className={styles.burger} />
+          <BurgerMenu closeVisible={closeVisible} openMenu={openMenu} />
         </div>
       </div>
-      {/* <ResponsiveAppBar /> */}
     </header>
   );
 }
