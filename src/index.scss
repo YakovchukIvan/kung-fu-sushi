@@ -25,7 +25,7 @@ body {
   padding: 0 20px;
 
   .img-error {
-    // border: 1px solid red;
+    height: 50vh;
     text-align: center;
     margin-top: 150px;
 
@@ -202,6 +202,10 @@ body {
   }
 }
 
+.empty-cart {
+  border-radius: 15px;
+}
+
 .notistack-SnackbarContainer {
   display: flex;
   flex-direction: column-reverse !important;
@@ -293,6 +297,10 @@ body {
     width: 480px;
     gap: 5px;
     // border: 2px solid rgb(69, 69, 231);
+  }
+  .search__title {
+    border: 1px solid red;
+    margin-top: 100px !important;
   }
 }
 

@@ -299,6 +299,7 @@
         grid-column: 1 / span 2; /* Займає дві позиції */
         grid-row: 2 / 3;
         input {
+          border: 1px solid blue;
           width: 100% !important;
         }
       }

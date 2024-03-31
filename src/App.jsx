@@ -29,7 +29,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   // Масив з вкладками категорій суші
   const [categorySushi, setCategorySushi] = useState('Dracon');
-  // Стан для модального вікна при замовленні
+  // Відслідковування товарів через пошук
+  const [searchMess, setSearchMess] = useState(false);
 
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
@@ -37,7 +38,9 @@ function App() {
 
   // Відслідковуємо данні з input
   const onChangeSearchInput = (event) => {
-    // console.log(event.target.value);
+    if (event.target.value.length === 15) {
+      return;
+    }
     setSearchValue(event.target.value);
   };
 
@@ -352,6 +355,7 @@ function App() {
                 onAddToFavorite={onAddToFavorite}
                 onAddToCart={onAddToCart}
                 isLoading={isLoading}
+                searchMess={searchMess}
               />
             }
           />
