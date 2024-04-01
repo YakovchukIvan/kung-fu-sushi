@@ -346,3 +346,9 @@ body {
     // border: 2px solid rgb(69, 69, 231);
   }
 }
+
+@media (max-width: 420px) {
+  .cartItem {
+    padding: 10px;
+  }
+}

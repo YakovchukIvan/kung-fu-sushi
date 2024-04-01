@@ -248,7 +248,19 @@
     }
 
     .list__header {
+      // border: 1px solid red;
       display: none !important;
+
+      .item__cart__icon {
+        background-color: #e6e8e5;
+        border: 1px solid red !important;
+        border-radius: 10px;
+        display: block;
+        position: fixed !important;
+        bottom: 50px;
+        right: 15px;
+        padding: 4px !important;
+      }
     }
 
     .burger {

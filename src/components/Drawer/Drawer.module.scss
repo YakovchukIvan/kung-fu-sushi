@@ -43,7 +43,7 @@
   padding: 30px;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
-  // border: 2px solid red;
+  border: 2px solid red;
   overflow-y: auto;
 
   .items {
@@ -73,5 +73,12 @@
   h2 {
     margin: 0;
     font-size: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .drawer {
+    width: 100% !important;
+    padding: 10px;
   }
 }
