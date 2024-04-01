@@ -68,17 +68,18 @@ function Header(props) {
                 />
               </Link>
             </li>
-            <li
-              onClick={props.onClickCart}
-              className={styles.item__cart__icon}
-              title="Кошик"
-            >
-              <img width={24} height={24} src="/img/cart.svg" alt="cart-icon" />
-              <span className={styles.icon__count__orders}>
-                {props.cartItems.length}
-              </span>
-            </li>
           </ul>
+          <div
+            className={styles.item__cart__icon}
+            onClick={props.onClickCart}
+            title="Кошик"
+          >
+            <img width={24} height={24} src="/img/cart.svg" alt="cart-icon" />
+            <span className={styles.icon__count__orders}>
+              {props.cartItems.length}
+            </span>
+          </div>
+
           <MenuIcon onClick={() => openVisible()} className={styles.burger} />
           <BurgerMenu closeVisible={closeVisible} openMenu={openMenu} />
         </div>

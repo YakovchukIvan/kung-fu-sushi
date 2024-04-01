@@ -3,15 +3,21 @@
   padding-bottom: 20px;
 
   hr {
-    margin: 35px 0;
+    margin: 15px 0;
+  }
+
+  img {
+    margin-right: 10px;
   }
 
   .protectText {
     display: flex;
     justify-content: space-between;
 
-    img {
-      margin-left: 10px;
+    P {
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.5;
     }
   }
 }

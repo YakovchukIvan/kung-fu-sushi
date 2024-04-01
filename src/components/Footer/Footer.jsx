@@ -21,14 +21,14 @@ function Footer() {
             <h4>Доставка та ресторани</h4>
           </Link>
         </div>
-      </div>
-      <hr />
-      <div className={styles.protectText}>
-        <p>© 2020-2024 Kung Fu Sushi. Всі права захищено</p>
         <div>
           <img width={50} src="/img/visa-svgrepo.svg" alt="visa" />
           <img width={50} src="/img/mastercard-svgrepo.svg" alt="mastercard" />
         </div>
+      </div>
+      <hr />
+      <div className={styles.protectText}>
+        <p>© 2023-2024 Kung Fu Sushi. Всі права захищено</p>
       </div>
     </div>
   );
