@@ -8,7 +8,6 @@ function Home({
   onAddToFavorite,
   onAddToCart,
   isLoading,
-  searchMess,
 }) {
   let product = [];
 
@@ -42,14 +41,12 @@ function Home({
         )}
       </div>
       <div className="block-items-title">
-        {searchMess && (
-          <div>
-            <h3>Товару з таким іменем не існує, спробуйте іншу назву</h3>
-            <img className="empty-cart" src="/img/cart-empty.jpg" alt="alt" />
-          </div>
-        )}
         {product.length === 0 && searchValue ? (
-          <p>Пробуй шукати далі товар</p>
+          <div className="search-null">
+            <h2>Товару з таким іменем не знайдено</h2>
+            <h3>Спробуйте іншу назву</h3>
+            <img src="/img/cart-empty.jpg" alt="cart-empty" />
+          </div>
         ) : (
           <div className="block-items ">{renderItems()}</div>
         )}

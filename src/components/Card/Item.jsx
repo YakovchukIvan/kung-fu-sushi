@@ -51,26 +51,31 @@ function Item({
 
   return (
     <div>
-      {location.pathname !== '/orders' && (
-        <div className={styles.favorite} onClick={onClickFavorite}>
-          {isFavorite ? (
-            <MdOutlineFavorite
-              color="#fff"
-              size={24}
-              title={'Видалити з обраного'}
-              className="test"
-            />
-          ) : (
-            <MdOutlineFavoriteBorder
-              color="#fff"
-              size={24}
-              title={'Додати в обране'}
-            />
-          )}
-        </div>
-      )}
-
-      <img className={styles.itemProduct} src={imageUrl} alt="sushi" />
+      <div className={styles.itemProduct}>
+        {location.pathname !== '/orders' && (
+          <div
+            className={`${styles.favorite} ${
+              isFavorite ? `${styles.favoriteAdd}` : `${styles.favoriteNot}`
+            }`}
+            onClick={onClickFavorite}
+          >
+            {isFavorite ? (
+              <MdOutlineFavorite
+                color="#fff"
+                size={24}
+                title={'Видалити з обраного'}
+              />
+            ) : (
+              <MdOutlineFavoriteBorder
+                color="#fff"
+                size={24}
+                title={'Додати в обране'}
+              />
+            )}
+          </div>
+        )}
+        <img src={imageUrl} alt="sushi" />
+      </div>
       <h4>{title}</h4>
 
       <div className="d-flex justify-between align-center mt-10">

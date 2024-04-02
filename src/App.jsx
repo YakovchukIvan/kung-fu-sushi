@@ -30,7 +30,6 @@ function App() {
   // Масив з вкладками категорій суші
   const [categorySushi, setCategorySushi] = useState('Dracon');
   // Відслідковування товарів через пошук
-  const [searchMess, setSearchMess] = useState(false);
 
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
@@ -38,7 +37,7 @@ function App() {
 
   // Відслідковуємо данні з input
   const onChangeSearchInput = (event) => {
-    if (event.target.value.length === 15) {
+    if (event.target.value.length === 30) {
       return;
     }
     setSearchValue(event.target.value);
@@ -303,6 +302,11 @@ function App() {
     document.body.style.overflow = 'hidden';
   };
 
+  useEffect(() => {
+    // Скидаємо значення searchValue при зміні URL-адреси
+    setSearchValue('');
+  }, [location.pathname]);
+
   return (
     <AppContext.Provider
       value={{
@@ -355,7 +359,6 @@ function App() {
                 onAddToFavorite={onAddToFavorite}
                 onAddToCart={onAddToCart}
                 isLoading={isLoading}
-                searchMess={searchMess}
               />
             }
           />

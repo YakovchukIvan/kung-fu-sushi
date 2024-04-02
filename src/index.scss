@@ -202,6 +202,24 @@ body {
   }
 }
 
+.search-null {
+  text-align: center;
+
+  h2,
+  h3 {
+    opacity: 0.5;
+  }
+
+  h3 {
+    margin-bottom: 30px;
+    opacity: 0.5;
+  }
+
+  img {
+    border-radius: 15px;
+  }
+}
+
 .empty-cart {
   border-radius: 15px;
 }
@@ -299,7 +317,7 @@ body {
     // border: 2px solid rgb(69, 69, 231);
   }
   .search__title {
-    border: 1px solid red;
+    // border: 1px solid red;
     margin-top: 100px !important;
   }
 }

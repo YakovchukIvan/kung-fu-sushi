@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
 
 import styles from './Header.module.scss';
 import AppContext from '../../Context';
@@ -80,6 +81,7 @@ function Header(props) {
             </span>
           </div>
 
+          <SearchIcon className={styles.searchIcon} />
           <MenuIcon onClick={() => openVisible()} className={styles.burger} />
           <BurgerMenu closeVisible={closeVisible} openMenu={openMenu} />
         </div>

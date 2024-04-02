@@ -9,8 +9,40 @@
   user-select: none;
 
   .itemProduct {
-    width: 100%;
-    border-radius: 6px;
+    position: relative;
+    // border: 2px solid blue;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .favorite {
+      display: none;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      z-index: 10;
+      // cursor: pointer;
+      padding: 4px 3px 0px 4px;
+
+      &:hover {
+        // cursor: pointer;
+        background-color: #bdbdbd7a;
+        border-radius: 4px;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    .favoriteAdd {
+      display: block;
+    }
+
+    &:hover > .favoriteNot {
+      // border: 1px solid red;
+      display: block;
+    }
   }
 
   .plus {
@@ -35,22 +67,6 @@
     &:active {
       transform: none;
       transition: none;
-    }
-  }
-
-  .favorite {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    z-index: 10;
-    cursor: pointer;
-    padding: 4px 3px 0px 4px;
-
-    &:hover {
-      cursor: pointer;
-      background-color: #bdbdbd7a;
-      border-radius: 4px;
-      transition: all 0.2s ease-in-out;
     }
   }
 

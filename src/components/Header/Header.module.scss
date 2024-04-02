@@ -110,17 +110,18 @@
     .block__logo {
       display: flex;
       align-items: center;
+      width: 230px;
     }
 
     .logo__title {
       margin-left: 8px;
       h3 {
         text-transform: uppercase;
-        // font-size: 14px;
+        font-size: clamp(0.875rem, 0.8rem + 0.38vw, 1.25rem);
       }
       p {
         opacity: 0.5;
-        // font-size: 12px;
+        font-size: clamp(0.75rem, 0.675rem + 0.38vw, 1.125rem);
       }
     }
 
@@ -131,21 +132,14 @@
       border-radius: 10px;
       padding: 0 12px;
       display: flex;
-
-      .clear {
-        position: absolute;
-        top: 13px;
-        right: 15px;
-        width: 18px;
-        height: 18px;
-      }
+      width: 100%;
 
       input {
+        width: 100%;
         background-color: #e6e8e5;
         border: 0;
         font-size: 16px;
         padding: 11px;
-        width: 200px;
       }
     }
 
@@ -156,6 +150,13 @@
 
       .list__header {
         display: flex;
+
+        li:first-child {
+          /* Ваші стилі */
+          a {
+            padding: 8px 7px 2px 7px;
+          }
+        }
 
         li {
           display: flex;
@@ -178,7 +179,7 @@
 
       .item__cart__icon {
         position: relative;
-        padding: 9px 11px 2px 8px;
+        padding: 9px 8px 2px 8px;
 
         &:hover {
           cursor: pointer;
@@ -191,7 +192,7 @@
           background: #d12626cc;
           position: absolute;
           left: 15px;
-          top: 2px;
+          top: 3px;
           transform: translate(20%, -10%);
           display: flex;
           flex-direction: row;
@@ -209,6 +210,10 @@
     }
 
     .burger {
+      display: none;
+    }
+
+    .searchIcon {
       display: none;
     }
   }
@@ -253,14 +258,14 @@
     padding: 10px 10px;
 
     .header__wrapper {
-      .logo__title {
-        h3 {
-          font-size: 16px;
-        }
-        p {
-          font-size: 14px;
-        }
-      }
+      // .logo__title {
+      //   h3 {
+      //     font-size: 16px;
+      //   }
+      //   p {
+      //     font-size: 14px;
+      //   }
+      // }
 
       .list__header {
         // border: 1px solid red;
@@ -302,11 +307,11 @@
       }
     }
 
-    .search__block {
-      input {
-        width: 170px !important;
-      }
-    }
+    // .search__block {
+    //   input {
+    //     width: 170px !important;
+    //   }
+    // }
   }
 }
 
@@ -321,7 +326,13 @@
       // border: 1px solid red;
 
       .block__logo {
+        width: 200px;
         grid-column: 1 / 2;
+
+        img {
+          width: 50px;
+          height: 50px;
+        }
       }
 
       .blockMenu {
@@ -330,13 +341,28 @@
       }
 
       .search__block {
-        border: 1px solid red;
+        // border: 1px solid red;
         // width: 100px !important;
         grid-column: 1 / span 2; /* Займає дві позиції */
         grid-row: 2 / 3;
         input {
-          border: 1px solid blue;
+          // border: 1px solid blue;
           width: 100% !important;
+        }
+      }
+
+      .searchIcon {
+        // border: 1px solid red;
+        display: block;
+        width: 40px;
+        height: 40px;
+        padding: 2px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #bdbdbd7a;
+          border-radius: 4px;
+          transition: all 0.2s ease-in-out;
         }
       }
     }
