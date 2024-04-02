@@ -11,7 +11,7 @@ function BurgerMenu({ openMenu, closeVisible }) {
       <div className={`${styles.bgClose}`} onClick={() => closeVisible()}></div>
 
       <div className={styles.drawer}>
-        <h2 className="d-flex justify-center">
+        <h2 className="d-flex justify-between">
           <Link to="/" title="На головну">
             <div className={styles.block__logo} onClick={() => closeVisible()}>
               <img width={60} height={60} src="/img/logo2.jpg" alt="logo" />

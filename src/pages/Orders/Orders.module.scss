@@ -10,10 +10,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 50px;
+    border: 2px solid blue;
 
     .orders {
-      // border: 2px solid blue;
-
       box-shadow: rgba(0, 0, 0, 0.16) 0px -1px 1px 1px,
         rgba(0, 0, 0, 0.23) 1px 2px 3px;
       border-radius: 10px;
