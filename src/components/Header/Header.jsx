@@ -95,10 +95,12 @@ function Header(props) {
             </span>
           </div>
 
-          <SearchIcon
-            onClick={() => toggleSearchView()}
-            className={styles.searchIcon}
-          />
+          {location.pathname === '/' && (
+            <SearchIcon
+              onClick={() => toggleSearchView()}
+              className={styles.searchIcon}
+            />
+          )}
           <MenuIcon onClick={() => openVisible()} className={styles.burger} />
           <BurgerMenu closeVisible={closeVisible} openMenu={openMenu} />
         </div>

@@ -88,7 +88,7 @@ body {
 
 .block-items {
   // max-width: 1080px;
-  border: 2px solid rgb(69, 69, 231);
+  // border: 2px solid rgb(69, 69, 231);
   // display: flex;
   // justify-content: left;
   // flex-wrap: wrap;
@@ -277,6 +277,9 @@ body {
   .block-items {
     grid-template-columns: repeat(2, minmax(175px, 1fr));
     gap: 15px 15px; /* Відступ між карточками */
+  }
+  .search__title {
+    margin-top: 75px !important;
   }
 }
 
