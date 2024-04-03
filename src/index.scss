@@ -289,8 +289,8 @@ body {
   }
 }
 
-@media (max-width: 420px) {
-  .itemFavorite {
+@media (max-width: 375px) {
+  .block-items {
     grid-template-columns: repeat(1, minmax(200px, 1fr));
     gap: 15px 10px; /* Відступ між карточками */
   }
