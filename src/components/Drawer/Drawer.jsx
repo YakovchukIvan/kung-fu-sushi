@@ -20,14 +20,14 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
       setIsLoading(true);
 
       // Тепер можна створювати замовлення і робити інші дії
-      const totalSum = totalPrice - (totalPrice * 0.05).toFixed(2);
-      console.log('  totalSum:', totalSum);
+      // const totalSum = totalPrice - (totalPrice * 0.05).toFixed(2);
+      // console.log('  totalSum:', totalSum);
       const { data } = await new Promise((resolve) => {
         setTimeout(async () => {
           resolve(
             await axios.post(
               'https://65ed7a9908706c584d99d718.mockapi.io/orders',
-              { items: cartItems, totalPrice: totalSum }
+              { items: cartItems, totalPrice: totalPrice }
             )
           );
         }, 1000); // Затримка в 2 секунд
@@ -113,15 +113,20 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
             <div className="cartTotalBlock">
               <ul>
                 <li>
+                  <span>Доставка: </span>
+                  <div></div>
+                  <b>безкоштовно</b>
+                </li>
+                <li>
                   <span>Всього:</span>
                   <div></div>
                   <b>{totalPrice} грн.</b>
                 </li>
-                <li>
+                {/* <li>
                   <span>Ваша знижка 5%: </span>
                   <div></div>
                   <b>{(totalPrice * 0.05).toFixed(2)} грн.</b>
-                </li>
+                </li> */}
               </ul>
               <button
                 disabled={isLoading}

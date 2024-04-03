@@ -85,14 +85,16 @@ function Orders() {
                             style={{ margin: 0, width: 125 }}
                           >
                             <div className={styles.orderTitle} key={item.id}>
-                              <img
-                                className={styles.orderImg}
-                                src={item.imageUrl}
-                                alt={item.title}
-                              />
-                              <span className={styles.orderCountItem}>
-                                {item.count} шт
-                              </span>
+                              <div>
+                                <img
+                                  className={styles.orderImg}
+                                  src={item.imageUrl}
+                                  alt={item.title}
+                                />
+                                <span className={styles.orderCountItem}>
+                                  {item.count} шт
+                                </span>
+                              </div>
                               <h4>{item.title}</h4>
                             </div>
                           </SwiperSlide>

@@ -1,6 +1,6 @@
 .wrapperFavorite {
   // border: 1px solid red;
-  margin-top: 150px;
+  margin-top: 125px;
 
   .title {
     margin-bottom: 40px;
@@ -15,7 +15,7 @@
       // border: 1px solid red;
       width: fit-content;
       display: grid;
-      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      grid-template-columns: repeat(5, minmax(150px, 1fr));
       gap: 15px 10px; /* Відступ між карточками */
       justify-content: flex-start; /* Змінюємо властивість justify-content */
     }
@@ -24,5 +24,74 @@
   .emptyFavorite {
     display: flex;
     justify-content: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .wrapperFavorite {
+    .blockItems {
+      .itemFavorite {
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
+        gap: 15px 10px; /* Відступ між карточками */
+      }
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .wrapperFavorite {
+    .blockItems {
+      .itemFavorite {
+        grid-template-columns: repeat(4, minmax(175px, 1fr));
+        gap: 15px 10px; /* Відступ між карточками */
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapperFavorite {
+    .blockItems {
+      .itemFavorite {
+        grid-template-columns: repeat(3, minmax(175px, 1fr));
+        gap: 15px 10px; /* Відступ між карточками */
+
+        .card {
+          border: 1px solid red;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 592px) {
+  .wrapperFavorite {
+    .blockItems {
+      .itemFavorite {
+        grid-template-columns: repeat(2, minmax(175px, 1fr));
+        gap: 15px 15px; /* Відступ між карточками */
+      }
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .wrapperFavorite {
+    .blockItems {
+      .itemFavorite {
+        gap: 10px 10px; /* Відступ між карточками */
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .wrapperFavorite {
+    .blockItems {
+      .itemFavorite {
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+        gap: 15px 10px; /* Відступ між карточками */
+      }
+    }
   }
 }

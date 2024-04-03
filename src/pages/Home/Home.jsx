@@ -8,6 +8,7 @@ function Home({
   onAddToFavorite,
   onAddToCart,
   isLoading,
+  newSearchItem,
 }) {
   let product = [];
 
@@ -16,8 +17,6 @@ function Home({
   } else {
     product = items;
   }
-
-  // console.log('product', filteredItems.length);
 
   const renderItems = () => {
     return (isLoading ? [...Array(12)] : product).map((item, index) => (
@@ -44,7 +43,9 @@ function Home({
         {product.length === 0 && searchValue ? (
           <div className="search-null">
             <h2>Товару з таким іменем не знайдено</h2>
-            <h3>Спробуйте іншу назву</h3>
+            <button className="greenButton" onClick={() => newSearchItem()}>
+              Спробуйте іншу назву
+            </button>
             <img src="/img/cart-empty.jpg" alt="cart-empty" />
           </div>
         ) : (

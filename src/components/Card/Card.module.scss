@@ -125,142 +125,167 @@
   margin-top: 70px;
 }
 
-@media screen and (max-width: 1124px) {
-  .card {
-    max-width: 220px;
-  }
-}
-
-@media screen and (max-width: 973px) {
+@media (max-width: 768px) {
   .card {
     padding: 15px;
-    max-width: 210px;
   }
   .compositionWeight {
-    bottom: -5px !important;
+    bottom: -10px !important;
     left: 15px !important;
+    span {
+      font-size: 13px !important;
+    }
   }
 }
-
-@media screen and (max-width: 926px) {
+@media (max-width: 460px) {
   .card {
-    padding: 15px;
-    max-width: 180px;
-  }
-}
-
-@media screen and (max-width: 913px) {
-  .card {
-    padding: 15px;
-    max-width: 190px;
-  }
-}
-
-@media screen and (max-width: 831px) {
-  .card {
-    max-width: 215px;
-    padding: 15px;
-  }
-}
-
-@media screen and (max-width: 721px) {
-  .card {
-    max-width: 190px;
-    padding: 15px;
-  }
-}
-
-@media screen and (max-width: 636px) {
-  .card {
-    max-width: 175px;
     padding: 10px;
   }
-
   .compositionWeight {
     bottom: -10px !important;
     left: 10px !important;
-  }
-}
-
-@media screen and (max-width: 591px) {
-  .card {
-    max-width: 155px;
-  }
-
-  h4 {
-    font-size: 15px;
-    margin: 15px 0;
-  }
-
-  .priceTitle {
-    span {
-      font-size: 12px;
-    }
-    b {
-      font-size: 13px;
-    }
-  }
-
-  .compositionBlock {
-    strong {
-      font-size: 14px;
-    }
-    span {
-      font-size: 11px;
-    }
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .card {
-    max-width: 145px;
-  }
-
-  h4 {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 486px) {
-  .card {
-    max-width: 215px;
-  }
-
-  h4 {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 471px) {
-  .wrapper {
-    padding: 0;
-  }
-  .card {
-    max-width: 170px;
-    padding: 5px;
-  }
-
-  h4 {
-    margin: 10px 0 15px 0;
-  }
-
-  .compositionWeight {
-    bottom: -10px !important;
-    left: 5px !important;
     span {
       font-size: 13px !important;
     }
   }
 }
 
-@media screen and (max-width: 381px) {
-  .card {
-    max-width: 150px;
-  }
-}
+// @media screen and (max-width: 1124px) {
+//   .card {
+//     max-width: 220px;
+//   }
+// }
 
-@media screen and (max-width: 319px) {
-  .card {
-    max-width: 225px;
-  }
-}
+// @media screen and (max-width: 973px) {
+//   .card {
+//     padding: 15px;
+//     max-width: 210px;
+//   }
+//   .compositionWeight {
+//     bottom: -5px !important;
+//     left: 15px !important;
+//   }
+// }
+
+// @media screen and (max-width: 926px) {
+//   .card {
+//     padding: 15px;
+//     max-width: 180px;
+//   }
+// }
+
+// @media screen and (max-width: 913px) {
+//   .card {
+//     padding: 15px;
+//     max-width: 190px;
+//   }
+// }
+
+// @media screen and (max-width: 831px) {
+//   .card {
+//     max-width: 215px;
+//     padding: 15px;
+//   }
+// }
+
+// @media screen and (max-width: 721px) {
+//   .card {
+//     max-width: 190px;
+//     padding: 15px;
+//   }
+// }
+
+// @media screen and (max-width: 636px) {
+//   .card {
+//     max-width: 175px;
+//     padding: 10px;
+//   }
+
+//   .compositionWeight {
+//     bottom: -10px !important;
+//     left: 10px !important;
+//   }
+// }
+
+// @media screen and (max-width: 591px) {
+//   .card {
+//     max-width: 155px;
+//   }
+
+//   h4 {
+//     font-size: 15px;
+//     margin: 15px 0;
+//   }
+
+//   .priceTitle {
+//     span {
+//       font-size: 12px;
+//     }
+//     b {
+//       font-size: 13px;
+//     }
+//   }
+
+//   .compositionBlock {
+//     strong {
+//       font-size: 14px;
+//     }
+//     span {
+//       font-size: 11px;
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 520px) {
+//   .card {
+//     max-width: 145px;
+//   }
+
+//   h4 {
+//     font-size: 14px;
+//   }
+// }
+
+// @media screen and (max-width: 486px) {
+//   .card {
+//     max-width: 215px;
+//   }
+
+//   h4 {
+//     font-size: 14px;
+//   }
+// }
+
+// @media screen and (max-width: 471px) {
+//   .wrapper {
+//     padding: 0;
+//   }
+//   .card {
+//     max-width: 170px;
+//     padding: 5px;
+//   }
+
+//   h4 {
+//     margin: 10px 0 15px 0;
+//   }
+
+//   .compositionWeight {
+//     bottom: -10px !important;
+//     left: 5px !important;
+//     span {
+//       font-size: 13px !important;
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 381px) {
+//   .card {
+//     max-width: 150px;
+//   }
+// }
+
+// @media screen and (max-width: 319px) {
+//   .card {
+//     max-width: 225px;
+//   }
+// }

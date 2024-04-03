@@ -1,5 +1,6 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -9,8 +10,10 @@ import BurgerMenu from './BurgerMenu';
 
 function Header(props) {
   const { location } = useContext(AppContext);
+  const isWideScreen = useMediaQuery('(min-width:540px)');
 
   const [openMenu, setOpenMenu] = useState(false);
+  const [seacrhView, setSearchView] = useState(false);
 
   const closeVisible = () => {
     setOpenMenu(false);
@@ -20,6 +23,17 @@ function Header(props) {
   const openVisible = () => {
     setOpenMenu(true);
     document.body.style.overflow = 'hidden';
+  };
+
+  // Оновлення стану searchView, якщо екран ширший за 540px
+  useEffect(() => {
+    if (isWideScreen) {
+      setSearchView(true);
+    }
+  }, []);
+
+  const toggleSearchView = () => {
+    setSearchView((prev) => !prev);
   };
 
   return (
@@ -36,7 +50,7 @@ function Header(props) {
           </div>
         </Link>
 
-        {location.pathname === '/' && (
+        {location.pathname === '/' && seacrhView && (
           <div className={styles.search__block}>
             <img src="/img/search.svg" alt="Search-icon" />
             <input
@@ -81,7 +95,10 @@ function Header(props) {
             </span>
           </div>
 
-          <SearchIcon className={styles.searchIcon} />
+          <SearchIcon
+            onClick={() => toggleSearchView()}
+            className={styles.searchIcon}
+          />
           <MenuIcon onClick={() => openVisible()} className={styles.burger} />
           <BurgerMenu closeVisible={closeVisible} openMenu={openMenu} />
         </div>

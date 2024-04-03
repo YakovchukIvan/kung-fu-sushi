@@ -302,6 +302,10 @@ function App() {
     document.body.style.overflow = 'hidden';
   };
 
+  const newSearchItem = () => {
+    setSearchValue('');
+  };
+
   useEffect(() => {
     // Скидаємо значення searchValue при зміні URL-адреси
     setSearchValue('');
@@ -359,6 +363,7 @@ function App() {
                 onAddToFavorite={onAddToFavorite}
                 onAddToCart={onAddToCart}
                 isLoading={isLoading}
+                newSearchItem={newSearchItem}
               />
             }
           />

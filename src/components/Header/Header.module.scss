@@ -345,6 +345,7 @@
       .search__block {
         // border: 1px solid red;
         // width: 100px !important;
+        // display: none;
         grid-column: 1 / span 2; /* Займає дві позиції */
         grid-row: 2 / 3;
         input {

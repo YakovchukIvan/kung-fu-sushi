@@ -87,12 +87,17 @@ body {
 }
 
 .block-items {
-  max-width: 1080px;
-  // border: 2px solid rgb(69, 69, 231);
-  display: flex;
-  justify-content: left;
-  flex-wrap: wrap;
-  gap: 25px;
+  // max-width: 1080px;
+  border: 2px solid rgb(69, 69, 231);
+  // display: flex;
+  // justify-content: left;
+  // flex-wrap: wrap;
+  // gap: 25px;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 15px 10px; /* Відступ між карточками */
+  justify-content: flex-start; /* Змінюємо властивість justify-content */
 }
 
 .cartTotalBlock {
@@ -203,16 +208,18 @@ body {
 }
 
 .search-null {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  h2,
-  h3 {
+  h2 {
+    margin-top: 0;
     opacity: 0.5;
   }
 
-  h3 {
-    margin-bottom: 30px;
-    opacity: 0.5;
+  button {
+    width: 250px;
+    margin: 30px 0;
   }
 
   img {
@@ -241,132 +248,76 @@ body {
   }
 }
 
-@media screen and (max-width: 1124px) {
+@media (max-width: 1000px) {
   .block-items {
-    width: 930px;
-    gap: 15px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-  .header-wrapper {
-    // border: 1px solid #9dd558 !important;
-    max-width: 822px !important;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 15px 10px; /* Відступ між карточками */
   }
 }
 
-@media screen and (max-width: 973px) {
+@media (max-width: 860px) {
   .block-items {
-    width: 875px;
-    gap: 10px;
-    // border: 2px solid rgb(69, 69, 231);
+    grid-template-columns: repeat(4, minmax(175px, 1fr));
+    gap: 15px 10px; /* Відступ між карточками */
   }
 }
 
-@media screen and (max-width: 926px) {
+@media (max-width: 768px) {
   .block-items {
-    width: 735px;
-    gap: 5px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-  .total__price-cart {
-    display: none;
+    grid-template-columns: repeat(3, minmax(175px, 1fr));
+    gap: 15px 10px; /* Відступ між карточками */
+
+    .card {
+      border: 1px solid red;
+    }
   }
 }
 
-@media screen and (max-width: 913px) {
+@media (max-width: 592px) {
   .block-items {
-    width: 780px;
-    gap: 5px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-  .total__price-cart {
-    display: none;
+    grid-template-columns: repeat(2, minmax(175px, 1fr));
+    gap: 15px 15px; /* Відступ між карточками */
   }
 }
 
-@media screen and (max-width: 831px) {
+@media (max-width: 460px) {
   .block-items {
-    width: 670px;
-    gap: 10px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-}
-
-@media screen and (max-width: 721px) {
-  .block-items {
-    width: 585px;
-    gap: 5px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-}
-
-@media screen and (max-width: 636px) {
-  .block-items {
-    width: 540px;
-    gap: 5px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-}
-
-@media screen and (max-width: 591px) {
-  .wrapper {
-    padding: 0px 10px;
-  }
-  .block-items {
-    width: 480px;
-    gap: 5px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-  .search__title {
-    // border: 1px solid red;
-    margin-top: 100px !important;
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .block-items {
-    width: 449px;
-    gap: 5px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-}
-
-@media screen and (max-width: 486px) {
-  .block-items {
-    width: 435px;
-    gap: 5px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-}
-
-@media screen and (max-width: 471px) {
-  .block-items {
-    width: 345px;
-    gap: 5px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-}
-
-@media screen and (max-width: 381px) {
-  .wrapper {
-    padding: 0px 7px;
-  }
-  .block-items {
-    width: 305px;
-    gap: 5px;
-    // border: 2px solid rgb(69, 69, 231);
-  }
-}
-
-@media screen and (max-width: 319px) {
-  .block-items {
-    width: 225px;
-    gap: 10px;
-    // border: 2px solid rgb(69, 69, 231);
+    gap: 10px 10px; /* Відступ між карточками */
   }
 }
 
 @media (max-width: 420px) {
-  .cartItem {
-    padding: 10px;
+  .itemFavorite {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+    gap: 15px 10px; /* Відступ між карточками */
   }
 }
+
+// @media screen and (max-width: 1124px) {
+//   .header-wrapper {
+//     // border: 1px solid #9dd558 !important;
+//     max-width: 822px !important;
+//   }
+// }
+
+// @media screen and (max-width: 591px) {
+//   .wrapper {
+//     padding: 0px 10px;
+//   }
+//   .search__title {
+//     border: 1px solid red;
+//     margin-top: 85px !important;
+//   }
+// }
+
+// @media screen and (max-width: 381px) {
+//   .wrapper {
+//     padding: 0px 7px;
+//   }
+// }
+
+// @media (max-width: 420px) {
+//   .cartItem {
+//     padding: 10px;
+//   }
+// }
