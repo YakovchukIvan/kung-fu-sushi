@@ -53,9 +53,10 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
       setIsOrderComplate(true);
 
       setTimeout(() => {
-        onClose();
+        window.location.reload();
         setIsOrderComplate(false);
-      }, 3000);
+        onClose();
+      }, 2500);
     } catch (error) {
       alert('Помилка створення замовлення :(');
     } finally {

@@ -50,7 +50,7 @@ function Item({
   };
 
   return (
-    <div>
+    <>
       <div className={styles.itemProduct}>
         {location.pathname !== '/orders' && (
           <div
@@ -105,7 +105,7 @@ function Item({
           />
         )}
       </div>
-    </div>
+    </>
   );
 }
 

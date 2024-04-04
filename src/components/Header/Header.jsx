@@ -30,7 +30,7 @@ function Header(props) {
     if (isWideScreen) {
       setSearchView(true);
     }
-  }, []);
+  }, [isWideScreen]);
 
   const toggleSearchView = () => {
     setSearchView((prev) => !prev);
