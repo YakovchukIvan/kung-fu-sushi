@@ -7,26 +7,20 @@ const initialState = {
 };
 
 export const loadItems = createAsyncThunk('sushi/loadItems', async (url) => {
-  // console.log(url);
   try {
     const res = await axios.get(url);
-    // console.log('res', res);
     return res.data;
   } catch (error) {
-    // thunkAPI.dispatch(setError(error.message));
-    // OPTION 1
-    // return thunkAPI.rejectWithValue(error);
-    // OPTION 2
     throw error;
   }
 });
 
 export const loadCart = createAsyncThunk('sushi/loadCart', async (url) => {
-  console.log(url);
   try {
     const res = await axios.get(url);
-    console.log('res', res);
-    return res.data;
+    const cartItems = res.data.filter((item) => item.cart === true);
+    // console.log('cartItems', cartItems);
+    return cartItems;
   } catch (error) {
     throw error;
   }
@@ -35,6 +29,9 @@ export const loadCart = createAsyncThunk('sushi/loadCart', async (url) => {
 const sushiSlice = createSlice({
   name: 'sushiItems',
   initialState,
+  // addToCartItem: (state, action) => {
+  //   state.sushiCart;
+  // },
   extraReducers: (builder) => {
     builder.addCase(loadItems.fulfilled, (state, action) => {
       state.sushiItems = action.payload;
@@ -44,6 +41,8 @@ const sushiSlice = createSlice({
     });
   },
 });
+
+export const { toggleCartItem } = sushiSlice.actions;
 
 export const selectSushiItems = (state) => state.sushi.sushiItems;
 export const selectSushiCart = (state) => state.sushi.sushiCart;

@@ -6,10 +6,14 @@ import Info from './Info';
 import { useCart } from '../../hooks/useCart';
 
 import styles from './Drawer.module.scss';
+// import { useSelector } from 'react-redux';
+// import { selectSushiCart } from '../../redux/slices/sushiSlice';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function Drawer({ onClose, onRemove, items = [], opened }) {
+  // const items = useSelector(selectSushiCart);
+  // console.log('items:', items);
   const { cartItems, setCartItems, totalPrice } = useCart();
   const [orderId, setOrderId] = useState(null);
   const [isOrderComplate, setIsOrderComplate] = useState(false);

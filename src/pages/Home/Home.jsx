@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import Card from '../../components/Card/Card';
 import CategorySushi from './CategorySushi';
-import { selectSushiItems } from '../../redux/slices/sushiSlice';
+// import { selectSushiItems } from '../../redux/slices/sushiSlice';
 
 function Home({
   items,
@@ -14,13 +14,14 @@ function Home({
 }) {
   let product = [];
 
-  const sushiItems = useSelector(selectSushiItems);
+  // const sushiItems = useSelector(selectSushiItems);
+  // const sushiItems = useSelector(selectSushiItems);
 
   if (searchValue) {
     product = filteredItems;
   } else {
     // product = items;
-    product = sushiItems;
+    product = items;
   }
 
   const renderItems = () => {
