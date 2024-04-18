@@ -159,14 +159,14 @@
         .itemOrders {
           // border: 1px solid red;
           width: 300px;
-          margin-left: 4px;
+          // margin-left: 4px;
 
           .orderTitle {
             img {
               // border: 1px solid red;
               border-radius: 10px;
-              width: 135px;
-              height: 135px;
+              width: 135px !important;
+              height: 135px !important;
             }
           }
         }

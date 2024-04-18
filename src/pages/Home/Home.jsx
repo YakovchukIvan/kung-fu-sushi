@@ -1,5 +1,7 @@
+import { useSelector } from 'react-redux';
 import Card from '../../components/Card/Card';
 import CategorySushi from './CategorySushi';
+import { selectSushiItems } from '../../redux/slices/sushiSlice';
 
 function Home({
   items,
@@ -12,10 +14,13 @@ function Home({
 }) {
   let product = [];
 
+  const sushiItems = useSelector(selectSushiItems);
+
   if (searchValue) {
     product = filteredItems;
   } else {
-    product = items;
+    // product = items;
+    product = sushiItems;
   }
 
   const renderItems = () => {

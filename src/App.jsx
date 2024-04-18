@@ -11,9 +11,12 @@ import NotFound from './pages/Error/NotFound';
 
 import AppContext from './Context';
 import Footer from './components/Footer/Footer';
+import { useDispatch } from 'react-redux';
+import { loadItems } from './redux/slices/sushiSlice';
 
 function App() {
   const location = useLocation();
+  const dispatch = useDispatch();
 
   // Створюємо масив з данним з бек-енд
   const [items, setItems] = useState([]);
@@ -141,6 +144,12 @@ function App() {
           `https://650f314454d18aabfe99ec68.mockapi.io/items?filter=${categorySushi}`
         );
 
+        dispatch(
+          loadItems(
+            `https://650f314454d18aabfe99ec68.mockapi.io/items?filter=${categorySushi}`
+          )
+        );
+
         const cartItems = cartResponse.data.filter(
           (item) => item.cart === true
         );
@@ -150,14 +159,14 @@ function App() {
         //  setCartItems(cartResponse.data);
         setCartItems(cartItems);
         setFavorites(favoritesResponse.data);
-        setItems(itemsResponse.data);
+        // setItems(itemsResponse.data);
       } catch (error) {
         alert('Помилка при запиті данних.');
         console.error(error);
       }
     }
     fetchData();
-  }, [categorySushi]);
+  }, [categorySushi, dispatch]);
 
   const onAddToFavorite = async (obj) => {
     // // Перевірка чи вже додано favorite, якщо так тоді видаляємо. Якщо favorite = true, тоді else додаємо товар до favorite
