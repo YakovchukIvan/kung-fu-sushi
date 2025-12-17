@@ -34,9 +34,8 @@ function App() {
   const [categorySushi, setCategorySushi] = useState('Dracon');
   // Відслідковування товарів через пошук
 
-  const isItemAdded = (id) => {
-    return cartItems.some((obj) => Number(obj.parentId) === Number(id));
-  };
+  const isItemAdded = (id) =>
+    cartItems.some((obj) => Number(obj.parentId) === Number(id));
 
   // Відслідковуємо данні з input
   const onChangeSearchInput = (event) => {
@@ -52,13 +51,11 @@ function App() {
   };
 
   // Функція яка відслідковує подію в input а також передає її в map та рендерить товари до відповідного пошуку
-  const filterItems = (items, searchValue) => {
+  const filterItems = (items, searchValue) =>
     // console.log('items', items);
-    return items.filter((item) =>
-      item.title.toLowerCase().includes(searchValue.toLowerCase())
+    items.filter((item) =>
+      item.title.toLowerCase().includes(searchValue.toLowerCase()),
     );
-  };
-
   // Використання самої функції filterItems
   // const filteredItems = filterItems(items, searchValue);
   const filteredItems = filterItems(favorites, searchValue);
@@ -80,7 +77,7 @@ function App() {
             };
           }
           return item;
-        })
+        }),
       );
 
       try {
@@ -89,12 +86,12 @@ function App() {
           `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
           {
             count: existingItem.count + 1, // Збільшуємо кількість на сервері
-          }
+          },
         );
       } catch (error) {
         console.log(
           'Мокапі обмежує правильне додавання кількості товару:',
-          error
+          error,
         );
         // alert('Помилка при оновленні кількості товару в кошику на сервері');
       }
@@ -110,12 +107,12 @@ function App() {
         // );
         await axios.put(
           `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
-          { cart: true }
+          { cart: true },
         );
       } catch (error) {
         console.log(
           'Мокапі обмежує правильне додавання кількості товару:',
-          error
+          error,
         );
         // alert('Помилка при додаванні товару в кошик на сервері', error);
       }
@@ -135,13 +132,13 @@ function App() {
         //   'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
         // );
         const cartResponse = await axios.get(
-          'https://650f314454d18aabfe99ec68.mockapi.io/items'
+          'https://650f314454d18aabfe99ec68.mockapi.io/items',
         );
         const favoritesResponse = await axios.get(
-          'https://650f314454d18aabfe99ec68.mockapi.io/items'
+          'https://650f314454d18aabfe99ec68.mockapi.io/items',
         );
         const itemsResponse = await axios.get(
-          `https://650f314454d18aabfe99ec68.mockapi.io/items?filter=${categorySushi}`
+          `https://650f314454d18aabfe99ec68.mockapi.io/items?filter=${categorySushi}`,
         );
 
         // dispatch(
@@ -153,7 +150,7 @@ function App() {
         // dispatch(loadCart('https://650f314454d18aabfe99ec68.mockapi.io/items'));
 
         const cartItems = cartResponse.data.filter(
-          (item) => item.cart === true
+          (item) => item.cart === true,
         );
         // console.log(cartItems);
 
@@ -206,7 +203,7 @@ function App() {
             };
           }
           return item;
-        })
+        }),
       );
       setItems((prev) =>
         prev.map((item) => {
@@ -217,14 +214,14 @@ function App() {
             };
           }
           return item;
-        })
+        }),
       );
 
       await axios.put(
         `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
         {
           favorite: !obj.favorite, // Збільшуємо кількість на сервері
-        }
+        },
       );
     } catch (error) {
       alert('Не вдалося додати "вибране"');
@@ -252,7 +249,7 @@ function App() {
           };
         }
         return item;
-      })
+      }),
     );
 
     setFavorites((prev) =>
@@ -273,7 +270,7 @@ function App() {
           };
         }
         return item;
-      })
+      }),
     );
   };
 
@@ -291,10 +288,10 @@ function App() {
         {
           cart: false, // Збільшуємо кількість на сервері
           count: 1,
-        }
+        },
       );
       setCartItems((prev) =>
-        prev.filter((item) => Number(item.id) !== Number(id))
+        prev.filter((item) => Number(item.id) !== Number(id)),
       );
       // console.log(items);
     } catch (error) {

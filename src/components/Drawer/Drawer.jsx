@@ -31,8 +31,8 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
           resolve(
             await axios.post(
               'https://65ed7a9908706c584d99d718.mockapi.io/orders',
-              { items: cartItems, totalPrice: totalPrice }
-            )
+              { items: cartItems, totalPrice: totalPrice },
+            ),
           );
         }, 1000); // Затримка в 2 секунд
       });
@@ -46,7 +46,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
         // );
         await axios.put(
           `https://650f314454d18aabfe99ec68.mockapi.io/items/${item.id}`,
-          { count: 1, cart: false }
+          { count: 1, cart: false },
         );
         await delay(500);
       }

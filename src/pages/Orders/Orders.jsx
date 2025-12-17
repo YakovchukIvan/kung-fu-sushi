@@ -23,12 +23,10 @@ function Orders() {
     async function fetchData() {
       try {
         const { data } = await axios.get(
-          'https://65ed7a9908706c584d99d718.mockapi.io/orders/'
+          'https://65ed7a9908706c584d99d718.mockapi.io/orders/',
         );
 
-        const orders = data.map((obj) => {
-          return obj;
-        });
+        const orders = data.map((obj) => obj);
 
         setOrders(orders);
         setIsLoading(false);
@@ -58,7 +56,7 @@ function Orders() {
                 const { orderDate, id, items, totalPrice } = order;
 
                 const formattedDate = new Date(
-                  orderDate * 1000
+                  orderDate * 1000,
                 ).toLocaleDateString(); // Перетворення timestamp на дату
 
                 return (
