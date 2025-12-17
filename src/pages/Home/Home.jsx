@@ -24,8 +24,8 @@ function Home({
     product = items;
   }
 
-  const renderItems = () => {
-    return (isLoading ? [...Array(12)] : product).map((item, index) => (
+  const renderItems = () =>
+    (isLoading ? [...Array(12)] : product).map((item, index) => (
       <Card
         {...item}
         key={index}
@@ -34,7 +34,6 @@ function Home({
         loading={isLoading}
       />
     ));
-  };
 
   return (
     <div className="content">
