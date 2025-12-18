@@ -1,18 +1,16 @@
 .header {
   border-bottom: 1px solid #eaeaea;
-  // border: 2px solid red;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ffffff; /* Колір фону вашого заголовка */
-  z-index: 11; /* Значення z-index, яке дозволяє вам контролювати, як ваш заголовок взаємодіє з іншими елементами на сторінці */
+  background-color: #ffffff;
+  z-index: 11;
   padding: 10px 20px;
 
   .overlayBurger {
     display: grid;
     grid-template-columns: 1fr 420px;
-    // border: 3px solid rgb(20, 18, 172);
     position: fixed;
     left: 0;
     top: 0;
@@ -22,7 +20,9 @@
     z-index: 20;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+    transition:
+      opacity 0.1s ease-in-out,
+      visibility 0.1s ease-in-out;
     overflow: hidden;
   }
 
@@ -36,7 +36,6 @@
   }
 
   .bgClose {
-    // border: 2px solid rgb(192, 243, 7);
     width: 100%;
     cursor: pointer;
   }
@@ -55,7 +54,6 @@
     padding-top: 0px;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    // border: 2px solid red;
     overflow-y: auto;
     cursor: auto;
 
@@ -75,7 +73,6 @@
         text-align: center;
 
         a {
-          // border: 1px solid red;
           width: 100%;
           font-weight: 500;
           font-size: 20px;
@@ -154,7 +151,6 @@
         display: flex;
 
         li:first-child {
-          /* Ваші стилі */
           a {
             padding: 8px 7px 2px 7px;
           }
@@ -219,40 +215,6 @@
       display: none;
     }
   }
-
-  // Модальне вікно з плавним виїжанням
-  // .modalAddItem {
-  //   background: linear-gradient(to right, #50c878, #59cc80);
-  //   border-top-left-radius: 10px;
-  //   border-bottom-left-radius: 10px;
-  //   position: absolute;
-  //   width: 285px;
-  //   bottom: -30px;
-  //   right: -5px;
-  //   text-transform: uppercase;
-  //   font-size: 18px;
-  //   color: #ffffff;
-  //   padding: 10px 20px;
-  //   animation: slideInRightToLeft 1.5s forwards, fadeOut 0.5s forwards 3s; /* Додали дві анімації: slideInRightToLeft та fadeOut */
-  // }
-
-  // @keyframes slideInRightToLeft {
-  //   from {
-  //     right: -285px; /* Початкове значення позиції справа */
-  //   }
-  //   to {
-  //     right: 0; /* Значення позиції зліва */
-  //   }
-  // }
-
-  // @keyframes fadeOut {
-  //   from {
-  //     opacity: 1; /* Початкова прозорість */
-  //   }
-  //   to {
-  //     opacity: 0; /* Значення прозорості */
-  //   }
-  // }
 }
 
 @media (max-width: 760px) {
@@ -260,17 +222,7 @@
     padding: 10px 10px;
 
     .header__wrapper {
-      // .logo__title {
-      //   h3 {
-      //     font-size: 16px;
-      //   }
-      //   p {
-      //     font-size: 14px;
-      //   }
-      // }
-
       .list__header {
-        // border: 1px solid red;
         display: none !important;
       }
 
@@ -308,12 +260,6 @@
         }
       }
     }
-
-    // .search__block {
-    //   input {
-    //     width: 170px !important;
-    //   }
-    // }
   }
 }
 
@@ -325,7 +271,6 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 10px;
-      // border: 1px solid red;
 
       .block__logo {
         width: 200px;
@@ -343,19 +288,14 @@
       }
 
       .search__block {
-        // border: 1px solid red;
-        // width: 100px !important;
-        // display: none;
         grid-column: 1 / span 2; /* Займає дві позиції */
         grid-row: 2 / 3;
         input {
-          // border: 1px solid blue;
           width: 100% !important;
         }
       }
 
       .searchIcon {
-        // border: 1px solid red;
         display: block;
         width: 36px;
         height: 36px;

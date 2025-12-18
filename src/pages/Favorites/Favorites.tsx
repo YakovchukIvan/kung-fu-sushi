@@ -1,13 +1,11 @@
-import { useContext } from 'react';
-
-import Card from '../../components/Card/Card';
-import AppContext from '../../Context';
-import Loader from '../../components/Card/Loader';
+import { Card } from '../../components/Card/Card';
+import { Loader } from '../../components/Card/Loader';
 
 import styles from './Favorite.module.scss';
+import { useStore } from '../../store/store';
 
-function Favorites() {
-  const { favorites, onAddToFavorite, isLoading } = useContext(AppContext);
+const Favorites = () => {
+  const { favorites, onAddToFavorite, isLoading } = useStore();
   const favorit = favorites.filter((item) => item.favorite === true);
 
   return (
@@ -21,12 +19,12 @@ function Favorites() {
           <div className={styles.itemFavorite}>
             {isLoading
               ? [...Array(12)].map((_, index) => <Loader key={index} />)
-              : favorit.map((item, index) => (
+              : favorit.map((item) => (
                   <Card
-                    key={index}
-                    favorited={true}
+                    key={item.id}
+                    item={item}
                     onFavorite={onAddToFavorite}
-                    {...item}
+                    loading={isLoading}
                   />
                 ))}
           </div>
@@ -40,6 +38,6 @@ function Favorites() {
       )}
     </div>
   );
-}
+};
 
 export default Favorites;
