@@ -11,12 +11,9 @@ import NotFound from './pages/Error/NotFound';
 
 import AppContext from './Context';
 import Footer from './components/Footer/Footer';
-// import { useDispatch } from 'react-redux';
-// import { loadCart, loadItems } from './redux/slices/sushiSlice';
 
 function App() {
   const location = useLocation();
-  // const dispatch = useDispatch();
 
   // Створюємо масив з данним з бек-енд
   const [items, setItems] = useState([]);
@@ -52,12 +49,10 @@ function App() {
 
   // Функція яка відслідковує подію в input а також передає її в map та рендерить товари до відповідного пошуку
   const filterItems = (items, searchValue) =>
-    // console.log('items', items);
     items.filter((item) =>
       item.title.toLowerCase().includes(searchValue.toLowerCase()),
     );
-  // Використання самої функції filterItems
-  // const filteredItems = filterItems(items, searchValue);
+
   const filteredItems = filterItems(favorites, searchValue);
 
   // Додавання товару в кошик при кліку на плюс
@@ -82,7 +77,6 @@ function App() {
 
       try {
         await axios.put(
-          // `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${obj.id}`,
           `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
           {
             count: existingItem.count + 1, // Збільшуємо кількість на сервері
@@ -101,10 +95,6 @@ function App() {
 
       // Додаємо новий товар на сервер
       try {
-        // const { data } = await axios.post(
-        //   'https://651323cd8e505cebc2e9a121.mockapi.io/cart',
-        //   obj
-        // );
         await axios.put(
           `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
           { cart: true },
@@ -125,12 +115,6 @@ function App() {
       try {
         setIsLoading(true);
 
-        // const cartResponse = await axios.get(
-        //   'https://651323cd8e505cebc2e9a121.mockapi.io/cart'
-        // );
-        // const favoritesResponse = await axios.get(
-        //   'https://651323cd8e505cebc2e9a121.mockapi.io/favorites'
-        // );
         const cartResponse = await axios.get(
           'https://650f314454d18aabfe99ec68.mockapi.io/items',
         );
@@ -141,21 +125,11 @@ function App() {
           `https://650f314454d18aabfe99ec68.mockapi.io/items?filter=${categorySushi}`,
         );
 
-        // dispatch(
-        //   loadItems(
-        //     `https://650f314454d18aabfe99ec68.mockapi.io/items?filter=${categorySushi}`
-        //   )
-        // );
-
-        // dispatch(loadCart('https://650f314454d18aabfe99ec68.mockapi.io/items'));
-
         const cartItems = cartResponse.data.filter(
           (item) => item.cart === true,
         );
-        // console.log(cartItems);
 
         setIsLoading(false);
-        //  setCartItems(cartResponse.data);
         setCartItems(cartItems);
         setFavorites(favoritesResponse.data);
         setItems(itemsResponse.data);
@@ -170,30 +144,6 @@ function App() {
   const onAddToFavorite = async (obj) => {
     // // Перевірка чи вже додано favorite, якщо так тоді видаляємо. Якщо favorite = true, тоді else додаємо товар до favorite
     try {
-      // if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
-      //   await axios.delete(
-      //     `https://651323cd8e505cebc2e9a121.mockapi.io/favorites/${obj.id}`
-      //   );
-      //   await axios.put(
-      //     `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
-      //     {
-      //       favorite: !obj.favorite, // Збільшуємо кількість на сервері
-      //     }
-      //   );
-      // } else {
-      //   const { data } = await axios.post(
-      //     'https://651323cd8e505cebc2e9a121.mockapi.io/favorites',
-      //     obj
-      //   );
-      //   await axios.put(
-      //     `https://650f314454d18aabfe99ec68.mockapi.io/items/${obj.id}`,
-      //     {
-      //       favorite: !obj.favorite, // Збільшуємо кількість на сервері
-      //     }
-      //   );
-      //   setFavorites((prev) => [...prev, data]);
-      // }
-
       setFavorites((prev) =>
         prev.map((item) => {
           if (item.id === obj.id) {
@@ -279,10 +229,6 @@ function App() {
     try {
       onAddToCartIcon(id, 'Delete');
 
-      // await axios.delete(
-      //   `https://651323cd8e505cebc2e9a121.mockapi.io/cart/${id}`
-      // );
-
       await axios.put(
         `https://650f314454d18aabfe99ec68.mockapi.io/items/${id}`,
         {
@@ -293,7 +239,6 @@ function App() {
       setCartItems((prev) =>
         prev.filter((item) => Number(item.id) !== Number(id)),
       );
-      // console.log(items);
     } catch (error) {
       alert('Помилка при видаленні товару з корзини');
       console.error(error);
@@ -340,8 +285,6 @@ function App() {
       }}
     >
       <div className="wrapper clear">
-        {/* {cartOpened ? <Drawer onClose={() => setCartOpened(false)} /> : null} - це перший варіант, знизу другий варіант*/}
-
         <Drawer
           items={cartItems}
           onClose={() => drawerClose()}
@@ -364,10 +307,7 @@ function App() {
                 items={items}
                 filterItems={filterItems}
                 filteredItems={filteredItems}
-                // cartItems={cartItems}
                 searchValue={searchValue}
-                // onChangeSearchInput={onChangeSearchInput}
-                // onClearSearchInput={onClearSearchInput}
                 onAddToFavorite={onAddToFavorite}
                 onAddToCart={onAddToCart}
                 isLoading={isLoading}
