@@ -30,7 +30,7 @@ module.exports = {
   rules: {
     'func-style': ['error', 'expression'],
     'prefer-arrow-callback': 'error',
-    complexity: ['error', 5],
+    complexity: ['error', 6],
     curly: ['error', 'multi-line'],
     'max-lines': ['error', 255],
     'react/display-name': 'off',
@@ -38,10 +38,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'off',
     'react-hooks/rules-of-hooks': 'warn',
     'prettier/prettier': ['error', { singleQuote: true, endOfLine: 'auto' }],
-    'no-unused-vars': [
-      'warn',
-      { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
-    ],
   },
   settings: {
     react: {

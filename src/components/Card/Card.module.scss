@@ -7,11 +7,9 @@
   display: flex;
   flex-direction: column;
   user-select: none;
-  // border: 1px solid red;
 
   .itemProduct {
     position: relative;
-    // border: 2px solid blue;
     cursor: pointer;
 
     img {
@@ -25,11 +23,9 @@
       top: 5px;
       left: 5px;
       z-index: 10;
-      // cursor: pointer;
       padding: 4px 3px 0px 4px;
 
       &:hover {
-        // cursor: pointer;
         background-color: #bdbdbd7a;
         border-radius: 4px;
         transition: all 0.2s ease-in-out;
@@ -107,7 +103,6 @@
     }
 
     .notificationAddProduct {
-      // border: 1px solid red;
       background-color: rgba(255, 0, 0, 0.1);
       color: red;
       cursor: pointer;
@@ -121,7 +116,6 @@
 }
 
 .SnackbarBlock > div {
-  // background: red !important;
   margin-top: 70px;
 }
 

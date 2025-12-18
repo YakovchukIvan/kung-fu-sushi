@@ -1,12 +1,14 @@
-import { SnackbarProvider, useSnackbar } from 'notistack';
-
+import { SnackbarProvider, useSnackbar, type VariantType } from 'notistack';
 import styles from './Card.module.scss';
 
-function Snackbar({ onClickPlus }) {
+interface SnackbarProps {
+  onClickPlus: () => void;
+}
+
+const Snackbar = ({ onClickPlus }: SnackbarProps) => {
   const { enqueueSnackbar } = useSnackbar();
 
-  const handleClickVariant = (variant) => () => {
-    // variant could be success, error, warning, info, or default
+  const handleClickVariant = (variant: VariantType) => () => {
     enqueueSnackbar('Товар додано в кошик!', { variant });
     onClickPlus();
   };
@@ -19,19 +21,24 @@ function Snackbar({ onClickPlus }) {
       onClick={handleClickVariant('success')}
     />
   );
+};
+
+interface SnackbarsProps {
+  onClickPlus: () => void;
 }
 
-export default function Snackbars({ onClickPlus }) {
+const Snackbars = ({ onClickPlus }: SnackbarsProps) => {
   return (
     <div className={styles.SnackbarBlock}>
       <SnackbarProvider
         maxSnack={3}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         autoHideDuration={3000}
-        // style={{ backgroundColor: 'yellow' }}
       >
         <Snackbar onClickPlus={onClickPlus} />
       </SnackbarProvider>
     </div>
   );
-}
+};
+
+export default Snackbars;

@@ -1,23 +1,23 @@
 .wrapperFavorite {
-  // border: 1px solid red;
   margin-top: 125px;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
 
   .title {
     margin-bottom: 40px;
   }
 
   .blockItems {
-    // border: 2px solid blue;
     display: flex;
     justify-content: center;
 
     .itemFavorite {
-      // border: 1px solid red;
       width: fit-content;
       display: grid;
       grid-template-columns: repeat(5, minmax(150px, 1fr));
-      gap: 15px 10px; /* Відступ між карточками */
-      justify-content: flex-start; /* Змінюємо властивість justify-content */
+      gap: 15px 10px;
+      justify-content: flex-start;
     }
   }
 
@@ -32,7 +32,7 @@
     .blockItems {
       .itemFavorite {
         grid-template-columns: repeat(4, minmax(200px, 1fr));
-        gap: 15px 10px; /* Відступ між карточками */
+        gap: 15px 10px;
       }
     }
   }
@@ -43,7 +43,7 @@
     .blockItems {
       .itemFavorite {
         grid-template-columns: repeat(4, minmax(175px, 1fr));
-        gap: 15px 10px; /* Відступ між карточками */
+        gap: 15px 10px;
       }
     }
   }
@@ -54,11 +54,7 @@
     .blockItems {
       .itemFavorite {
         grid-template-columns: repeat(3, minmax(175px, 1fr));
-        gap: 15px 10px; /* Відступ між карточками */
-
-        .card {
-          border: 1px solid red;
-        }
+        gap: 15px 10px;
       }
     }
   }
@@ -69,7 +65,7 @@
     .blockItems {
       .itemFavorite {
         grid-template-columns: repeat(2, minmax(175px, 1fr));
-        gap: 15px 15px; /* Відступ між карточками */
+        gap: 15px 15px;
       }
     }
   }
@@ -79,7 +75,7 @@
   .wrapperFavorite {
     .blockItems {
       .itemFavorite {
-        gap: 10px 10px; /* Відступ між карточками */
+        gap: 10px 10px;
       }
     }
   }
@@ -90,7 +86,7 @@
     .blockItems {
       .itemFavorite {
         grid-template-columns: repeat(1, minmax(200px, 1fr));
-        gap: 15px 10px; /* Відступ між карточками */
+        gap: 15px 10px;
       }
     }
   }
